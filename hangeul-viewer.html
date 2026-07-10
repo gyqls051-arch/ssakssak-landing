@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>싹싹김치 한글뷰어 — HWP·PDF·오피스 문서를 한 창에서 보는 무료 뷰어</title>
+<meta name="description" content="한글(HWP/HWPX)·PDF·워드·엑셀·파워포인트를 한 창에서 보는 무료 문서 뷰어. 100% 오프라인 렌더링으로 문서가 밖으로 나가지 않아요. 가입·결제 없이 무료, Windows용 다운로드.">
+<meta name="theme-color" content="#f6f2ec">
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<link rel="stylesheet" href="style.css">
+<script>
+  (function(){
+    var KEY='ssak-theme', root=document.documentElement;
+    try{
+      var saved=localStorage.getItem(KEY);
+      if(saved==='dark'||saved==='light'){ root.setAttribute('data-theme',saved); }
+      else if(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches){ root.setAttribute('data-theme','dark'); }
+      else { root.setAttribute('data-theme','light'); }
+    }catch(e){ root.setAttribute('data-theme','light'); }
+    window.toggleTheme=function(){
+      var cur=root.getAttribute('data-theme')==='dark'?'dark':'light';
+      var next=cur==='dark'?'light':'dark';
+      root.setAttribute('data-theme',next);
+      try{ localStorage.setItem(KEY,next); }catch(e){}
+    };
+  })();
+</script>
+</head>
+<body>
+  <nav>
+    <div class="wrap">
+      <a class="brand" href="index.html"><span class="mk">🥬</span> 싹싹김치</a>
+      <div class="links">
+        <a href="video-downloader.html">다운로더</a>
+        <a href="player.html">플레이어</a>
+        <a href="hangeul-viewer.html">한글뷰어</a>
+        <a href="capture.html">캡쳐도구</a>
+        <a href="terms.html">이용약관</a>
+        <button class="theme-btn" onclick="toggleTheme()" aria-label="테마 전환">
+          <span class="theme-icon-sun"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.5M12 19.5V22M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2 12h2.5M19.5 12H22M4.2 19.8l1.8-1.8M18 6l1.8-1.8"/></svg></span>
+          <span class="theme-icon-moon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8 8 0 1 1 9.5 4 6.3 6.3 0 0 0 20 14.5Z"/></svg></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <aside class="siderail left">
+    <div class="adslot" style="margin:0">
+      <div class="lbl">SPONSORED</div>
+      <div class="adbox tall">
+        <span class="tag">AD</span>
+        <a class="full" href="https://www.offcut.dev/?utm_source=ssakssak_viewer&utm_medium=side_left" target="_blank" rel="noopener" aria-label="광고"></a>
+        <img src="banner_side.png" alt="광고" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+        <span style="display:none">광고 자리<br>권장 160×600</span>
+      </div>
+    </div>
+  </aside>
+  <aside class="siderail right">
+    <div class="adslot" style="margin:0">
+      <div class="lbl">SPONSORED</div>
+      <div class="adbox tall">
+        <span class="tag">AD</span>
+        <a class="full" href="https://www.offcut.dev/?utm_source=ssakssak_viewer&utm_medium=side_right" target="_blank" rel="noopener" aria-label="광고"></a>
+        <img src="banner_right.png" alt="광고" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <span class="mock" style="display:none">광고 자리 · 300×600</span>
+      </div>
+    </div>
+  </aside>
+
+  <div class="wrap">
+    <header class="hero">
+      <div class="ico-lg">📄</div>
+      <h1>싹싹김치 한글뷰어</h1>
+      <p>HWP·PDF·오피스 문서를 한 창에서 보는 무료 뷰어</p>
+      <a class="cta" href="https://github.com/gyqls051-arch/ssgkimchi-hangeul-viewer/releases/latest/download/ssgkimchi-hangeul-viewer-setup.exe" download>⬇ Windows용 다운로드 (무료)</a>
+      <div class="sub">정식 출시 · 설치형(setup.exe) · Windows 10/11 x64 · <a href="https://github.com/gyqls051-arch/ssgkimchi-hangeul-viewer/releases/latest" target="_blank" rel="noopener" style="color:var(--accent);font-weight:600;text-decoration:none">버전 정보 →</a></div>
+    </header>
+
+    <section>
+      <div class="panel">
+        <h2>주요 기능</h2>
+        <div class="feat">
+          <div><b>6개 포맷 한 번에</b>한글(HWP/HWPX)·PDF·워드·엑셀·파워포인트</div>
+          <div><b>100% 오프라인</b>문서가 인터넷으로 나가지 않아요</div>
+          <div><b>드래그&amp;드롭</b>끌어다 놓거나 더블클릭으로 바로 열기</div>
+          <div><b>보기 도구</b>연속 스크롤·줌·PDF 검색·썸네일·인쇄</div>
+        </div>
+        <p style="font-size:12.5px;color:var(--faint);margin:16px 0 0">
+          ※ 편집이 아닌 <b style="color:var(--ink)">보기 전용</b> 프로그램이에요. 구형 .doc/.ppt/.xls 는 지원하지 않아요.<br>
+          ※ 설치 시 Windows 보호 화면이 뜨면 <b style="color:var(--ink)">추가 정보 → 실행</b>을 눌러주세요. 서명되지 않은 개인 개발 프로그램이라 나오는 정상 안내예요.
+        </p>
+      </div>
+    </section>
+
+    <div class="adslot">
+      <div class="lbl">SPONSORED</div>
+      <div class="adbox" style="max-width:728px;margin:0 auto">
+        <span class="tag">AD</span>
+        <a class="full" href="https://www.offcut.dev/?utm_source=ssakssak&utm_medium=bottom" target="_blank" rel="noopener" aria-label="광고"></a>
+        <img src="banner_bottom.png" alt="광고" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <span class="mock" style="display:none;min-height:90px">광고 배너 자리 · 728×90</span>
+      </div>
+    </div>
+
+    <section>
+      <div class="notice">
+        <h2>알림</h2>
+        <ul>
+          <li>버전 정보·업데이트 내역은 <a href="https://github.com/gyqls051-arch/ssgkimchi-hangeul-viewer/releases/latest" target="_blank" rel="noopener">릴리즈 페이지</a>에서 확인하세요.</li>
+          <li>버그·요청은 <a href="https://github.com/gyqls051-arch/ssakssak-downloader/issues" target="_blank" rel="noopener">GitHub Issues</a>로 보내주세요.</li>
+          <li>모든 싹싹김치 프로그램은 무료이며, <a href="terms.html">이용약관</a>이 적용됩니다.</li>
+        </ul>
+      </div>
+    </section>
+
+    <a class="back" href="index.html">← 싹싹김치 홈으로</a>
+  </div>
+
+  <footer>
+    <div class="row">🥬 싹싹김치 — 무료 유틸리티를 만드는 브랜드</div>
+    <div class="row"><a href="terms.html">이용약관·면책</a> · <a href="https://github.com/gyqls051-arch/ssakssak-downloader/issues" target="_blank" rel="noopener">문의</a></div>
+  </footer>
+</body>
+</html>
