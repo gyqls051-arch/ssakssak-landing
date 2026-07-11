@@ -3,12 +3,30 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>싹싹김치 비디오 다운로더 — 유튜브·인스타·비메오 영상 다운로더</title>
-<meta name="description" content="유튜브·인스타그램·비메오·틱톡 등 1800+ 사이트의 영상을 원하는 화질로 저장하는 무료 다운로더. 설치 없이 실행, MP3 추출, 동시 다운로드 지원.">
-<meta name="theme-color" content="#f6f2ec">
+<title>유튜브 다운로더 무료·무설치 — 싹싹김치 비디오 다운로더 (1800+ 사이트 영상 저장)</title>
+<meta name="description" content="무료 유튜브 다운로더. 유튜브·인스타그램·비메오·틱톡 등 1800+ 사이트의 영상을 최대 8K 화질로 저장합니다. 설치 없이 실행 파일 하나, MP3 음원 추출, 동시 다운로드, 가입·결제 없음.">
+<meta name="theme-color" content="#faf7f1">
+<link rel="canonical" href="https://ssakssak-landing.vercel.app/video-downloader.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="싹싹김치">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="유튜브 다운로더 무료·무설치 — 싹싹김치 비디오 다운로더">
+<meta property="og:description" content="1800+ 사이트 영상을 최대 8K로 저장. 무설치·MP3 추출·동시 다운로드, 전부 무료.">
+<meta property="og:url" content="https://ssakssak-landing.vercel.app/video-downloader.html">
+<meta property="og:image" content="https://ssakssak-landing.vercel.app/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"SoftwareApplication","name":"싹싹김치 비디오 다운로더","url":"https://ssakssak-landing.vercel.app/video-downloader.html","image":"https://ssakssak-landing.vercel.app/og-image.png","description":"유튜브·인스타그램·비메오·틱톡 등 1800+ 사이트의 영상을 최대 8K 화질로 저장하는 무료 다운로더. 무설치 실행, MP3 추출, 동시 다운로드.","operatingSystem":"Windows 10, Windows 11","applicationCategory":"MultimediaApplication","softwareVersion":"1.7","inLanguage":"ko","offers":{"@type":"Offer","price":"0","priceCurrency":"KRW"},"downloadUrl":"https://github.com/gyqls051-arch/ssakssak-downloader/releases/latest/download/SsakSsakKimchiDownloader.exe","publisher":{"@type":"Organization","name":"싹싹김치","url":"https://ssakssak-landing.vercel.app/"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"자료실","item":"https://ssakssak-landing.vercel.app/archive.html"},{"@type":"ListItem","position":2,"name":"영상 도구","item":"https://ssakssak-landing.vercel.app/archive.html#cat-video"},{"@type":"ListItem","position":3,"name":"비디오 다운로더"}]}
+</script>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🥬</text></svg>">
 <link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap">
+<link rel="stylesheet" href="ssak.css">
 <script>
   (function(){
     var KEY='ssak-theme', root=document.documentElement;
@@ -26,18 +44,38 @@
     };
   })();
 </script>
+<script defer src="ssak.js"></script>
 </head>
 <body>
-  <!-- nav -->
-  <nav>
-    <div class="wrap">
-      <a class="brand" href="index.html"><span class="mk">🥬</span> 싹싹김치</a>
-      <div class="links">
-        <a href="video-downloader.html">다운로더</a>
-        <a href="player.html">플레이어</a>
-        <a href="hangeul-viewer.html">한글뷰어</a>
-        <a href="capture.html">캡쳐도구</a>
-        <a href="terms.html">이용약관</a>
+
+  <nav class="nav">
+    <div class="nav-in">
+      <a href="index.html" class="brand"><span class="brand-mark">🥬</span>싹싹김치</a>
+      <div class="nav-links">
+        <div class="dd">
+          <button class="navlink dd-btn" aria-haspopup="true" aria-expanded="false">자료실
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div class="dd-menu" aria-label="자료실 카테고리">
+            <div class="dd-group">
+              <div class="dd-label c-video"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2.5"/><path d="M7 4v16M17 4v16M3 9h4M3 15h4M17 9h4M17 15h4"/></svg>영상 도구</div>
+              <a class="dd-item" href="video-downloader.html"><b>비디오 다운로더</b><span>1800+ 사이트 영상 저장</span></a>
+              <a class="dd-item" href="player.html"><b>플레이어</b><span>가볍고 빠른 동영상 재생</span></a>
+            </div>
+            <div class="dd-group">
+              <div class="dd-label c-doc"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H7a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7l-5-5Z"/><path d="M14 2v5h5"/></svg>문서 도구</div>
+              <a class="dd-item" href="hangeul-viewer.html"><b>한글뷰어</b><span>HWP·PDF·오피스 한 창에서</span></a>
+            </div>
+            <div class="dd-group">
+              <div class="dd-label c-screen"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M12 17v4M8 21h8"/></svg>화면 도구</div>
+              <a class="dd-item" href="capture.html"><b>캡처</b><span>캡처·녹화·GIF·OCR</span></a>
+            </div>
+            <a class="dd-all" href="archive.html">자료실 한눈에 보기 →</a>
+          </div>
+        </div>
+
+        <a class="navlink nav-hide-m" href="archive.html#install">설치 방법</a>
+        <a class="navlink nav-hide-m" href="terms.html">이용약관</a>
         <button class="theme-btn" onclick="toggleTheme()" aria-label="테마 전환">
           <span class="theme-icon-sun"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.5M12 19.5V22M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2 12h2.5M19.5 12H22M4.2 19.8l1.8-1.8M18 6l1.8-1.8"/></svg></span>
           <span class="theme-icon-moon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8 8 0 1 1 9.5 4 6.3 6.3 0 0 0 20 14.5Z"/></svg></span>
@@ -46,129 +84,161 @@
     </div>
   </nav>
 
-  <!-- 양옆 세로 광고 (넓은 화면 전용 · 목업) -->
-  <aside class="siderail left">
-    <div class="adslot" style="margin:0">
-      <div class="lbl">SPONSORED</div>
-      <div class="adbox tall">
-        <span class="tag">AD</span>
-        <a class="full" href="https://www.offcut.dev/?utm_source=ssakssak_dl&utm_medium=side_left" target="_blank" rel="noopener" aria-label="광고"></a>
-        <img src="banner_side.png" alt="광고" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
-        <span style="display:none">광고 자리<br>권장 160×600<br>(또는 300×600)</span>
-      </div>
+  <aside class="rail left">
+    <div class="rail-label">SPONSORED</div>
+    <div class="rail-box">
+      <span class="ad-tag">AD</span>
+      <a href="https://www.offcut.dev/?utm_source=ssakssak_dl&utm_medium=side_left" target="_blank" rel="noopener" aria-label="OFFCUT 광고"></a>
+      <img src="banner_side.png" alt="광고" onerror="this.closest('aside').style.display='none'"/>
     </div>
   </aside>
-  <aside class="siderail right">
-    <div class="adslot" style="margin:0">
-      <div class="lbl">SPONSORED</div>
-      <div class="adbox tall">
-        <span class="tag">AD</span>
-        <a class="full" href="https://www.offcut.dev/?utm_source=ssakssak&utm_medium=side_right" target="_blank" rel="noopener" aria-label="광고"></a>
-        <img src="banner_right.png" alt="광고" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-        <span class="mock" style="display:none">광고 자리 · 300×600</span>
-      </div>
+  <aside class="rail right">
+    <div class="rail-label">SPONSORED</div>
+    <div class="rail-box">
+      <span class="ad-tag">AD</span>
+      <a href="https://www.offcut.dev/?utm_source=ssakssak_dl&utm_medium=side_right" target="_blank" rel="noopener" aria-label="OFFCUT 광고"></a>
+      <img src="banner_right.png" alt="광고" onerror="this.closest('aside').style.display='none'"/>
     </div>
   </aside>
 
-  <div class="wrap">
-    <!-- hero (프로그램) -->
-    <header class="hero">
-      <div class="ico-lg">⬇</div>
-      <h1>싹싹김치 비디오 다운로더</h1>
-      <p>유튜브·인스타그램·비메오·틱톡 등 영상을 원하는 화질로 저장</p>
-      <a class="cta" href="https://github.com/gyqls051-arch/ssakssak-downloader/releases/latest/download/SsakSsakKimchiDownloader.exe" download>⬇ Windows용 다운로드 (무료)</a>
-      <div class="sub">v1.7 · 설치 불필요 · 실행 파일 하나 · 약 44MB</div>
+  <main class="wrap">
+
+    <nav class="crumb" aria-label="현재 위치">
+      <a href="archive.html">자료실</a>
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 5 7 7-7 7"/></svg>
+      <a href="archive.html#cat-video">영상 도구</a>
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 5 7 7-7 7"/></svg>
+      <span class="here">비디오 다운로더</span>
+    </nav>
+
+    <!-- PRODUCT HERO -->
+    <header class="prod-hero">
+      <div class="prod-hero-main">
+        <div class="prod-chips">
+          <span class="cat-chip cat-video">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2.5"/><path d="M7 4v16M17 4v16M3 9h4M3 15h4M17 9h4M17 15h4"/></svg>
+            영상 도구
+          </span>
+          <span class="live-chip">정식 출시</span>
+          <span class="ver-chip">v1.7</span>
+        </div>
+        <h1>싹싹김치 비디오 다운로더</h1>
+        <span class="pen">링크만 주세요. 받아오는 건 저희가 할게요.</span>
+        <p class="desc">유튜브·인스타그램·비메오·틱톡 등 <b>1800+ 사이트</b>의 영상을 원하는 화질로 저장합니다. 링크를 붙여넣으면 정보 팝업이 뜨고, 화질·포맷을 골라 바로 다운로드 — 끝.</p>
+        <div class="prod-cta">
+          <a class="btn btn-primary" href="https://github.com/gyqls051-arch/ssakssak-downloader/releases/latest/download/SsakSsakKimchiDownloader.exe" download>
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 4.5-4.5M12 15l-4.5-4.5M4 18.5V20a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-1.5"/></svg>
+            Windows용 무료 다운로드
+          </a>
+          <a class="btn btn-ghost" href="https://github.com/gyqls051-arch/ssakssak-downloader/releases/latest" target="_blank" rel="noopener">릴리즈 노트</a>
+        </div>
+        <div class="prod-meta">무설치 · 실행 파일 하나 · 약 44MB · Windows 10/11</div>
+      </div>
+      <div class="prod-icon i-video" aria-hidden="true">
+        <svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2.5"/><path d="M7 4v16M17 4v16M3 9h4M3 15h4M17 9h4M17 15h4"/></svg>
+      </div>
     </header>
 
-    <!-- 기능 -->
-    <section>
-      <div class="panel">
-        <h2>주요 기능</h2>
-        <div class="feat">
-          <div><b>1800+ 사이트</b>유튜브·인스타·비메오·틱톡·X 등</div>
-          <div><b>원하는 화질</b>최고 8K까지, MP3 음원 추출</div>
-          <div><b>동시 다운로드</b>여러 영상을 한 번에</div>
-          <div><b>붙여넣기 한 번</b>링크 넣으면 정보 팝업 → 바로 저장</div>
-          <div><b>썸네일·메타데이터</b>제목·커버까지 깔끔하게</div>
-          <div><b>완전 무료·무제한</b>가입·결제 없음</div>
+    <!-- FEATURES -->
+    <section class="panel">
+      <h2>주요 기능</h2>
+      <div class="feat">
+        <div><b>1800+ 사이트</b>유튜브·인스타·비메오·틱톡·X 등</div>
+        <div><b>원하는 화질</b>최고 8K까지, MP3 음원 추출</div>
+        <div><b>동시 다운로드</b>여러 영상을 한 번에</div>
+        <div><b>붙여넣기 한 번</b>링크 넣으면 정보 팝업 → 바로 저장</div>
+        <div><b>썸네일·메타데이터</b>제목·커버까지 깔끔하게</div>
+        <div><b>완전 무료·무제한</b>가입·결제 없음</div>
+      </div>
+    </section>
+
+    <!-- UPDATES -->
+    <section class="panel">
+      <h2>최근 업데이트 <span class="ver-chip">v1.7</span></h2>
+      <ul class="plist">
+        <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m4.5 12.5 5 5 10-11"/></svg><span><b>새 버전 알림</b> — 새 버전이 나오면 앱 안에 알림 배너가 떠요</span></li>
+        <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m4.5 12.5 5 5 10-11"/></svg><span><b>Ctrl+V 붙여넣기</b> — 창 어디서든 <code>Ctrl+V</code>로 링크 바로 분석</span></li>
+        <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m4.5 12.5 5 5 10-11"/></svg><span><b>종료 경고</b> — 다운로드 중 실수로 닫는 것을 방지</span></li>
+        <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m4.5 12.5 5 5 10-11"/></svg><span><b>안정성 개선</b> — MP3 추출·진행률 표시 수정, 다운로드 엔진 최신화</span></li>
+      </ul>
+      <p class="note">전체 변경 내역은 <a href="https://github.com/gyqls051-arch/ssakssak-downloader/releases/latest" target="_blank" rel="noopener">릴리즈 페이지</a>에서 확인하세요.</p>
+    </section>
+
+    <!-- SUPPORTED SITES -->
+    <section class="panel">
+      <h2>이런 곳에서 받을 수 있어요</h2>
+      <div class="chips">
+        <span>YouTube</span><span>Instagram</span><span>Vimeo</span><span>TikTok</span>
+        <span>X (Twitter)</span><span>Facebook</span><span>네이버TV</span><span>Twitch</span>
+        <span>Dailymotion</span><span class="more">그 외 1800+</span>
+      </div>
+      <p class="note">※ 정식 플랫폼의 공개 영상 기준. DRM(유료 스트리밍 보호) 콘텐츠는 지원하지 않습니다.</p>
+    </section>
+
+    <!-- INSTALL -->
+    <section class="panel" id="install">
+      <h2>설치 방법</h2>
+      <div class="steps">
+        <div class="step">
+          <span class="step-no">1</span>
+          <div class="step-body">위 <b>다운로드</b> 버튼을 눌러 받은 <code>SsakSsakKimchiDownloader.exe</code>를 실행하세요. 무설치라 그게 끝입니다.</div>
+        </div>
+        <div class="step">
+          <span class="step-no">2</span>
+          <div class="step-body">"Windows의 PC 보호" 파란 창이 뜨면 <b>추가 정보 → 실행</b>. 서명 없는 개인 개발 프로그램이라 Windows가 낯을 가리는 것뿐이에요.</div>
+        </div>
+        <div class="step">
+          <span class="step-no">3</span>
+          <div class="step-body">첫 실행 때 필요한 파일(<code>ffmpeg</code>)을 <b>1회 자동 다운로드</b>해요. 인터넷만 연결돼 있으면 됩니다.</div>
+        </div>
+        <div class="step">
+          <span class="step-no">4</span>
+          <div class="step-body">영상 링크를 칸에 붙여넣으면 정보 팝업이 떠요. 화질·포맷을 고르고 다운로드하면 끝.</div>
         </div>
       </div>
     </section>
 
-    <!-- 최근 업데이트 -->
-    <section>
-      <div class="panel">
-        <h2>최근 업데이트 <span style="font-size:13px;font-weight:600;color:var(--faint);margin-left:6px">v1.7</span></h2>
-        <div class="feat">
-          <div><b>새 버전 알림</b>새 버전이 나오면 앱 안에 알림 배너가 떠요</div>
-          <div><b>Ctrl+V 붙여넣기</b>창 어디서든 Ctrl+V로 링크 바로 분석</div>
-          <div><b>종료 경고</b>다운로드 중 실수로 닫는 것을 방지</div>
-          <div><b>안정성 개선</b>MP3 추출·진행률 표시 수정, 다운로드 엔진 최신화</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 지원 사이트 -->
-    <section>
-      <div class="panel">
-        <h2>이런 곳에서 받을 수 있어요</h2>
-        <div class="chips">
-          <span>YouTube</span><span>Instagram</span><span>Vimeo</span><span>TikTok</span>
-          <span>X(Twitter)</span><span>Facebook</span><span>네이버TV</span><span>Twitch</span>
-          <span>Dailymotion</span><span>그 외 1800+</span>
-        </div>
-        <p style="font-size:12.5px;color:var(--faint);margin:14px 0 0">
-          ※ 정식 플랫폼의 공개 영상 기준. DRM(유료 스트리밍 보호) 콘텐츠는 지원하지 않습니다.
-        </p>
-      </div>
-    </section>
-
-    <!-- 설치 방법 -->
-    <section>
-      <div class="panel">
-        <h2>설치 방법</h2>
-        <ol class="steps">
-          <li>위 <b>다운로드</b> 버튼 클릭 → 받은 <code>SsakSsakKimchiDownloader.exe</code> 실행</li>
-          <li>처음 실행 시 Windows 보호 화면이 뜨면 <b>추가 정보 → 실행</b> (서명되지 않은 개인 개발 프로그램이라 나오는 정상 안내)</li>
-          <li>첫 실행 때 필요한 파일(ffmpeg)을 자동으로 1회 받습니다 (인터넷 필요)</li>
-          <li>영상 링크를 칸에 붙여넣으면 정보 팝업 → 화질·포맷 고르고 다운로드</li>
-        </ol>
-      </div>
-    </section>
-
-    <!-- 광고 배너 (하단) — 목업 -->
-    <div class="adslot">
-      <div class="lbl">SPONSORED</div>
-      <div class="adbox" style="max-width:728px;margin:0 auto">
-        <span class="tag">AD</span>
-        <a class="full" href="https://www.offcut.dev/?utm_source=ssakssak&utm_medium=bottom" target="_blank" rel="noopener" aria-label="광고"></a>
-        <img src="banner_bottom.png" alt="광고" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-        <span class="mock" style="display:none;min-height:90px">광고 배너 자리 · 728×90</span>
+    <!-- BOTTOM AD -->
+    <div class="banner-wrap">
+      <div class="rail-label">SPONSORED</div>
+      <div class="banner-box">
+        <span class="ad-tag">AD</span>
+        <a href="https://www.offcut.dev/?utm_source=ssakssak&utm_medium=bottom" target="_blank" rel="noopener" aria-label="OFFCUT 광고"></a>
+        <img src="banner_bottom.png" alt="광고" onerror="this.closest('.banner-wrap').style.display='none'"/>
       </div>
     </div>
 
-    <!-- 면책 -->
-    <section>
-      <div class="notice">
+    <!-- NOTICE -->
+    <section class="notice" style="margin-top:56px">
+      <div class="notice-head">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--muted)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.2"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
         <h2>이용 안내 · 면책</h2>
-        <ul>
-          <li>본 프로그램은 사용자가 <b>적법한 접근·이용 권한을 가진 영상</b>을 개인적으로 저장하기 위한 <b>범용 도구</b>입니다.</li>
-          <li>저작권자의 허락 없이 보호 콘텐츠를 다운로드·배포하는 행위는 법에 저촉될 수 있으며, <b>책임은 사용자 본인</b>에게 있습니다.</li>
-          <li>각 사이트(YouTube 등)의 이용약관을 준수하세요. <b>DRM 콘텐츠는 지원하지 않습니다.</b></li>
-          <li>프로그램은 ‘있는 그대로(AS-IS)’ 제공됩니다. 자세한 내용은 <a href="terms.html">이용약관</a> 참고.</li>
-        </ul>
       </div>
+      <ul>
+        <li>본 프로그램은 사용자가 <b>적법한 접근·이용 권한을 가진 영상</b>을 개인적으로 저장하기 위한 <b>범용 도구</b>입니다.</li>
+        <li>저작권자의 허락 없이 보호 콘텐츠를 다운로드·배포하는 행위는 법에 저촉될 수 있으며, <b>책임은 사용자 본인</b>에게 있습니다.</li>
+        <li>각 사이트(YouTube 등)의 이용약관을 준수하세요. <b>DRM 콘텐츠는 지원하지 않습니다.</b></li>
+        <li>프로그램은 '있는 그대로(AS-IS)' 제공됩니다. 자세한 내용은 <a href="terms.html">이용약관</a> 참고.</li>
+      </ul>
     </section>
 
-    <a class="back" href="index.html">← 싹싹김치 홈으로</a>
-  </div>
+    <a class="back" href="archive.html">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5m0 0 6-6m-6 6 6 6"/></svg>
+      자료실로 돌아가기
+    </a>
+  </main>
 
   <footer>
-    <div class="row">🥬 싹싹김치 — 무료 유틸리티를 만드는 브랜드</div>
-    <div class="row">
-      <a href="terms.html">이용약관·면책</a> ·
-      <a href="https://github.com/gyqls051-arch/ssakssak-downloader/issues" target="_blank" rel="noopener">문의(GitHub Issues)</a>
+    <div class="foot-brand"><span class="foot-mark">🥬</span>싹싹김치</div>
+    <div class="foot-tag">무료 유틸리티를 만드는 브랜드</div>
+    <div class="foot-links">
+      <a class="foot-link" href="archive.html">자료실</a>
+      <span>·</span>
+      <a class="foot-link" href="terms.html">이용약관·면책</a>
+      <span>·</span>
+      <a class="foot-link" href="https://github.com/gyqls051-arch/ssakssak-downloader/issues" target="_blank" rel="noopener">문의 (GitHub Issues)</a>
     </div>
   </footer>
+
 </body>
 </html>
