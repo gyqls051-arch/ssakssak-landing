@@ -1,0 +1,6 @@
+# 내부 문서·개발 파일은 배포 제외
+HANDOFF.md
+README.md
+*.md
+.gitignore
+style.css

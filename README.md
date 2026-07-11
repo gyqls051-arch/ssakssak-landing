@@ -1,19 +1,19 @@
-# 싹싹김치 — 유틸리티 허브 (랜딩 사이트)
+# 싹싹김치 — 공홈 (브랜드 랜딩 + 자료실)
 
-여러 프로그램을 담는 브랜드 허브 정적 사이트. **OFFCUT 본진과 격리**된 별도 Vercel(무료, gyqls051)
-계정에 배포한다. 현재 라이브: **https://ssakssak-landing.vercel.app**
+무료 유틸리티 브랜드 정적 사이트. **OFFCUT 본진과 격리**된 별도 Vercel(무료, gyqls051)
+계정에 배포한다. 현재 라이브: **https://www.ssakkimchi.com** (구주소 ssakssak-landing.vercel.app)
 
-## 구성
-- `index.html` — 허브 메인 (프로그램 카드 그리드 + 광고 배너 자리 2곳 + 이용 안내)
-- `terms.html` — 이용약관 및 면책 고지 (전문)
-- `banner.png` — (직접 추가) 상단 광고 배너 이미지. **권장 728×90** (레티나 2배 1456×180).
-  - 없으면 "광고 배너 자리" 목업 박스가 대신 표시된다(위치는 항상 보임).
+> 📋 **현재 구조·디자인 규칙·새 프로그램 추가 절차는 `HANDOFF.md` 참고** (2026-07-12 리디자인 이후 그쪽이 최신)
 
-## 프로그램 카드 추가하는 법
-`index.html` 의 `<section id="programs">` 안 `.grid` 에 카드 하나 복붙:
-- 정식 출시: `class="card"` + `badge live` + 다운로드 `a.btn`
-- 준비 중: `class="card soon"` + `badge soon` + `span.btn.dim`(곧 공개)
-첫 카드(비디오 다운로더) 형태를 그대로 복사해서 제목/설명/링크만 바꾸면 됨.
+## 구성 (2026-07-12 리디자인)
+- `index.html` — 홈 (디더링 셰이더 히어로 + 브랜드 소개)
+- `archive.html` — 자료실 (카테고리별 프로그램 목록)
+- `video-downloader.html` / `player.html` / `hangeul-viewer.html` / `capture.html` — 프로그램별 소개·다운로드 페이지
+- `terms.html` — 이용약관 및 면책 고지 (17조 전문)
+- `ssak.css` / `ssak.js` — 공용 스타일·내비 드롭다운 / `og-image.png`, `sitemap.xml`, `robots.txt` — SEO
+
+## 프로그램 추가하는 법
+`HANDOFF.md`의 "새 프로그램 추가 절차" 참고 — 전용 페이지 복제 + 자료실 행 + 드롭다운(7페이지) + 홈 LINE-UP + sitemap 갱신.
 
 ## 광고 배너 자리 (목업 2곳)
 - 상단 슬롯: 현재 OFFCUT 광고(외부 광고주처럼). `banner.png` 넣으면 이미지로 표시.
