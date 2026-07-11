@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://ssakssak-landing.vercel.app/sitemap.xml
+Sitemap: https://www.ssakkimchi.com/sitemap.xml
