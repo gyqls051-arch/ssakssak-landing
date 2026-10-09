@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>도미노 아트 시뮬레이션 — 싹싹김치</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🥬</text></svg>">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { width: 100%; height: 100%; overflow: hidden; background: #101216; }
+    body { font-family: 'Segoe UI', 'Malgun Gothic', sans-serif; color: #e8e8ec; }
+    #app { position: fixed; inset: 0; }
+    canvas { display: block; }
+
+    #panel {
+      position: fixed; top: 16px; left: 16px; width: 244px;
+      background: rgba(22, 24, 30, 0.88); backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.09); border-radius: 14px;
+      padding: 14px 14px 12px; z-index: 10;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.45);
+    }
+    #panel h1 { font-size: 14px; font-weight: 700; letter-spacing: -0.2px; margin-bottom: 10px; }
+    #panel h1 span { color: #7aa2ff; }
+    .sec { margin-bottom: 10px; }
+    .sec label { display: block; font-size: 11px; color: #9aa0ae; margin-bottom: 5px; }
+    .row { display: flex; gap: 6px; }
+    button {
+      flex: 1; padding: 7px 8px; border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 8px; background: rgba(255,255,255,0.06); color: #e8e8ec;
+      font-size: 12px; font-family: inherit; cursor: pointer; transition: background .15s;
+      white-space: nowrap;
+    }
+    button:hover { background: rgba(255,255,255,0.13); }
+    button.primary { background: #3457d5; border-color: #4a6ae0; font-weight: 600; }
+    button.primary:hover { background: #4064e8; }
+    button.active { background: #3457d5; border-color: #4a6ae0; }
+    button.rec-on { background: #c0322e; border-color: #d4453f; font-weight: 600; }
+    input[type=range] { width: 100%; accent-color: #7aa2ff; }
+    input[type=file] { display: none; }
+    input[type=color] {
+      flex: 0 0 40px; height: 31px; padding: 2px;
+      border: 1px solid rgba(255,255,255,0.12); border-radius: 8px;
+      background: rgba(255,255,255,0.06); cursor: pointer;
+    }
+    #uploadBtn { width: 100%; }
+    #stats {
+      font-size: 11px; color: #9aa0ae; border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 8px; margin-top: 2px; line-height: 1.6;
+    }
+    #hint {
+      position: fixed; bottom: 14px; left: 50%; transform: translateX(-50%);
+      font-size: 12px; color: rgba(232,232,236,0.55); z-index: 10;
+      background: rgba(22,24,30,0.6); padding: 6px 14px; border-radius: 20px;
+      pointer-events: none;
+    }
+    #drop-overlay {
+      position: fixed; inset: 0; z-index: 50; display: none;
+      background: rgba(52, 87, 213, 0.25); border: 3px dashed #7aa2ff;
+      align-items: center; justify-content: center; font-size: 22px; font-weight: 700;
+      pointer-events: none;
+    }
+    #doneOverlay {
+      position: fixed; bottom: 56px; left: 50%; transform: translateX(-50%);
+      z-index: 20; display: none;
+    }
+    #doneOverlay button {
+      font-size: 16px; font-weight: 700; padding: 13px 30px;
+      background: #3457d5; border: 1px solid #4a6ae0; border-radius: 12px;
+      color: #fff; cursor: pointer;
+      box-shadow: 0 8px 28px rgba(52, 87, 213, 0.45);
+      animation: pop .3s ease;
+    }
+    #doneOverlay button:hover { background: #4064e8; }
+    @keyframes pop { from { transform: scale(.85); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+    #loading {
+      position: fixed; inset: 0; z-index: 100; display: flex;
+      align-items: center; justify-content: center; background: #101216;
+      font-size: 15px; color: #9aa0ae;
+    }
+  </style>
+  <script type="module" crossorigin src="./assets/index-PA2SdXxX.js"></script>
+</head>
+<body>
+  <div id="app"></div>
+  <div id="loading">물리 엔진 로딩 중…</div>
+
+  <div id="panel">
+    <h1>🁢 도미노 아트 <span>시뮬레이션</span></h1>
+
+    <div class="sec">
+      <label>이미지 (투명 배경 PNG는 배경 부분 도미노 생략)</label>
+      <button id="uploadBtn">📁 이미지 업로드</button>
+      <input type="file" id="fileInput" accept="image/*" />
+    </div>
+
+    <div class="sec">
+      <label>시뮬레이션 모드</label>
+      <div class="row">
+        <button id="modeAnim" class="active">연출 (대량·고화질)</button>
+        <button id="modePhys">물리 (리얼)</button>
+      </div>
+    </div>
+
+    <div class="sec">
+      <label>해상도 — 가로 도미노 <b id="resVal">160</b>개</label>
+      <input type="range" id="resSlider" min="24" max="480" step="8" value="160" />
+      <div class="row" style="margin-top:6px">
+        <button id="texBtn" class="active">🖼 포토 텍스처 ON</button>
+      </div>
+      <label style="margin-top:8px">타일 질감 — <b id="fxVal">1.0</b></label>
+      <input type="range" id="fxSlider" min="0" max="200" step="10" value="100" />
+    </div>
+
+    <div class="sec row">
+      <button id="rebuildBtn">🔄 필드 생성</button>
+      <button id="resetBtn">↩ 리셋</button>
+    </div>
+
+    <div class="sec">
+      <label>파도 패턴</label>
+      <div class="row">
+        <button id="patDiag" class="active">↘ 대각선</button>
+        <button id="patLine">↓ 직선</button>
+        <button id="patRadial">◎ 방사형</button>
+      </div>
+      <div class="row" style="margin-top:6px">
+        <button id="tailBtn" class="active">🐍 꼬리 ON</button>
+      </div>
+    </div>
+
+    <div class="sec">
+      <button id="startBtn" class="primary" style="width:100%">▶ 도미노 넘어뜨리기</button>
+    </div>
+
+    <div class="sec">
+      <label>재생 속도 — <b id="speedVal">1.0×</b></label>
+      <input type="range" id="speedSlider" min="10" max="150" step="5" value="100" />
+    </div>
+
+    <div class="sec">
+      <label>프레임 제한</label>
+      <div class="row">
+        <button id="fps30" class="active">30fps</button>
+        <button id="fps60">60fps</button>
+      </div>
+    </div>
+
+    <div class="sec">
+      <label>카메라</label>
+      <div class="row">
+        <button id="camFree" class="active">자유</button>
+        <button id="camTop">탑뷰</button>
+        <button id="camFollow">추적</button>
+      </div>
+    </div>
+
+    <div class="sec row">
+      <button id="recBtn">⏺ 녹화 시작</button>
+      <button id="soundBtn" style="flex:0 0 44px" title="딸깍 사운드 켜기/끄기">🔊</button>
+    </div>
+
+    <div class="sec">
+      <label>합성용 (크로마키 / 알파 채널)</label>
+      <div class="row">
+        <button id="chromaBtn">🎬 배경: 기본</button>
+        <input type="color" id="chromaColor" value="#00b140" title="배경색 직접 지정" />
+        <button id="pngSeqBtn" title="투명 배경 PNG 연속 프레임 저장 (30fps)">📸 PNG</button>
+      </div>
+      <label style="margin-top:8px">녹화·내보내기 해상도</label>
+      <div class="row">
+        <button id="resScreen" class="active">화면</button>
+        <button id="res1080">1080p</button>
+        <button id="res4k">4K</button>
+      </div>
+    </div>
+
+    <div id="stats">도미노 0개</div>
+  </div>
+
+  <div id="hint">드래그: 회전 · 휠: 줌 · 도미노 클릭: 그 지점부터 파도 시작 · 이미지 파일을 창에 드래그해도 됩니다</div>
+
+  <div id="doneOverlay">
+    <button id="overlayReset">↩ 다시 세우기</button>
+  </div>
+  <div id="drop-overlay">이미지를 놓으세요</div>
+
+</body>
+</html>

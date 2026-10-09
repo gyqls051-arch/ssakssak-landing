@@ -153,6 +153,8 @@ html[data-theme="dark"] .theme-icon-moon{display:none}
 .prod-icon.i-video{background:linear-gradient(150deg,var(--accent2),var(--accent));box-shadow:0 16px 36px rgba(232,93,44,.3)}
 .prod-icon.i-doc{background:linear-gradient(150deg,#57ab6e,var(--green));box-shadow:0 16px 36px rgba(47,143,78,.3)}
 .prod-icon.i-screen{background:linear-gradient(150deg,#e8b93a,#c98f12);box-shadow:0 16px 36px rgba(201,143,18,.3)}
+.prod-hero-img{flex:none;width:min(360px,40%);height:auto;border-radius:22px;border:1px solid var(--line);display:block;box-shadow:0 14px 36px var(--shadow)}
+.lineup-thumb{flex:none;width:58px;height:39px;border-radius:9px;object-fit:cover;border:1px solid var(--line);background:var(--bg2)}
 
 /* ---------- PANEL ---------- */
 .panel{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:32px;margin-top:22px}
@@ -252,6 +254,7 @@ footer{border-top:1px solid var(--line);margin-top:64px;padding:38px 22px 60px;t
   .prod-hero{flex-direction:column-reverse;align-items:flex-start;gap:22px;padding:30px 26px}
   .prod-icon{width:84px;height:84px;border-radius:22px}
   .prod-icon svg{width:40px;height:40px}
+  .prod-hero-img{width:100%;max-width:420px}
 }
 @media (max-width:620px){
   .page-head{padding-top:38px}

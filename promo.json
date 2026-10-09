@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "updated": "2026-07-12",
+  "banner": {
+    "enabled": true,
+    "image": "",
+    "url": "https://offcut.app",
+    "title": "OFFCUT STUDIO",
+    "subtitle": "싹싹김치의 자매 브랜드",
+    "desc": "프리미어 프로 컷편집 가속기 — 긴 영상, 컷만 쏙쏙 뽑아드립니다.",
+    "button": "보러가기",
+    "accent": "#E85D2C"
+  },
+  "notice": {
+    "enabled": false,
+    "text": "",
+    "url": ""
+  },
+  "apps": {}
+}
