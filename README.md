@@ -5,12 +5,17 @@
 
 > 📋 **현재 구조·디자인 규칙·새 프로그램 추가 절차는 `HANDOFF.md` 참고** (2026-07-12 리디자인 이후 그쪽이 최신)
 
-## 구성 (2026-07-12 리디자인)
-- `index.html` — 홈 (디더링 셰이더 히어로 + 브랜드 소개)
-- `archive.html` — 자료실 (카테고리별 프로그램 목록)
-- `video-downloader.html` / `player.html` / `hangeul-viewer.html` / `capture.html` — 프로그램별 소개·다운로드 페이지
-- `terms.html` — 이용약관 및 면책 고지 (17조 전문)
-- `ssak.css` / `ssak.js` — 공용 스타일·내비 드롭다운 / `og-image.png`, `sitemap.xml`, `robots.txt` — SEO
+**소스 리포**: https://github.com/gyqls051-arch/ssakssak-landing (공홈은 git 관리됨 — 수정 → 커밋·푸시 → `vercel deploy --prod`)
+
+## 구성 (2026-07-13 기준)
+- `index.html` — 홈 (루프 영상 히어로 + LINE-UP 12종 + HOW + 크로스프로모션)
+- `archive.html` — 자료실 (카테고리별 프로그램 목록, 카드 썸네일)
+- 다운로드형: `video-downloader.html` / `player.html` / `compressor.html` / `hangeul-viewer.html` / `capture.html`
+- 브라우저 도구(서버 업로드 없음): `pdf.html` / `hwp-pdf.html` / `thumbnail.html` / `text-tools.html` / `image-tools.html`
+- `domino/` — 도미노 시뮬레이션 빌드 산출물 (원본: `domino-art-simulation` 리포)
+- `terms.html` — 이용약관 및 면책 고지
+- `ssak.css` / `ssak.js` — 공용 스타일·내비 드롭다운 / `img/` — WebP 일러스트 / `sitemap.xml`, `robots.txt` — SEO
+- `promo.json` — **앱 배너 원격 설정** (이 파일만 고치면 전 앱 배너 문구·링크·색 교체)
 
 ## 프로그램 추가하는 법
 `HANDOFF.md`의 "새 프로그램 추가 절차" 참고 — 전용 페이지 복제 + 자료실 행 + 드롭다운(7페이지) + 홈 LINE-UP + sitemap 갱신.
