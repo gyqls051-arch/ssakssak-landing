@@ -591,6 +591,123 @@ body{background:#999;font-family:'Pretendard',system-ui,sans-serif}
 <style>
 .kbm{flex:1;height:34px;display:flex;align-items:center;justify-content:center;background:var(--bg);border:1px solid var(--line);border-radius:7px;font-size:12px;font-weight:800;color:var(--muted);font-family:Consolas,monospace}
 .kbm.hit{background:var(--chipG);border-color:var(--green);color:var(--greenInk)}
+.pillar{flex:1;text-align:center;background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:12px 6px}
+.pillar .hg{font-size:30px;font-weight:900;line-height:1.25;font-family:serif}
+.pillar .lb{font-size:11px;font-weight:800;color:var(--muted);letter-spacing:.08em;margin-bottom:6px}
+.pillar .oh{display:inline-block;font-size:10.5px;font-weight:800;padding:2px 8px;border-radius:99px;margin-top:6px}
+.oh-mok{background:#e6f3ea;color:#1e6b3a}.oh-hwa{background:#fdeee5;color:#c0392b}
+.oh-to{background:#fdf3d7;color:#8a6414}.oh-geum{background:#efede8;color:#6e675c}.oh-su{background:#e8eef7;color:#2f5b8f}
+.opt{display:flex;align-items:center;gap:12px;border:1.5px solid var(--line);border-radius:12px;padding:13px 16px;font-size:13.5px;font-weight:700}
+.opt.on{border-color:var(--pink,#d4577a);background:#fdeef3;color:#b03a5f}
+.opt .key{width:26px;height:26px;border-radius:8px;background:var(--bg);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:11.5px;font-weight:900;color:var(--muted)}
+.opt.on .key{background:var(--pink,#d4577a);color:#fff;border-color:var(--pink,#d4577a)}
+.vs-card{flex:1;border:1px solid var(--line);border-radius:14px;padding:20px 12px;text-align:center;background:var(--card)}
+.vs-card .em{font-size:44px;line-height:1.1}
+.vs-card .nm{font-size:15px;font-weight:800;margin-top:10px}
 </style>
+
+<!-- 22. 무료 사주 -->
+<div class="shot" id="s-saju">
+  <div class="win">
+    <div class="tbar"><span class="tdots"><i></i><i></i><i></i></span><span class="tico" style="background:#d4577a">☯</span><span class="tname">무료 사주 — 브라우저</span><span class="chip" style="background:#fdeef3;color:#b03a5f">음력 지원</span></div>
+    <div class="pad">
+      <div class="row">
+        <div class="field"><b>1990년 5월 15일</b></div>
+        <div class="field" style="flex:.6"><b>巳시 (오전 10시)</b></div>
+        <span class="btn" style="background:#d4577a;box-shadow:0 6px 14px rgba(212,87,122,.3)">사주 보기</span>
+      </div>
+      <div style="display:flex;gap:10px;margin-top:18px">
+        <div class="pillar"><div class="lb">시주</div><div class="hg" style="color:#2f5b8f">辛</div><div class="hg" style="color:#c0392b">巳</div><span class="oh oh-geum">金</span></div>
+        <div class="pillar"><div class="lb">일주</div><div class="hg" style="color:#6e675c">庚</div><div class="hg" style="color:#8a6414">辰</div><span class="oh oh-to">土</span></div>
+        <div class="pillar" style="border-color:#d4577a;background:#fdeef3"><div class="lb">월주</div><div class="hg" style="color:#2f5b8f">辛</div><div class="hg" style="color:#c0392b">巳</div><span class="oh oh-hwa">火</span></div>
+        <div class="pillar"><div class="lb">년주</div><div class="hg" style="color:#6e675c">庚</div><div class="hg" style="color:#c0392b">午</div><span class="oh oh-geum">金</span></div>
+      </div>
+      <div class="row" style="margin-top:14px;justify-content:space-between">
+        <span class="mut">일간 <b style="color:var(--ink)">庚金 (쇠)</b> · 오행 균형 보기</span>
+        <span class="row" style="gap:6px"><span class="oh oh-mok">木 0</span><span class="oh oh-hwa">火 3</span><span class="oh oh-to">土 1</span><span class="oh oh-geum">金 3</span><span class="oh oh-su">水 0</span></span>
+      </div>
+      <div class="file" style="margin-top:12px"><div style="flex:1"><div class="mut">2026년 세운</div><div style="font-size:14px;font-weight:800">丙午年 — 화(火) 기운의 해, 변화와 기회</div></div></div>
+    </div>
+  </div>
+  <div class="brand-tag"><i>🥬</i>싹싹김치</div>
+</div>
+
+<!-- 23. 성격유형 테스트 -->
+<div class="shot" id="s-mbti">
+  <div class="win">
+    <div class="tbar"><span class="tdots"><i></i><i></i><i></i></span><span class="tico" style="background:#d4577a">?</span><span class="tname">성격유형 테스트 — 24문항</span><span class="chip" style="background:#fdeef3;color:#b03a5f">9/24</span></div>
+    <div class="pad">
+      <div class="bar" style="height:7px"><i style="width:38%;background:linear-gradient(90deg,#f08aa8,#d4577a)"></i></div>
+      <div style="text-align:center;margin:20px 0 16px;font-size:17px;font-weight:800;line-height:1.5">주말 약속이 취소됐을 때<br>나는 솔직히 <span style="color:#d4577a">속으로 반가운 편</span>이다</div>
+      <div style="display:grid;gap:10px">
+        <div class="opt on"><span class="key">A</span>맞아요 — 혼자 쉬는 시간이 더 좋아요</div>
+        <div class="opt"><span class="key">B</span>아니요 — 바로 다른 약속을 잡아요</div>
+      </div>
+      <div class="row" style="margin-top:16px;justify-content:center;gap:14px">
+        <span class="mut" style="font-weight:700">← 내향에 가까움</span>
+        <div style="width:160px;height:8px;border-radius:99px;background:linear-gradient(90deg,#d4577a 45%,var(--line2) 45%)"></div>
+        <span class="mut" style="font-weight:700">외향에 가까움 →</span>
+      </div>
+      <div class="file" style="margin-top:14px;background:#fdeef3;border-color:#f2b8cc">
+        <div style="flex:1"><div class="mut" style="color:#b03a5f">진행 중 유형 추정</div><div style="font-size:15px;font-weight:900;color:#b03a5f">I ? ? ?</div></div>
+        <span class="chip" style="background:#fff;color:#b03a5f;border:1px solid #f2b8cc">결과 저장 없음</span>
+      </div>
+    </div>
+  </div>
+  <div class="brand-tag"><i>🥬</i>싹싹김치</div>
+</div>
+
+<!-- 24. 혈액형 성격 -->
+<div class="shot" id="s-blood">
+  <div class="win">
+    <div class="tbar"><span class="tdots"><i></i><i></i><i></i></span><span class="tico" style="background:#d4577a">🅾</span><span class="tname">혈액형 성격 — 브라우저</span><span class="chip" style="background:#fdeef3;color:#b03a5f">재미용</span></div>
+    <div class="pad">
+      <div class="row" style="gap:8px">
+        <span class="chip" style="background:var(--bg);color:var(--muted);border:1px solid var(--line)">A형</span>
+        <span class="chip" style="background:var(--bg);color:var(--muted);border:1px solid var(--line)">B형</span>
+        <span class="chip" style="background:#d4577a;color:#fff">O형</span>
+        <span class="chip" style="background:var(--bg);color:var(--muted);border:1px solid var(--line)">AB형</span>
+      </div>
+      <div class="file" style="margin-top:14px;background:#fdeef3;border-color:#f2b8cc"><div style="flex:1"><div style="font-size:16px;font-weight:900;color:#b03a5f">O형 — 사교적인 낙천주의자</div><div class="mut" style="color:#b03a5f">털털하고 인정 많은 분위기 메이커</div></div></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px">
+        <div class="file"><div style="flex:1"><div class="mut">강점</div><div style="font-size:13.5px;font-weight:800">낙천적 · 대인관계 넓음 · 목표지향</div></div></div>
+        <div class="file"><div style="flex:1"><div class="mut">약점</div><div style="font-size:13.5px;font-weight:800">덜렁거림 · 질투심 · 끝까지 밀기</div></div></div>
+      </div>
+      <div class="file" style="margin-top:10px"><div style="flex:1"><div class="mut">궁합 최고</div><div style="font-size:14px;font-weight:800">O형 ♥ B형 — 서로 부족한 걸 채우는 콤비</div></div><span class="chip" style="background:#fdeef3;color:#b03a5f">95%</span></div>
+      <div class="mut" style="margin-top:12px;text-align:center;font-weight:700">* 과학적 근거 없음 — 재미로만 봐주세요</div>
+    </div>
+  </div>
+  <div class="brand-tag"><i>🥬</i>싹싹김치</div>
+</div>
+
+<!-- 25. 이상형 월드컵 -->
+<div class="shot" id="s-worldcup">
+  <div class="win">
+    <div class="tbar"><span class="tdots"><i></i><i></i><i></i></span><span class="tico" style="background:#d4577a">🏆</span><span class="tname">이상형 월드컵 — 치킨 월드컵</span><span class="chip" style="background:#fdeef3;color:#b03a5f">준결승</span></div>
+    <div class="pad">
+      <div style="display:flex;gap:14px;align-items:stretch">
+        <div class="vs-card" style="border-color:#d4577a;background:#fdeef3;box-shadow:0 10px 24px rgba(212,87,122,.18)">
+          <div class="em">🍗</div><div class="nm">후라이드</div>
+          <span class="chip" style="background:#fff;color:#b03a5f;border:1px solid #f2b8cc;margin-top:12px">선택</span>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px">
+          <span style="font-size:20px;font-weight:900;color:var(--faint);font-style:italic">VS</span>
+          <span class="mut" style="font-size:11px;font-weight:800">3경기 남음</span>
+        </div>
+        <div class="vs-card">
+          <div class="em">🌶️</div><div class="nm">양념치킨</div>
+          <span class="chip" style="background:var(--bg);color:var(--muted);border:1px solid var(--line);margin-top:12px">선택</span>
+        </div>
+      </div>
+      <div class="bar" style="margin-top:18px;height:7px"><i style="width:88%;background:linear-gradient(90deg,#f08aa8,#d4577a)"></i></div>
+      <div class="row" style="margin-top:10px;justify-content:space-between">
+        <span class="mut" style="font-weight:700">치킨 월드컵 · 준결승</span>
+        <span class="row" style="gap:6px"><span class="chip" style="background:var(--bg);color:var(--muted);border:1px solid var(--line)">라면</span><span class="chip cO">치킨</span><span class="chip" style="background:var(--bg);color:var(--muted);border:1px solid var(--line)">디저트</span><span class="chip" style="background:var(--bg);color:var(--muted);border:1px solid var(--line)">여행지</span></span>
+      </div>
+    </div>
+  </div>
+  <div class="brand-tag"><i>🥬</i>싹싹김치</div>
+</div>
+
 </body>
 </html>

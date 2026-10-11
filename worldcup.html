@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>이상형 월드컵 만들기 무료 — 음식·여행지 토너먼트 (싹싹김치)</title>
+<meta name="description" content="16강 토너먼트로 최애를 뽑는 이상형 월드컵. 라면·치킨·디저트·여행지 카드셋 중 골라서 하나씩 선택하면 우승이 정해집니다 — 설치 없이 바로 플레이.">
+<meta name="theme-color" content="#faf7f1">
+<link rel="canonical" href="https://www.ssakkimchi.com/worldcup.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="싹싹김치">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="이상형 월드컵 — 16강 토너먼트로 최애 뽑기">
+<meta property="og:description" content="라면·치킨·디저트·여행지. 하나만 고를 수 있다면?">
+<meta property="og:url" content="https://www.ssakkimchi.com/worldcup.html">
+<meta property="og:image" content="https://www.ssakkimchi.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"싹싹김치 이상형 월드컵","url":"https://www.ssakkimchi.com/worldcup.html","image":"https://www.ssakkimchi.com/og-image.png","description":"16강 토너먼트로 최애를 뽑는 이상형 월드컵. 라면·치킨·디저트·여행지 카드셋 중 골라서 하나씩 선택하면 우승이 정해집니다 — 설치 없이 바로 플레이.","applicationCategory":"UtilitiesApplication","operatingSystem":"Web","inLanguage":"ko","offers":{"@type":"Offer","price":"0","priceCurrency":"KRW"},"publisher":{"@type":"Organization","name":"싹싹김치","url":"https://www.ssakkimchi.com/"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"자료실","item":"https://www.ssakkimchi.com/archive.html"},{"@type":"ListItem","position":2,"name":"놀이터","item":"https://www.ssakkimchi.com/archive.html#cat-play"},{"@type":"ListItem","position":3,"name":"이상형 월드컵"}]}
+</script>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🥬</text></svg>">
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap">
+<link rel="stylesheet" href="ssak.css">
+<script>
+  (function(){
+    var KEY='ssak-theme', root=document.documentElement;
+    try{
+      var saved=localStorage.getItem(KEY);
+      if(saved==='dark'||saved==='light'){ root.setAttribute('data-theme',saved); }
+      else if(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches){ root.setAttribute('data-theme','dark'); }
+      else { root.setAttribute('data-theme','light'); }
+    }catch(e){ root.setAttribute('data-theme','light'); }
+    window.toggleTheme=function(){
+      var cur=root.getAttribute('data-theme')==='dark'?'dark':'light';
+      var next=cur==='dark'?'light':'dark';
+      root.setAttribute('data-theme',next);
+      try{ localStorage.setItem(KEY,next); }catch(e){}
+    };
+  })();
+</script>
+<script defer src="ssak.js"></script>
+
+<style>
+  .tool{background:var(--card);border:1px solid var(--line);border-radius:28px;padding:30px;margin-top:26px;box-shadow:0 14px 40px var(--shadow)}
+  .status-line{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--muted);margin-top:16px;min-height:20px}
+  .dot{width:8px;height:8px;border-radius:50%;background:var(--faint);flex:none}
+  .dot.ready{background:var(--green)}
+  .dot.warn{background:var(--accent)}
+
+  .wc-sets{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+  @media (max-width:560px){.wc-sets{grid-template-columns:1fr}}
+  .wc-set{padding:18px;border:1px solid var(--line);border-radius:14px;background:var(--bg);cursor:pointer;text-align:left;font-family:inherit;transition:border-color .15s}
+  .wc-set:hover{border-color:var(--pink)}
+  .wc-set b{font-size:15px;font-weight:900;display:block}
+  .wc-set span{font-size:12.5px;color:var(--muted);font-weight:600}
+  .wc-round{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+  .wc-round b{font-size:15px;font-weight:900}
+  .wc-round span{font-size:12.5px;font-weight:800;color:var(--muted)}
+  .wc-vs{display:grid;grid-template-columns:1fr auto 1fr;gap:10px;align-items:stretch}
+  .wc-card{padding:34px 12px;border:1px solid var(--line);border-radius:18px;background:var(--bg);cursor:pointer;text-align:center;font-family:inherit;transition:transform .15s,border-color .15s,background .15s}
+  .wc-card:hover{border-color:var(--pink);transform:translateY(-3px);background:var(--chip-pk)}
+  .wc-card .em{font-size:52px;line-height:1;display:block}
+  .wc-card .nm{font-size:16px;font-weight:900;display:block;margin-top:12px}
+  .wc-vsmark{align-self:center;font-size:14px;font-weight:900;color:var(--faint)}
+  .wc-result{text-align:center;padding:14px 0}
+  .wc-crown{font-size:60px}
+  .wc-winner{font-size:26px;font-weight:900;margin:10px 0 4px}
+  .wc-sub{font-size:13.5px;color:var(--muted);font-weight:700}
+  .wc-finalist{margin-top:16px;display:grid;gap:6px;text-align:left}
+
+  @media (max-width:620px){.tool{padding:22px 16px}}
+</style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-in">
+      <a href="index.html" class="brand"><span class="brand-mark">🥬</span>싹싹김치<span class="brand-beta">BETA</span></a>
+      <div class="nav-links">
+        <div class="dd">
+          <button class="navlink dd-btn" aria-haspopup="true" aria-expanded="false">자료실
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div class="dd-menu" aria-label="자료실 카테고리">
+            <div class="dd-group">
+              <div class="dd-label c-video"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2.5"/><path d="M7 4v16M17 4v16M3 9h4M3 15h4M17 9h4M17 15h4"/></svg>영상 도구</div>
+              <a class="dd-item" href="video-downloader.html"><b>비디오 다운로더</b><span>1800+ 사이트 영상 저장</span></a>
+              <a class="dd-item" href="player.html"><b>플레이어</b><span>가볍고 빠른 동영상 재생</span></a>
+              <a class="dd-item" href="compressor.html"><b>비디오 압축기</b><span>카톡·디스코드 용량 맞춤</span></a>
+              <a class="dd-item" href="thumbnail.html"><b>썸네일 추출기</b><span>유튜브 썸네일 원본 화질</span></a>
+              <a class="dd-item" href="video-gif.html"><b>영상→GIF</b><span>움짤 만들기</span></a>
+            </div>
+            <div class="dd-group">
+              <div class="dd-label c-doc"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H7a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7l-5-5Z"/><path d="M14 2v5h5"/></svg>문서 도구</div>
+              <a class="dd-item" href="hangeul-viewer.html"><b>한글뷰어</b><span>HWP·PDF·오피스 한 창에서</span></a>
+              <a class="dd-item" href="hwp-pdf.html"><b>한글→PDF 변환</b><span>설치 없이 브라우저에서</span></a>
+              <a class="dd-item" href="pdf.html"><b>PDF 도구</b><span>합치기·분할·압축·이미지</span></a>
+              <a class="dd-item" href="text-tools.html"><b>텍스트 도구</b><span>글자수·정렬·중복 제거</span></a>
+            </div>
+            <div class="dd-group">
+              <div class="dd-label c-screen"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M12 17v4M8 21h8"/></svg>화면 도구</div>
+              <a class="dd-item" href="capture.html"><b>캡처</b><span>캡처·녹화·GIF·OCR</span></a>
+              <a class="dd-item" href="macro.html"><b>마우스 매크로</b><span>예약·반복 자동 클릭</span></a>
+              <a class="dd-item" href="image-tools.html"><b>이미지 도구</b><span>변환·리사이즈·압축</span></a>
+              <a class="dd-item" href="heic.html"><b>HEIC 변환</b><span>아이폰 사진 JPG로</span></a>
+              <a class="dd-item" href="pixel-test.html"><b>불량화소 체크</b><span>모니터 점 검사</span></a>
+              <a class="dd-item" href="input-test.html"><b>키보드·마우스 테스트</b><span>입력기기 점검</span></a>
+            </div>
+            <div class="dd-group">
+              <div class="dd-label c-life"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20.5S4.5 15.5 2.8 10.6C1.6 7.2 3.6 4.5 6.6 4.5c2.2 0 3.9 1.2 5.4 3.4 1.5-2.2 3.2-3.4 5.4-3.4 3 0 5 2.7 3.8 6.1C19.5 15.5 12 20.5 12 20.5Z"/></svg>생활 도구</div>
+              <a class="dd-item" href="qr.html"><b>QR 생성기</b><span>링크·와이파이 QR</span></a>
+              <a class="dd-item" href="password.html"><b>비밀번호 생성기</b><span>강력한 랜덤 암호</span></a>
+              <a class="dd-item" href="dday.html"><b>디데이 계산기</b><span>날짜·기념일 계산</span></a>
+              <a class="dd-item" href="salary.html"><b>실수령액 계산기</b><span>월급에서 얼마나 빠지나</span></a>
+              <a class="dd-item" href="severance.html"><b>퇴직금 계산기</b><span>예상 퇴직금·연차수당</span></a>
+            </div>
+            <div class="dd-group">
+              <div class="dd-label c-play"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 12h4m-2-2v4m7-6h.01M18 15h.01M17.3 5H6.7a4 4 0 0 0-4 4.6l.9 6.2a3.5 3.5 0 0 0 6.1 1.7L11 16h2l1.3 1.5a3.5 3.5 0 0 0 6.1-1.7l.9-6.2a4 4 0 0 0-4-4.6Z"/></svg>놀이터</div>
+              <a class="dd-item" href="saju.html"><b>무료 사주</b><span>생년월일 사주팔자</span></a>
+              <a class="dd-item" href="mbti.html"><b>성격유형 테스트</b><span>24문항 유형 검사</span></a>
+              <a class="dd-item" href="blood.html"><b>혈액형 성격</b><span>A·B·O·AB 성향·궁합</span></a>
+              <a class="dd-item" href="worldcup.html"><b>이상형 월드컵</b><span>음식·여행지 토너먼트</span></a>
+              <a class="dd-item" href="domino/index.html"><b>도미노 아트</b><span>3D 도미노 시뮬레이션</span></a>
+            </div>
+            <a class="dd-all" href="archive.html">자료실 한눈에 보기 →</a>
+          </div>
+        </div>
+
+        <a class="navlink nav-hide-m" href="archive.html#install">설치 방법</a>
+        <a class="navlink nav-hide-m" href="terms.html">이용약관</a>
+        <button class="theme-btn" onclick="toggleTheme()" aria-label="테마 전환">
+          <span class="theme-icon-sun"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.5M12 19.5V22M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2 12h2.5M19.5 12H22M4.2 19.8l1.8-1.8M18 6l1.8-1.8"/></svg></span>
+          <span class="theme-icon-moon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8 8 0 1 1 9.5 4 6.3 6.3 0 0 0 20 14.5Z"/></svg></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="wrap">
+
+    <nav class="crumb" aria-label="현재 위치">
+      <a href="archive.html">자료실</a>
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 5 7 7-7 7"/></svg>
+      <a href="archive.html#cat-play">놀이터</a>
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 5 7 7-7 7"/></svg>
+      <span class="here">이상형 월드컵</span>
+    </nav>
+
+    <header class="prod-hero">
+      <div class="prod-hero-main">
+        <div class="prod-chips">
+          <span class="cat-chip cat-play">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 12h4m-2-2v4m7-6h.01M18 15h.01M17.3 5H6.7a4 4 0 0 0-4 4.6l.9 6.2a3.5 3.5 0 0 0 6.1 1.7L11 16h2l1.3 1.5a3.5 3.5 0 0 0 6.1-1.7l.9-6.2a4 4 0 0 0-4-4.6Z"/></svg>
+            놀이터
+          </span>
+          <span class="live-chip">설치 없이 바로 사용</span>
+        </div>
+        <h1>이상형 월드컵</h1>
+        <span class="pen" style="color:var(--green-ink)">하나만 고르세요. 양보 없이.</span>
+        <p class="desc">주제를 골라 <b>16강부터 결승까지</b> 이판사판 토너먼트. 라면·치킨·디저트·여행지 — 당신의 최애는 뭔가요?</p>
+      </div>
+      <img class="prod-hero-img" src="img/hero-worldcup.webp" width="1100" height="730" alt="이상형 월드컵 화면 미리보기" fetchpriority="high">
+    </header>
+
+    <section class="tool">
+
+      <div id="wc-home">
+        <p style="font-size:14px;color:var(--muted);margin:0 0 18px;line-height:1.7">하나만 고르세요. <b style="color:var(--ink)">16강부터 결승까지</b> 토너먼트로 최애를 뽑아봅니다.</p>
+        <div class="wc-sets" id="wc-sets"></div>
+      </div>
+      <div id="wc-game" style="display:none">
+        <div class="wc-round"><b id="wc-round"></b><span id="wc-count"></span></div>
+        <div class="wc-vs">
+          <button class="wc-card" id="wc-l"><span class="em"></span><span class="nm"></span></button>
+          <span class="wc-vsmark">VS</span>
+          <button class="wc-card" id="wc-r"><span class="em"></span><span class="nm"></span></button>
+        </div>
+      </div>
+      <div id="wc-result" style="display:none" class="wc-result"></div>
+
+    </section>
+
+    <section class="notice">
+      <div class="notice-head">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--muted)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.2"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+        <h2>이용 안내</h2>
+      </div>
+      <ul>
+        <li>모든 대진은 매번 랜덤으로 섞입니다 — 같은 주제라도 결과가 달라질 수 있어요.</li>
+        <li>선택 기록은 저장·전송되지 않습니다.</li>
+        <li>연예인·실제 인물 카드는 초상권 문제로 넣지 않습니다 — 음식·여행지 등 사물 테마만 제공해요.</li>
+      </ul>
+    </section>
+
+    <a class="back" href="archive.html">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5m0 0 6-6m-6 6 6 6"/></svg>
+      자료실로 돌아가기
+    </a>
+  </main>
+
+  <footer>
+    <div class="foot-brand"><span class="foot-mark">🥬</span>싹싹김치</div>
+    <div class="foot-tag">무료 유틸리티를 만드는 브랜드</div>
+    <div class="foot-beta">🚧 지금은 <b>베타</b>예요 — 사이트도 프로그램도 계속 다듬는 중입니다. 오류나 아쉬운 점은 언제든 알려주세요.</div>
+    <div class="foot-links">
+      <a class="foot-link" href="archive.html">자료실</a>
+      <span>·</span>
+      <a class="foot-link" href="terms.html">이용약관·면책</a>
+      <span>·</span>
+      <a class="foot-link" href="https://github.com/gyqls051-arch/ssakssak-downloader/issues" target="_blank" rel="noopener">문의 (GitHub Issues)</a>
+    </div>
+  </footer>
+
+<script>
+(function(){
+  var SETS={
+    '라면 월드컵':{sub:'신라면·짜파게티·불닭… 16강',items:[['🍜','신라면'],['🍜','진라면'],['🍜','짜파게티'],['🔥','불닭볶음면'],['🍜','너구리'],['🍜','안성탕면'],['🧀','치즈볶음면'],['🍜','삼양라면'],['🍜','육개장 사발면'],['🦐','새우탕면'],['🍜','참깨라면'],['🍜','미역국라면'],['🌶','열라면'],['🍜','짜왕'],['🍜','틈새라면'],['🍜','비빔면']]},
+    '치킨 월드컵':{sub:'후라이드·양념·뿌링클… 16강',items:[['🍗','후라이드'],['🍗','양념치킨'],['🧀','뿌링클'],['🍗','간장치킨'],['🌶','슈프림 양념'],['🍯','허니콤보'],['🍗','마늘치킨'],['🧄','갈릭치킨'],['🌶','핫양념'],['🍗','크리스피'],['🧈','버터구이'],['🍗','파닭'],['🍗','고추바사삭'],['🍗','데리야끼'],['🍗','카레치킨'],['🍗','로제치킨']]},
+    '디저트 월드컵':{sub:'빵·케이크·떡… 16강',items:[['🍰','딸기케이크'],['🧁','티라미수'],['🍮','푸딩'],['🥐','크로아상'],['🍩','도넛'],['🧇','와플'],['🍪','쿠키'],['🥞','팬케이크'],['🍡','인절미'],['🍨','아이스크림'],['🍫','브라우니'],['🧁','마카롱'],['🍞','소금빵'],['🥧','에그타르트'],['🍭','약과'],['🍧','빙수']]},
+    '여행지 월드컵':{sub:'국내·해외 명소 16강',items:[['🌊','제주도'],['🏙','서울'],['🗼','도쿄'],['⛩','오사카'],['🏝','발리'],['🗽','뉴욕'],['🗼','파리'],['🏛','로마'],['🌉','샌프란시스코'],['🏖','다낭'],['🌃','홍콩'],['🎡','방콕'],['🏰','런던'],['🌊','부산'],['⛰','스위스'],['🏜','두바이']]}
+  };
+  var st={queue:[],winners:[],semi:null,final2:null,setName:''};
+  var home=document.getElementById('wc-home'),game=document.getElementById('wc-game'),res=document.getElementById('wc-result');
+  var setsEl=document.getElementById('wc-sets');
+  Object.keys(SETS).forEach(function(name){
+    var b=document.createElement('button');
+    b.className='wc-set';
+    b.innerHTML='<b>'+name+'</b><span>'+SETS[name].sub+'</span>';
+    b.onclick=function(){start(name);};
+    setsEl.appendChild(b);
+  });
+  function shuf(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
+  function start(name){
+    st.queue=shuf(SETS[name].items);st.stageSize=st.queue.length;st.winners=[];st.semi=null;st.final2=null;st.setName=name;
+    home.style.display='none';res.style.display='none';game.style.display='block';
+    nextMatch();
+  }
+  function nextMatch(){
+    if(st.queue.length===0){
+      if(st.winners.length===1){finish(st.winners[0]);return;}
+      if(st.winners.length===4)st.semi=st.winners.slice();
+      if(st.winners.length===2)st.final2=st.winners.slice();
+      st.queue=st.winners.slice();st.winners=[];
+      st.stageSize=st.queue.length;
+    }
+    var stage=st.stageSize;
+    var names={16:'16강',8:'8강',4:'준결승',2:'결승'};
+    document.getElementById('wc-round').textContent=st.setName+' · '+(names[stage]||stage+'강');
+    document.getElementById('wc-count').textContent=Math.ceil(st.queue.length/2)+'경기 남음';
+    setCard('wc-l',st.queue[0]);setCard('wc-r',st.queue[1]);
+  }
+  function setCard(id,it){
+    var el=document.getElementById(id);
+    el.querySelector('.em').textContent=it[0];
+    el.querySelector('.nm').textContent=it[1];
+  }
+  function pick(idx){
+    var w=st.queue.splice(0,2)[idx];
+    st.winners.push(w);
+    nextMatch();
+  }
+  document.getElementById('wc-l').onclick=function(){pick(0);};
+  document.getElementById('wc-r').onclick=function(){pick(1);};
+  function finish(w){
+    game.style.display='none';res.style.display='block';
+    var rows='';
+    if(st.final2){
+      var ru=st.final2.filter(function(x){return x!==w})[0];
+      if(ru)rows+='<div class="mb-card" style="display:flex;gap:10px;align-items:center"><span style="font-size:11.5px;font-weight:900;color:var(--muted)">준우승</span><span style="font-size:20px">'+ru[0]+'</span><b style="font-size:14px">'+ru[1]+'</b></div>';
+    }
+    if(st.semi){
+      st.semi.filter(function(x){return st.final2.indexOf(x)<0}).forEach(function(x){
+        rows+='<div class="mb-card" style="display:flex;gap:10px;align-items:center"><span style="font-size:11.5px;font-weight:900;color:var(--muted)">4강</span><span style="font-size:20px">'+x[0]+'</span><b style="font-size:14px">'+x[1]+'</b></div>';
+      });
+    }
+    res.innerHTML='<div class="wc-crown">'+w[0]+'</div>'
+      +'<div class="wc-winner">'+w[1]+'</div>'
+      +'<div class="wc-sub">'+st.setName+' 우승!</div>'
+      +(rows?'<div class="wc-finalist">'+rows+'</div>':'')
+      +'<div style="display:flex;gap:10px;justify-content:center;margin-top:20px;flex-wrap:wrap">'
+      +'<button class="btn btn-primary" id="wc-again" style="padding:11px 22px;border-radius:10px;border:0;font-size:14px">같은 주제로 다시</button>'
+      +'<button class="btn btn-ghost" id="wc-home-btn" style="padding:11px 22px;border-radius:10px;font-size:14px">다른 주제</button></div>';
+    document.getElementById('wc-again').onclick=function(){start(st.setName);};
+    document.getElementById('wc-home-btn').onclick=function(){res.style.display='none';home.style.display='block';};
+  }
+})();
+</script>
+
+</body>
+</html>

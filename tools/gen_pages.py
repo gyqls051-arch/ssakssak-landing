@@ -10,12 +10,14 @@ CATS = {
     'doc':    ('cat-doc',    '문서 도구',  '#cat-doc'),
     'screen': ('cat-screen', '화면 도구',  '#cat-screen'),
     'life':   ('cat-life',   '생활 도구',  '#cat-life'),
+    'play':   ('cat-play',   '놀이터',     '#cat-play'),
 }
 CAT_ICONS = {
     'video':  '<rect x="3" y="4" width="18" height="16" rx="2.5"/><path d="M7 4v16M17 4v16M3 9h4M3 15h4M17 9h4M17 15h4"/>',
     'doc':    '<path d="M14 2H7a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7l-5-5Z"/><path d="M14 2v5h5"/>',
     'screen': '<rect x="3" y="4" width="18" height="13" rx="2"/><path d="M12 17v4M8 21h8"/>',
     'life':   '<path d="M12 20.5S4.5 15.5 2.8 10.6C1.6 7.2 3.6 4.5 6.6 4.5c2.2 0 3.9 1.2 5.4 3.4 1.5-2.2 3.2-3.4 5.4-3.4 3 0 5 2.7 3.8 6.1C19.5 15.5 12 20.5 12 20.5Z"/>',
+    'play':   '<path d="M6 12h4m-2-2v4m7-6h.01M18 15h.01M17.3 5H6.7a4 4 0 0 0-4 4.6l.9 6.2a3.5 3.5 0 0 0 6.1 1.7L11 16h2l1.3 1.5a3.5 3.5 0 0 0 6.1-1.7l.9-6.2a4 4 0 0 0-4-4.6Z"/>',
 }
 
 HEAD = """<!doctype html>
@@ -106,6 +108,7 @@ NAV = """  <nav class="nav">
             <div class="dd-group">
               <div class="dd-label c-screen"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M12 17v4M8 21h8"/></svg>화면 도구</div>
               <a class="dd-item" href="capture.html"><b>캡처</b><span>캡처·녹화·GIF·OCR</span></a>
+              <a class="dd-item" href="macro.html"><b>마우스 매크로</b><span>예약·반복 자동 클릭</span></a>
               <a class="dd-item" href="image-tools.html"><b>이미지 도구</b><span>변환·리사이즈·압축</span></a>
               <a class="dd-item" href="heic.html"><b>HEIC 변환</b><span>아이폰 사진 JPG로</span></a>
               <a class="dd-item" href="pixel-test.html"><b>불량화소 체크</b><span>모니터 점 검사</span></a>
@@ -118,6 +121,14 @@ NAV = """  <nav class="nav">
               <a class="dd-item" href="dday.html"><b>디데이 계산기</b><span>날짜·기념일 계산</span></a>
               <a class="dd-item" href="salary.html"><b>실수령액 계산기</b><span>월급에서 얼마나 빠지나</span></a>
               <a class="dd-item" href="severance.html"><b>퇴직금 계산기</b><span>예상 퇴직금·연차수당</span></a>
+            </div>
+            <div class="dd-group">
+              <div class="dd-label c-play"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 12h4m-2-2v4m7-6h.01M18 15h.01M17.3 5H6.7a4 4 0 0 0-4 4.6l.9 6.2a3.5 3.5 0 0 0 6.1 1.7L11 16h2l1.3 1.5a3.5 3.5 0 0 0 6.1-1.7l.9-6.2a4 4 0 0 0-4-4.6Z"/></svg>놀이터</div>
+              <a class="dd-item" href="saju.html"><b>무료 사주</b><span>생년월일 사주팔자</span></a>
+              <a class="dd-item" href="mbti.html"><b>성격유형 테스트</b><span>24문항 유형 검사</span></a>
+              <a class="dd-item" href="blood.html"><b>혈액형 성격</b><span>A·B·O·AB 성향·궁합</span></a>
+              <a class="dd-item" href="worldcup.html"><b>이상형 월드컵</b><span>음식·여행지 토너먼트</span></a>
+              <a class="dd-item" href="domino/index.html"><b>도미노 아트</b><span>3D 도미노 시뮬레이션</span></a>
             </div>
             <a class="dd-all" href="archive.html">자료실 한눈에 보기 →</a>
           </div>
@@ -227,8 +238,8 @@ def render(p):
 
 def main():
     sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-    import pages_a, pages_b, pages_c
-    pages = pages_a.PAGES + pages_b.PAGES + pages_c.PAGES
+    import pages_a, pages_b, pages_c, pages_d, pages_e
+    pages = pages_a.PAGES + pages_b.PAGES + pages_c.PAGES + pages_d.PAGES + pages_e.PAGES
     for p in pages:
         out = os.path.join(ROOT, p['slug'] + '.html')
         with io.open(out, 'w', encoding='utf-8', newline='\n') as f:

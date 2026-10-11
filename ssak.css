@@ -12,8 +12,10 @@ html{scroll-behavior:smooth}
   --green:#2f8f4e; --green-ink:#25703e;
   --yellow:#c98f12; --yellow-ink:#9a7514;
   --purple:#7a5fc0; --purple-ink:#5d44a6;
+  --pink:#d94f8a; --pink-ink:#b83a72;
   --tint-o:#fdeee3; --tint-g:#eaf4ea; --tint-y:#faf1d9;
   --chip-o:#fbe0cf; --chip-g:#d9ecdc; --chip-y:#f3e5bb; --chip-p:#e8e1f7;
+  --chip-pk:#fbdcea;
   --soft:#fdeee3; --shadow:rgba(70,45,20,.08);
   --navbg:rgba(250,247,241,.82);
   --rail:none;
@@ -25,8 +27,10 @@ html[data-theme="dark"]{
   --green:#5cb878; --green-ink:#7ecb95;
   --yellow:#e0b23e; --yellow-ink:#e5c25a;
   --purple:#9d86e0; --purple-ink:#b7a3ea;
+  --pink:#e87ba8; --pink-ink:#f29ec0;
   --tint-o:#2a1d13; --tint-g:#1c241c; --tint-y:#272113;
   --chip-o:#3d2817; --chip-g:#28382b; --chip-y:#3d3519; --chip-p:#332a4a;
+  --chip-pk:#40222f;
   --soft:#2a1d13; --shadow:rgba(0,0,0,.5);
   --navbg:rgba(22,18,16,.82);
 }
@@ -79,6 +83,7 @@ html[data-theme="dark"] .theme-icon-moon{display:none}
 .dd-label.c-doc svg{color:var(--green)}
 .dd-label.c-screen svg{color:var(--yellow)}
 .dd-label.c-life svg{color:var(--purple)}
+.dd-label.c-play svg{color:var(--pink)}
 .dd-item{display:block;text-decoration:none;padding:9px 10px;border-radius:12px;transition:background .12s ease}
 .dd-item:hover{background:var(--bg2)}
 .dd-item b{display:block;font-size:13.5px;font-weight:700;color:var(--ink);white-space:nowrap}
@@ -120,6 +125,7 @@ html[data-theme="dark"] .theme-icon-moon{display:none}
 .cat-doc{background:var(--chip-g);color:var(--green-ink)}
 .cat-screen{background:var(--chip-y);color:var(--yellow-ink)}
 .cat-life{background:var(--chip-p);color:var(--purple-ink)}
+.cat-play{background:var(--chip-pk);color:var(--pink-ink)}
 .ver-chip{font-size:12px;font-weight:700;color:var(--faint)}
 .live-chip{font-size:11.5px;font-weight:800;color:var(--green-ink);background:var(--chip-g);padding:4px 11px;border-radius:999px}
 .beta-chip{display:inline-flex;align-items:center;gap:5px;font-size:11.5px;font-weight:800;letter-spacing:.03em;color:var(--yellow-ink);background:var(--chip-y);padding:4px 11px;border-radius:999px}
@@ -201,6 +207,7 @@ html[data-theme="dark"] .theme-icon-moon{display:none}
 .cat-ico.i-doc{background:var(--chip-g);color:var(--green-ink)}
 .cat-ico.i-screen{background:var(--chip-y);color:var(--yellow-ink)}
 .cat-ico.i-life{background:var(--chip-p);color:var(--purple-ink)}
+.cat-ico.i-play{background:var(--chip-pk);color:var(--pink-ink)}
 .cat-head h2{font-size:19px;font-weight:800;letter-spacing:-.01em;margin:0}
 .cat-count{font-size:12.5px;color:var(--faint);font-weight:700;margin-left:2px}
 

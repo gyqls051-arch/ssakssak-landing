@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>혈액형 성격 테스트 무료 — A·B·O·AB형 성향과 궁합 (싹싹김치)</title>
+<meta name="description" content="혈액형별 성격 분석과 궁합표. A·B·O·AB형 장점·단점·연애 스타일부터 혈액형 궁합 매트릭스까지 — 가입 없이 바로 보는 무료 혈액형 테스트.">
+<meta name="theme-color" content="#faf7f1">
+<link rel="canonical" href="https://www.ssakkimchi.com/blood.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="싹싹김치">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="혈액형 성격 테스트 — A·B·O·AB 성향·궁합">
+<meta property="og:description" content="내 혈액형 성향과 최고의 궁합 혈액형까지 한 번에.">
+<meta property="og:url" content="https://www.ssakkimchi.com/blood.html">
+<meta property="og:image" content="https://www.ssakkimchi.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"싹싹김치 혈액형 성격","url":"https://www.ssakkimchi.com/blood.html","image":"https://www.ssakkimchi.com/og-image.png","description":"혈액형별 성격 분석과 궁합표. A·B·O·AB형 장점·단점·연애 스타일부터 혈액형 궁합 매트릭스까지 — 가입 없이 바로 보는 무료 혈액형 테스트.","applicationCategory":"UtilitiesApplication","operatingSystem":"Web","inLanguage":"ko","offers":{"@type":"Offer","price":"0","priceCurrency":"KRW"},"publisher":{"@type":"Organization","name":"싹싹김치","url":"https://www.ssakkimchi.com/"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"자료실","item":"https://www.ssakkimchi.com/archive.html"},{"@type":"ListItem","position":2,"name":"놀이터","item":"https://www.ssakkimchi.com/archive.html#cat-play"},{"@type":"ListItem","position":3,"name":"혈액형 성격"}]}
+</script>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🥬</text></svg>">
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap">
+<link rel="stylesheet" href="ssak.css">
+<script>
+  (function(){
+    var KEY='ssak-theme', root=document.documentElement;
+    try{
+      var saved=localStorage.getItem(KEY);
+      if(saved==='dark'||saved==='light'){ root.setAttribute('data-theme',saved); }
+      else if(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches){ root.setAttribute('data-theme','dark'); }
+      else { root.setAttribute('data-theme','light'); }
+    }catch(e){ root.setAttribute('data-theme','light'); }
+    window.toggleTheme=function(){
+      var cur=root.getAttribute('data-theme')==='dark'?'dark':'light';
+      var next=cur==='dark'?'light':'dark';
+      root.setAttribute('data-theme',next);
+      try{ localStorage.setItem(KEY,next); }catch(e){}
+    };
+  })();
+</script>
+<script defer src="ssak.js"></script>
+
+<style>
+  .tool{background:var(--card);border:1px solid var(--line);border-radius:28px;padding:30px;margin-top:26px;box-shadow:0 14px 40px var(--shadow)}
+  .status-line{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--muted);margin-top:16px;min-height:20px}
+  .dot{width:8px;height:8px;border-radius:50%;background:var(--faint);flex:none}
+  .dot.ready{background:var(--green)}
+  .dot.warn{background:var(--accent)}
+
+  .bl-types{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:20px}
+  @media (max-width:560px){.bl-types{grid-template-columns:repeat(2,1fr)}}
+  .bl-type{padding:22px 10px;border:1px solid var(--line);border-radius:16px;background:var(--bg);cursor:pointer;text-align:center;transition:border-color .15s,transform .15s;font-family:inherit}
+  .bl-type:hover{border-color:var(--pink);transform:translateY(-2px)}
+  .bl-type .bt{font-size:30px;font-weight:900;color:var(--pink)}
+  .bl-type .bn{font-size:12.5px;font-weight:800;color:var(--muted);margin-top:4px}
+  .bl-card{background:var(--bg);border:1px solid var(--line);border-radius:16px;padding:18px;margin-bottom:12px}
+  .bl-card h3{margin:0 0 8px;font-size:14px;font-weight:900}
+  .bl-card p{margin:0;font-size:14px;line-height:1.75}
+  .bl-card .tag{display:inline-block;font-size:11.5px;font-weight:800;padding:4px 10px;border-radius:99px;margin:2px 4px 2px 0}
+  .bl-matrix{width:100%;border-collapse:collapse;margin-top:8px}
+  .bl-matrix th,.bl-matrix td{padding:10px 8px;text-align:center;font-size:13px;font-weight:700;border-bottom:1px solid var(--line)}
+  .bl-matrix th{color:var(--muted);font-size:12px;font-weight:800}
+  .bl-matrix td:first-child{font-weight:900;color:var(--pink)}
+  .bl-score{font-weight:900}
+
+  @media (max-width:620px){.tool{padding:22px 16px}}
+</style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-in">
+      <a href="index.html" class="brand"><span class="brand-mark">🥬</span>싹싹김치<span class="brand-beta">BETA</span></a>
+      <div class="nav-links">
+        <div class="dd">
+          <button class="navlink dd-btn" aria-haspopup="true" aria-expanded="false">자료실
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div class="dd-menu" aria-label="자료실 카테고리">
+            <div class="dd-group">
+              <div class="dd-label c-video"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2.5"/><path d="M7 4v16M17 4v16M3 9h4M3 15h4M17 9h4M17 15h4"/></svg>영상 도구</div>
+              <a class="dd-item" href="video-downloader.html"><b>비디오 다운로더</b><span>1800+ 사이트 영상 저장</span></a>
+              <a class="dd-item" href="player.html"><b>플레이어</b><span>가볍고 빠른 동영상 재생</span></a>
+              <a class="dd-item" href="compressor.html"><b>비디오 압축기</b><span>카톡·디스코드 용량 맞춤</span></a>
+              <a class="dd-item" href="thumbnail.html"><b>썸네일 추출기</b><span>유튜브 썸네일 원본 화질</span></a>
+              <a class="dd-item" href="video-gif.html"><b>영상→GIF</b><span>움짤 만들기</span></a>
+            </div>
+            <div class="dd-group">
+              <div class="dd-label c-doc"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H7a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7l-5-5Z"/><path d="M14 2v5h5"/></svg>문서 도구</div>
+              <a class="dd-item" href="hangeul-viewer.html"><b>한글뷰어</b><span>HWP·PDF·오피스 한 창에서</span></a>
+              <a class="dd-item" href="hwp-pdf.html"><b>한글→PDF 변환</b><span>설치 없이 브라우저에서</span></a>
+              <a class="dd-item" href="pdf.html"><b>PDF 도구</b><span>합치기·분할·압축·이미지</span></a>
+              <a class="dd-item" href="text-tools.html"><b>텍스트 도구</b><span>글자수·정렬·중복 제거</span></a>
+            </div>
+            <div class="dd-group">
+              <div class="dd-label c-screen"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M12 17v4M8 21h8"/></svg>화면 도구</div>
+              <a class="dd-item" href="capture.html"><b>캡처</b><span>캡처·녹화·GIF·OCR</span></a>
+              <a class="dd-item" href="macro.html"><b>마우스 매크로</b><span>예약·반복 자동 클릭</span></a>
+              <a class="dd-item" href="image-tools.html"><b>이미지 도구</b><span>변환·리사이즈·압축</span></a>
+              <a class="dd-item" href="heic.html"><b>HEIC 변환</b><span>아이폰 사진 JPG로</span></a>
+              <a class="dd-item" href="pixel-test.html"><b>불량화소 체크</b><span>모니터 점 검사</span></a>
+              <a class="dd-item" href="input-test.html"><b>키보드·마우스 테스트</b><span>입력기기 점검</span></a>
+            </div>
+            <div class="dd-group">
+              <div class="dd-label c-life"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20.5S4.5 15.5 2.8 10.6C1.6 7.2 3.6 4.5 6.6 4.5c2.2 0 3.9 1.2 5.4 3.4 1.5-2.2 3.2-3.4 5.4-3.4 3 0 5 2.7 3.8 6.1C19.5 15.5 12 20.5 12 20.5Z"/></svg>생활 도구</div>
+              <a class="dd-item" href="qr.html"><b>QR 생성기</b><span>링크·와이파이 QR</span></a>
+              <a class="dd-item" href="password.html"><b>비밀번호 생성기</b><span>강력한 랜덤 암호</span></a>
+              <a class="dd-item" href="dday.html"><b>디데이 계산기</b><span>날짜·기념일 계산</span></a>
+              <a class="dd-item" href="salary.html"><b>실수령액 계산기</b><span>월급에서 얼마나 빠지나</span></a>
+              <a class="dd-item" href="severance.html"><b>퇴직금 계산기</b><span>예상 퇴직금·연차수당</span></a>
+            </div>
+            <div class="dd-group">
+              <div class="dd-label c-play"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 12h4m-2-2v4m7-6h.01M18 15h.01M17.3 5H6.7a4 4 0 0 0-4 4.6l.9 6.2a3.5 3.5 0 0 0 6.1 1.7L11 16h2l1.3 1.5a3.5 3.5 0 0 0 6.1-1.7l.9-6.2a4 4 0 0 0-4-4.6Z"/></svg>놀이터</div>
+              <a class="dd-item" href="saju.html"><b>무료 사주</b><span>생년월일 사주팔자</span></a>
+              <a class="dd-item" href="mbti.html"><b>성격유형 테스트</b><span>24문항 유형 검사</span></a>
+              <a class="dd-item" href="blood.html"><b>혈액형 성격</b><span>A·B·O·AB 성향·궁합</span></a>
+              <a class="dd-item" href="worldcup.html"><b>이상형 월드컵</b><span>음식·여행지 토너먼트</span></a>
+              <a class="dd-item" href="domino/index.html"><b>도미노 아트</b><span>3D 도미노 시뮬레이션</span></a>
+            </div>
+            <a class="dd-all" href="archive.html">자료실 한눈에 보기 →</a>
+          </div>
+        </div>
+
+        <a class="navlink nav-hide-m" href="archive.html#install">설치 방법</a>
+        <a class="navlink nav-hide-m" href="terms.html">이용약관</a>
+        <button class="theme-btn" onclick="toggleTheme()" aria-label="테마 전환">
+          <span class="theme-icon-sun"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.5M12 19.5V22M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2 12h2.5M19.5 12H22M4.2 19.8l1.8-1.8M18 6l1.8-1.8"/></svg></span>
+          <span class="theme-icon-moon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8 8 0 1 1 9.5 4 6.3 6.3 0 0 0 20 14.5Z"/></svg></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="wrap">
+
+    <nav class="crumb" aria-label="현재 위치">
+      <a href="archive.html">자료실</a>
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 5 7 7-7 7"/></svg>
+      <a href="archive.html#cat-play">놀이터</a>
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 5 7 7-7 7"/></svg>
+      <span class="here">혈액형 성격</span>
+    </nav>
+
+    <header class="prod-hero">
+      <div class="prod-hero-main">
+        <div class="prod-chips">
+          <span class="cat-chip cat-play">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 12h4m-2-2v4m7-6h.01M18 15h.01M17.3 5H6.7a4 4 0 0 0-4 4.6l.9 6.2a3.5 3.5 0 0 0 6.1 1.7L11 16h2l1.3 1.5a3.5 3.5 0 0 0 6.1-1.7l.9-6.2a4 4 0 0 0-4-4.6Z"/></svg>
+            놀이터
+          </span>
+          <span class="live-chip">설치 없이 바로 사용</span>
+        </div>
+        <h1>혈액형 성격 테스트</h1>
+        <span class="pen" style="color:var(--green-ink)">과학은 아니지만, 재밌잖아요.</span>
+        <p class="desc">A·B·O·AB를 고르면 <b>성향 분석·장단점·연애 스타일·궁합</b>을 보여드립니다. 4×4 혈액형 궁합표도 같이.</p>
+      </div>
+      <img class="prod-hero-img" src="img/hero-blood.webp" width="1100" height="730" alt="혈액형 성격 화면 미리보기" fetchpriority="high">
+    </header>
+
+    <section class="tool">
+
+      <p style="font-size:14px;color:var(--muted);margin:0 0 18px;line-height:1.7">혈액형을 고르면 <b style="color:var(--ink)">성향 분석과 궁합</b>을 보여드립니다. 과학적 근거는 없지만 재밌잖아요 — 한국식 혈액형 성격론 그대로.</p>
+      <div class="bl-types" id="bl-types"></div>
+      <div id="bl-result" style="display:none"></div>
+      <div class="bl-card" id="bl-mx-wrap" style="margin-top:8px">
+        <h3>혈액형 궁합표 — 나(왼쪽) × 상대(위쪽)</h3>
+        <table class="bl-matrix" id="bl-mx"></table>
+      </div>
+
+    </section>
+
+    <section class="notice">
+      <div class="notice-head">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--muted)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.2"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+        <h2>이용 안내</h2>
+      </div>
+      <ul>
+        <li>혈액형 성격론은 <b>과학적 근거가 없는</b> 문화적 재미입니다 — 사람을 혈액형으로 판단하진 마세요.</li>
+        <li>선택한 혈액형은 저장·전송되지 않습니다.</li>
+        <li>궁합 점수는 한국식 혈액형 성격론의 통념을 점수화한 것으로, 실제 관계와 무관합니다.</li>
+      </ul>
+    </section>
+
+    <a class="back" href="archive.html">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5m0 0 6-6m-6 6 6 6"/></svg>
+      자료실로 돌아가기
+    </a>
+  </main>
+
+  <footer>
+    <div class="foot-brand"><span class="foot-mark">🥬</span>싹싹김치</div>
+    <div class="foot-tag">무료 유틸리티를 만드는 브랜드</div>
+    <div class="foot-beta">🚧 지금은 <b>베타</b>예요 — 사이트도 프로그램도 계속 다듬는 중입니다. 오류나 아쉬운 점은 언제든 알려주세요.</div>
+    <div class="foot-links">
+      <a class="foot-link" href="archive.html">자료실</a>
+      <span>·</span>
+      <a class="foot-link" href="terms.html">이용약관·면책</a>
+      <span>·</span>
+      <a class="foot-link" href="https://github.com/gyqls051-arch/ssakssak-downloader/issues" target="_blank" rel="noopener">문의 (GitHub Issues)</a>
+    </div>
+  </footer>
+
+<script>
+(function(){
+  var DATA={
+    'A':{nick:'완벽주의 신중파',line:'꼼꼼하고 책임감 강한 완벽주의자. 배려 깊은데 속마음은 잘 안 보여줘요.',
+      good:'꼼꼼함 · 책임감 · 성실 · 배려',bad:'걱정 과다 · 완벽 강박 · 스트레스 축적',
+      love:'좋아하면 상대를 세심하게 챙기는 헌신형. 다가가는 속도는 느리지만 한번 빠지면 깊어요.',
+      best:'O형 — 큰 그릇의 O형이 A형의 예민함을 받아줍니다',worst:'B형 — 자유분방한 B형이 A형에겐 답답하게 느껴질 수 있어요'},
+    'B':{nick:'자유로운 마이웨이',line:'호기심 많고 솔직한 개성파. 좋아하는 것엔 불타오르고, 싫은 건 눈길도 안 줘요.',
+      good:'낙천적 · 솔직 · 독창성 · 집중력',bad:'마이웨이 · 뒤끝 없지만 앞끝도 없음 · 규칙 무시',
+      love:'좋아하면 확실히 표현하는 직진형. 밀당 없이 담백해서 상대가 헷갈릴 일이 없어요.',
+      best:'AB형 — 독특한 AB형과 개성파 B형이 서로 존중합니다',worst:'A형 — 신중한 A형 눈엔 B형이 너무 제멋대로 보일 수 있어요'},
+    'O':{nick:'쿨한 리더십',line:'털털하고 스케일 큰 리더형. 의리 있고 결단 빠른데, 의외로 서운한 건 오래 기억해요.',
+      good:'대범함 · 리더십 · 결단력 · 의리',bad:'자존심 강함 · 성급함 · 서운함 축적',
+      love:'좋아하면 올인하는 불도저형. 스킨십도 표현도 스케일이 커요.',
+      best:'A형 — 꼼꼼한 A형이 O형의 빈틈을 채워주는 국민 조합',worst:'AB형 — 둘 다 개성이 강해 방향이 어긋나기 쉬워요'},
+    'AB':{nick:'재능 많은 천재형',line:'이성과 감성이 공존하는 독특한 캐릭터. 재능이 많은데 기분파라 일관성이 관건이에요.',
+      good:'재능 다방면 · 객관적 · 독창적',bad:'기분파 · 관계 거리두기 · 피곤함 호소',
+      love:'적당한 거리를 두면서도 깊게 사랑하는 신비형. 알기 어려운 매력이 상대를 끌어당겨요.',
+      best:'B형 — 서로의 개성을 간섭하지 않는 조합',worst:'O형 — 직진 O형에게 AB형의 거리두기는 차갑게 느껴져요'}};
+  var MX={'A':{'A':70,'B':40,'O':95,'AB':65},'B':{'A':40,'B':75,'O':80,'AB':90},'O':{'A':95,'B':80,'O':80,'AB':60},'AB':{'A':65,'B':90,'O':60,'AB':85}};
+  var order=['A','B','O','AB'];
+  var bt=document.getElementById('bl-types');
+  order.forEach(function(t){
+    var b=document.createElement('button');
+    b.className='bl-type';
+    b.innerHTML='<div class="bt">'+t+'</div><div class="bn">'+DATA[t].nick+'</div>';
+    b.onclick=function(){show(t);};
+    bt.appendChild(b);
+  });
+  var mx='<tr><th></th>'+order.map(function(t){return '<th>'+t+'형</th>'}).join('')+'</tr>';
+  order.forEach(function(a){
+    mx+='<tr><td>'+a+'형</td>'+order.map(function(b){
+      var v=MX[a][b],c=v>=85?'var(--green-ink)':v>=70?'var(--yellow-ink)':'var(--muted)';
+      return '<td><span class="bl-score" style="color:'+c+'">'+v+'</span></td>';
+    }).join('')+'</tr>';
+  });
+  document.getElementById('bl-mx').innerHTML=mx;
+  function show(t){
+    var d=DATA[t];
+    document.getElementById('bl-result').style.display='block';
+    document.getElementById('bl-result').innerHTML=
+      '<div class="bl-card" style="border-color:var(--pink);background:var(--chip-pk)"><h3>'+t+'형 — '+d.nick+'</h3><p style="font-size:15px">'+d.line+'</p></div>'
+      +'<div class="bl-card"><h3>장점 · 단점</h3><p><span class="tag" style="background:var(--chip-g);color:var(--green-ink)">장점 '+d.good+'</span></p><p style="margin-top:6px"><span class="tag" style="background:var(--chip-o);color:var(--accent)">단점 '+d.bad+'</span></p></div>'
+      +'<div class="bl-card"><h3>연애 스타일</h3><p>'+d.love+'</p></div>'
+      +'<div class="bl-card"><h3>궁합</h3><p><b style="color:var(--green-ink)">최고:</b> '+d.best+'</p><p style="margin-top:6px"><b style="color:var(--accent)">아쉬움:</b> '+d.worst+'</p></div>';
+    document.getElementById('bl-result').scrollIntoView({behavior:'smooth',block:'nearest'});
+  }
+})();
+</script>
+
+</body>
+</html>
