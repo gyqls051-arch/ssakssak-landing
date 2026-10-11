@@ -7,11 +7,14 @@
 
 **소스 리포**: https://github.com/gyqls051-arch/ssakssak-landing (공홈은 git 관리됨 — 수정 → 커밋·푸시 → `vercel deploy --prod`)
 
-## 구성 (2026-07-13 기준)
-- `index.html` — 홈 (루프 영상 히어로 + LINE-UP 12종 + HOW + 크로스프로모션)
-- `archive.html` — 자료실 (카테고리별 프로그램 목록, 카드 썸네일)
+## 구성 (2026-10-11 기준)
+- `index.html` — 홈 (루프 영상 히어로 + LINE-UP 20종 + HOW + 크로스프로모션)
+- `archive.html` — 자료실 (5개 카테고리 그리드, UI-모킹 카드 썸네일)
 - 다운로드형: `video-downloader.html` / `player.html` / `compressor.html` / `hangeul-viewer.html` / `capture.html`
 - 브라우저 도구(서버 업로드 없음): `pdf.html` / `hwp-pdf.html` / `thumbnail.html` / `text-tools.html` / `image-tools.html`
+- 유입용 웹도구 9종(2026-10 추가): `qr.html` `password.html` `dday.html` `salary.html` `severance.html` `heic.html` `pixel-test.html` `input-test.html` `video-gif.html`
+  - 이 9개는 `tools/gen_pages.py` + `tools/pages_[abc].py` 로 생성 — 수정할 때 페이지 직접 고치거나, 스펙 고치고 `python tools/gen_pages.py` 재생성
+  - 사용 라이브러리: `js/vendor/` (qrcode-generator·gif.js·heic2any — 전부 로컬 번들)
 - `domino/` — 도미노 시뮬레이션 빌드 산출물 (원본: `domino-art-simulation` 리포)
 - `terms.html` — 이용약관 및 면책 고지
 - `ssak.css` / `ssak.js` — 공용 스타일·내비 드롭다운 / `img/` — WebP 일러스트 / `sitemap.xml`, `robots.txt` — SEO
