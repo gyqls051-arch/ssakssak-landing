@@ -23,6 +23,10 @@ TWEAKS = {
         ('<button class="navlink dd-btn"', '<button class="navlink active dd-btn"'),
         ('href="archive.html#install"', 'href="#install"'),
     ],
+    'terms.html': [
+        ('<a class="navlink nav-hide-m" href="terms.html">이용약관</a>',
+         '<a class="navlink active" href="terms.html" aria-current="page">이용약관</a>'),
+    ],
 }
 
 
