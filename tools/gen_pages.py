@@ -1,6 +1,11 @@
 # -*- coding: utf-8 -*-
 # 싹싹김치 웹도구 페이지 생성기 — python tools/gen_pages.py
 # 새 도구 페이지를 공통 템플릿으로 생성한다. 생성 후 archive/index/nav/thumbs도 갱신해야 함.
+#
+# ⚠ NAV(내비 드롭다운)는 이 파일이 유일한 원본이다.
+#   NAV 수정 후 반드시 두 스크립트를 순서대로 실행:
+#     python tools/gen_pages.py   → 생성 페이지 재생성
+#     python tools/sync_nav.py    → 손작성 페이지(index/archive/제품/terms 등) 내비 교체
 import io, os, sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))

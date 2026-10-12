@@ -49,7 +49,7 @@
 
 1. 기존 프로그램 페이지(예: `capture.html`) 복제 → 내용 교체 (breadcrumb·JSON-LD·canonical 포함)
 2. `archive.html` — 해당 카테고리에 `.prog` 행 추가 (+카테고리 개수 갱신, 필요시 새 카테고리 섹션)
-3. **7개 페이지 전부**의 드롭다운 `.dd-menu`에 항목 추가
+3. 내비 드롭다운: **`tools/gen_pages.py`의 `NAV`만 수정**한 뒤 `python tools/gen_pages.py && python tools/sync_nav.py` — 전 페이지 일괄 반영 (페이지별 수동 편집 금지, sync_nav가 통째 덮어씀. archive.html처럼 페이지 고유 요소는 sync_nav.py의 TWEAKS에 추가)
 4. `index.html` — LINE-UP 행 추가 (+히어로 스탯 "도구 N종")
 5. `sitemap.xml` — URL 추가
 6. 다운로드는 GitHub Releases 고정 파일명 패턴 유지
@@ -142,7 +142,7 @@
 공홈 배치: 자료실 '유틸' 신규 카테고리 또는 기존 카테고리.
 ```
 
-> ⚠️ 완성 후 공홈 얹기 = 위 "새 프로그램 추가 절차" 6단계 그대로. 특히 **7개 페이지 전부의 `.dd-menu` 드롭다운** 갱신 잊지 말 것.
+> ⚠️ 완성 후 공홈 얹기 = 위 "새 프로그램 추가 절차" 6단계 그대로. 내비 갱신은 `tools/gen_pages.py`의 `NAV` 수정 + `sync_nav.py` 실행으로 전 페이지 일괄 반영.
 
 ## 격리 원칙 (절대 준수)
 
