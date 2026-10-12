@@ -10,27 +10,35 @@ SAJU_CSS = r"""
   .sj-cal{display:flex;gap:8px}
   .sj-cal label{display:flex;align-items:center;gap:6px;font-size:13px;font-weight:700;cursor:pointer;padding:10px 14px;border:1px solid var(--line);border-radius:10px;background:var(--bg)}
   .sj-cal input{accent-color:var(--accent)}
-  .sj-pillars{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:22px}
+  .sj-persona{display:flex;gap:18px;align-items:center;background:linear-gradient(135deg,var(--tint-o),var(--bg));border:1px solid var(--line);border-radius:20px;padding:22px;margin-top:22px}
+  .sj-emoji{font-size:58px;line-height:1;flex:none;filter:drop-shadow(0 4px 10px var(--shadow))}
+  .sj-who b{display:block;font-size:21px;font-weight:900;line-height:1.25}
+  .sj-who>span{font-size:12.5px;color:var(--muted);font-weight:800;display:block;margin-top:2px}
+  .sj-who p{font-size:14px;line-height:1.7;margin:8px 0 0;color:var(--ink)}
+  .sj-luck{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}
+  .sj-lucky{background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:14px 10px;text-align:center}
+  .sj-lucky .t{font-size:11.5px;font-weight:800;color:var(--muted);display:block}
+  .sj-lucky .v{font-size:15px;font-weight:900;margin-top:7px;display:block}
+  .sj-year{margin-top:14px;background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+  .sj-year .yy{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
+  .sj-year .yy b{font-size:14.5px;font-weight:900}
+  .sj-stars{color:var(--accent);font-size:15px;letter-spacing:2px}
+  .sj-year p{font-size:14px;line-height:1.7;margin:8px 0 0}
+  .sj-friend{margin-top:14px;background:var(--tint-p);border:1px dashed var(--pink);border-radius:14px;padding:14px 18px;font-size:14px;line-height:1.7}
+  .sj-detail{margin-top:16px}
+  .sj-detail summary{cursor:pointer;font-size:12.5px;font-weight:800;color:var(--muted);list-style:none;padding:8px 0}
+  .sj-detail summary::-webkit-details-marker{display:none}
+  .sj-detail summary::before{content:'▸ ';color:var(--accent)}
+  .sj-detail[open] summary::before{content:'▾ '}
+  .sj-pillars{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:8px}
   .sj-pillar{background:var(--bg);border:1px solid var(--line);border-radius:14px;overflow:hidden;text-align:center}
   .sj-pillar .lbl{font-size:11px;font-weight:800;color:var(--muted);padding:8px 0 4px;letter-spacing:.04em}
-  .sj-pillar .gan{font-size:34px;font-weight:900;line-height:1.1;padding:6px 0 2px}
-  .sj-pillar .kor{font-size:12px;color:var(--muted);font-weight:700;padding-bottom:10px}
-  .sj-pillar .zhi{border-top:1px dashed var(--line);font-size:26px;font-weight:900;padding:8px 0 2px}
-  .sj-pillar.day{background:var(--tint-o);border-color:var(--accent)}
-  .sj-pillar.day .lbl{color:var(--accent)}
-  .sj-wx{display:flex;flex-direction:column;gap:8px;margin-top:18px}
-  .sj-wx-row{display:grid;grid-template-columns:34px 1fr 44px;align-items:center;gap:10px;font-size:13px;font-weight:800}
-  .sj-wx-bar{height:10px;border-radius:99px;background:var(--line);overflow:hidden}
-  .sj-wx-bar i{display:block;height:100%;border-radius:99px}
-  .sj-reading{margin-top:20px;display:grid;gap:12px}
-  .sj-block{background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:16px 18px}
-  .sj-block b.t{display:block;font-size:13px;font-weight:900;margin-bottom:6px}
-  .sj-block p{font-size:14px;line-height:1.75;color:var(--ink);margin:0}
-  .sj-badge{display:inline-block;font-size:11.5px;font-weight:800;padding:4px 10px;border-radius:99px;background:var(--tint-y);color:var(--yellow-ink);margin-left:8px;vertical-align:middle}
+  .sj-pillar .gan{font-size:30px;font-weight:900;line-height:1.15;padding:6px 0 8px;color:var(--ink)}
+  .sj-btns{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap}
 """
 
 SAJU_BODY = r"""
-      <p style="font-size:14px;color:var(--muted);margin:0 0 18px;line-height:1.7">생년월일(과 태어난 시간)을 넣으면 <b style="color:var(--ink)">사주팔자</b>를 바로 뽑아드립니다. 양력·음력 둘 다 되고, 계산은 전부 이 브라우저 안에서 끝나요.</p>
+      <p style="font-size:14px;color:var(--muted);margin:0 0 18px;line-height:1.7">생일(과 태어난 시간)만 넣으면 <b style="color:var(--ink)">나를 닮은 사주 캐릭터</b>가 나와요. 양력·음력 둘 다 되고, 입력한 정보는 서버에 안 올라가요.</p>
       <div class="sj-form">
         <div class="sj-cal">
           <label><input type="radio" name="cal" value="solar" checked>양력</label>
@@ -52,54 +60,75 @@ SAJU_BODY = r"""
             <option value="20">술시 (19~21시)</option><option value="22">해시 (21~23시)</option>
           </select>
         </div>
-        <button class="btn btn-primary" id="sj-go" style="padding:12px 22px;border-radius:10px;border:0;font-size:14px">사주 보기</button>
+        <button class="btn btn-primary" id="sj-go" style="padding:12px 22px;border-radius:10px;border:0;font-size:14px">내 캐릭터 보기</button>
       </div>
 
       <div id="sj-out" style="display:none">
-        <div class="sj-pillars" id="sj-pillars"></div>
-        <div class="sj-wx" id="sj-wx"></div>
-        <div class="sj-reading" id="sj-reading"></div>
+        <div class="sj-persona">
+          <div class="sj-emoji" id="sj-emoji"></div>
+          <div class="sj-who"><b id="sj-name"></b><span id="sj-sub"></span><p id="sj-desc"></p></div>
+        </div>
+        <div class="sj-year">
+          <div class="yy"><b id="sj-yt"></b><span class="sj-stars" id="sj-stars"></span></div>
+          <p id="sj-yd"></p>
+        </div>
+        <div class="sj-luck" id="sj-luck"></div>
+        <div class="sj-friend" id="sj-friend"></div>
+        <details class="sj-detail">
+          <summary>진짜 사주 글자도 궁금하면 펼쳐보기</summary>
+          <div class="sj-pillars" id="sj-pillars"></div>
+        </details>
+        <div class="sj-btns">
+          <button class="btn btn-primary" id="sj-copy" style="padding:11px 20px;border-radius:10px;border:0;font-size:14px">결과 복사하기</button>
+          <button class="btn btn-ghost" id="sj-retry" style="padding:11px 20px;border-radius:10px;font-size:14px">다른 생일로 해보기</button>
+        </div>
       </div>
-      <div class="status-line"><span class="dot" id="sj-dot"></span><span id="sj-status">생년월일을 고르고 사주 보기를 누르세요</span></div>
+      <div class="status-line"><span class="dot" id="sj-dot"></span><span id="sj-status">생일을 고르고 내 캐릭터 보기를 누르세요</span></div>
 """
 
 SAJU_SCRIPT = r"""
 <script src="js/vendor/lunar.js"></script>
 <script>
 (function(){
-  var GAN='甲乙丙丁戊己庚辛壬癸', ZHI='子丑寅卯辰巳午未申酉戌亥';
+  var GAN='甲乙丙丁戊己庚辛壬癸';
   var GAN_K=['갑','을','병','정','무','기','경','신','임','계'];
-  var ZHI_K=['자','축','인','묘','진','사','오','미','신','유','술','해'];
   var GAN_WX=['목','목','화','화','토','토','금','금','수','수'];
   var ZHI_WX=['수','토','목','목','토','화','화','토','금','금','토','수'];
-  var WX_COLOR={'목':'#2f8f4e','화':'#e85d2c','토':'#c98f12','금':'#8a93a6','수':'#3f7cc4'};
-  var DAYGAN_DESC={
-    '甲':'큰 나무처럼 곧게 뻗는 힘. 정직하고 원칙적이며, 한번 뿌리내린 목표는 끝까지 밀고 나가는 추진력이 있습니다. 고집이 세다는 소리를 듣기도 하지만 그게 곧 저력이에요.',
-    '乙':'덩굴·풀처럼 유연하고 끈질긴 생명력. 겉은 부드러운데 속은 단단해서, 환경에 적응하면서도 결국 자기 방향대로 자랍니다. 사람 사이에서 살아남는 지혜가 탁월해요.',
-    '丙':'태양처럼 환하고 넓은 기운. 숨기는 게 없이 시원시원하고, 주위를 밝히는 존재감이 있습니다. 감정 표현이 솔직해서 미워할래야 미워할 수 없는 타입이에요.',
-    '丁':'촛불·달빛처럼 은은하지만 꺼지지 않는 불. 섬세하고 배려 깊으며, 보이지 않는 곳에서 사람을 챙기는 따뜻함이 있습니다. 집중하면 끝까지 파고드는 집요함도 강해요.',
-    '戊':'큰 산처럼 묵직하고 든든한 존재감. 믿음직하고 포용력이 커서 주변 사람들이 기대는 타입. 변화보다 안정을 좋아하고, 한번 결심하면 좀처럼 흔들리지 않아요.',
-    '己':'논밭의 흙처럼 만물을 품는 기운. 실용적이고 꼼꼼하며, 티 안 내고 묵묵히 실속을 챙기는 재주가 있습니다. 겉으론 온순해 보여도 속으론 계산이 빠른 편이에요.',
-    '庚':'쇳덩이·도끼처럼 강하고 결단력 있는 기질. 의리와 정의감이 뚜렷하고, 격식보다 실제를 중시합니다. 무뚝뚝해 보여도 속정은 깊고, 밀어붙이는 힘이 제일 세요.',
-    '辛':'보석·침처럼 예리하고 완성도 높은 기질. 심미안과 분석력이 뛰어나고, 작은 결함도 놓치지 않습니다. 자존심이 강하고 예민하지만, 그 예민함이 실력을 만들어요.',
-    '壬':'큰 바다·강처럼 넓고 깊은 기운. 지혜롭고 포용력이 커서 어떤 상황에도 흘러가듯 적응합니다. 생각이 깊고 스케일이 큰데, 가끔은 너무 깊게 생각해서 지치기도 해요.',
-    '癸':'이슬·안개처럼 조용히 스며드는 기운. 감수성이 풍부하고 직관이 날카로우며, 겉으로 조용해도 내면의 세계가 매우 큽니다. 인내심 있게 기다리다 기회를 잡는 타입이에요.'};
-  var WX_DESC={
-    '목':'계획·성장·인내 — 새로운 걸 싹틔우는 추진력',
-    '화':'표현·열정·명예 — 드러내고 빛내는 에너지',
-    '토':'안정·중재·신용 — 중심을 잡고 품어주는 힘',
-    '금':'결단·의리·정리 — 자르고 정하는 결정력',
-    '수':'지혜·유연·저장 — 흐르고 스며드는 적응력'};
   var WX_SANG={'목':'화','화':'토','토':'금','금':'수','수':'목'};
   var WX_GEUK={'목':'토','토':'수','수':'화','화':'금','금':'목'};
-
+  var PERSONA={
+    '甲':['🌳','직진 대장나무','정의감 뿜뿜','한번 정한 목표는 끝까지 미는 스타일. 고집 세다는 소리를 듣지만 그게 곧 저력이에요. 리더 기질 다분.'],
+    '乙':['🌿','생존력 만렙 덩굴','유연한 적응왕','겉은 부드럽고 속은 단단. 어떤 환경이든 적응해서 결국 자기 방향대로 자라는 생존력의 소유자예요.'],
+    '丙':['☀️','인간 태양','분위기 메이커','숨기는 거 없이 시원시원하고 주위를 밝히는 존재감. 솔직함이 매력이라 미워할래야 미워할 수 없는 타입.'],
+    '丁':['🕯️','은은 힐링 촛불','조용한 집요함','티 안 내고 사람을 챙기는 따뜻함. 한번 꽂히면 끝까지 파고드는 집요함이 숨은 무기예요.'],
+    '戊':['⛰️','마음의 산','든든한 버팀목','주변 사람들이 기대는 묵직한 존재감. 변화보다 안정을 좋아하고 한번 결심하면 좀처럼 흔들리지 않아요.'],
+    '己':['🌾','실속 만능 흙','조용한 실속파','티 안 내고 묵묵히 실속을 챙기는 꼼꼼이. 겉으론 온순해 보여도 계산이 빠른 편이에요.'],
+    '庚':['⚔️','의리의 강철검','결단력 갑','의리와 정의감이 뚜렷한 강철 같은 타입. 무뚝뚝해 보여도 속정은 깊고 밀어붙이는 힘이 제일 세요.'],
+    '辛':['💎','예리한 보석','완벽주의 심미안','심미안과 분석력이 뛰어나고 작은 결함도 놓치지 않아요. 자존심이 강한데 그게 실력을 만들어요.'],
+    '壬':['🌊','스케일 큰 바다','깊은 생각러','어떤 상황에도 흘러가듯 적응하는 넓은 멘탈. 생각이 깊고 스케일이 큰데 가끔 너무 깊게 생각해요.'],
+    '癸':['🌧️','조용한 이슬','예리한 직관러','감수성 풍부하고 직관이 날카로운 조용한 강자. 겉으론 조용해도 내면 세계가 아주 커요.']};
+  var EL_KO={'목':'나무','화':'불','토':'흙','금':'쇠','수':'물'};
+  var EL_EMO={'목':'🌿','화':'🔥','토':'⛰️','금':'💎','수':'🌊'};
+  var LUCKY={
+    '목':['초록 🟢','반려식물·우드 소품','동쪽'],
+    '화':['빨강·주황 🔴','캔들·조명','남쪽'],
+    '토':['노랑·베이지 🟡','도자기 컵·황토색 옷','집 안쪽'],
+    '금':['흰색·실버 ⚪','금속 액세서리·시계','서쪽'],
+    '수':['검정·네이비 ⚫','텀블러·물 관련 소품','북쪽']};
+  var FRIEND={
+    '목':'🌿 끈기 있는 나무 친구 — 같이 성장하는 스타일',
+    '화':'🔥 밝은 불 친구 — 만나면 에너지 충전되는 사이',
+    '토':'⛰️ 듬직한 흙 친구 — 힘들 때 기댈 수 있는 존재',
+    '금':'💎 날카로운 쇠 친구 — 같이 있으면 예리해지는 사이',
+    '수':'🌊 유연한 물 친구 — 뭐든 받아주는 편한 사이'};
   function ganWx(g){return GAN_WX[GAN.indexOf(g)];}
-  function zhiWx(z){return ZHI_WX[ZHI.indexOf(z)];}
+  function genMe(wx){for(var k in WX_SANG){if(WX_SANG[k]===wx)return k;}return wx;}
+  function stars(n){var s='';for(var i=0;i<5;i++)s+=i<n?'★':'☆';return s;}
 
   document.getElementById('sj-go').addEventListener('click',function(){
     var st=document.getElementById('sj-status'), dot=document.getElementById('sj-dot');
     var dv=document.getElementById('sj-date').value;
-    if(!dv){st.textContent='생년월일을 먼저 골라주세요';dot.className='dot warn';return;}
+    if(!dv){st.textContent='생일을 먼저 골라주세요';dot.className='dot warn';return;}
     var p=dv.split('-'),y=+p[0],m=+p[1],d=+p[2];
     var hv=document.getElementById('sj-hour').value;
     var isLunar=document.querySelector('input[name=cal]:checked').value==='lunar';
@@ -109,56 +138,75 @@ SAJU_SCRIPT = r"""
       else{ lunar = hv===''?Solar.fromYmd(y,m,d).getLunar():Solar.fromYmdHms(y,m,d,+hv,0,0).getLunar(); }
     }catch(e){ st.textContent='이 날짜는 계산할 수 없어요 — 1900~2099년 사이로 입력해주세요'; dot.className='dot warn'; return; }
     var ec=lunar.getEightChar();
-    var pillars=[{lbl:'연주(년주)',gz:ec.getYear()},{lbl:'월주',gz:ec.getMonth()},{lbl:'일주',gz:ec.getDay(),day:true}];
-    if(hv!=='')pillars.push({lbl:'시주',gz:ec.getTime()});
+    var pillars=[{lbl:'태어난 해',gz:ec.getYear()},{lbl:'태어난 달',gz:ec.getMonth()},{lbl:'태어난 날',gz:ec.getDay()}];
+    if(hv!=='')pillars.push({lbl:'태어난 시간',gz:ec.getTime()});
     var html='';
     pillars.forEach(function(pl){
-      var g=pl.gz.charAt(0),z=pl.gz.charAt(1);
-      html+='<div class="sj-pillar'+(pl.day?' day':'')+'"><div class="lbl">'+pl.lbl+'</div>'
-        +'<div class="gan" style="color:'+WX_COLOR[ganWx(g)]+'">'+g+'</div><div class="kor">'+GAN_K[GAN.indexOf(g)]+' · '+ganWx(g)+'</div>'
-        +'<div class="zhi" style="color:'+WX_COLOR[zhiWx(z)]+'">'+z+'</div><div class="kor">'+ZHI_K[ZHI.indexOf(z)]+' · '+zhiWx(z)+'</div></div>';
+      html+='<div class="sj-pillar"><div class="lbl">'+pl.lbl+'</div><div class="gan">'+pl.gz+'</div></div>';
     });
     document.getElementById('sj-pillars').innerHTML=html;
 
     var cnt={'목':0,'화':0,'토':0,'금':0,'수':0},tot=0;
-    pillars.forEach(function(pl){var g=pl.gz.charAt(0),z=pl.gz.charAt(1);cnt[ganWx(g)]++;cnt[zhiWx(z)]++;tot+=2;});
-    var wxHtml='',mx=0,mn=tot;
-    Object.keys(cnt).forEach(function(k){if(cnt[k]>mx)mx=cnt[k];if(cnt[k]<mn)mn=cnt[k];});
-    var topEls=[],missEls=[];
-    Object.keys(cnt).forEach(function(k){if(cnt[k]===mx&&mx>0)topEls.push(k);if(cnt[k]===0)missEls.push(k);});
-    Object.keys(cnt).forEach(function(k){
-      wxHtml+='<div class="sj-wx-row"><span style="color:'+WX_COLOR[k]+'">'+k+'</span><div class="sj-wx-bar"><i style="width:'+Math.round(cnt[k]/tot*100)+'%;background:'+WX_COLOR[k]+'"></i></div><span>'+cnt[k]+'/'+tot+'</span></div>';
-    });
-    document.getElementById('sj-wx').innerHTML=wxHtml;
+    pillars.forEach(function(pl){var g=pl.gz.charAt(0),z=pl.gz.charAt(1);cnt[ganWx(g)]++;cnt[ZHI_WX['子丑寅卯辰巳午未申酉戌亥'.indexOf(z)]]++;tot+=2;});
+    var missEls=[];
+    Object.keys(cnt).forEach(function(k){if(cnt[k]===0)missEls.push(k);});
 
     var dayGan=ec.getDayGan?ec.getDayGan():ec.getDay().charAt(0);
     var dayWx=ganWx(dayGan);
-    var y=new Date().getFullYear();
-    var seun=Solar.fromYmd(y,6,1).getLunar().getYearInGanZhi();
+    var per=PERSONA[dayGan];
+    var y2=new Date().getFullYear();
+    var seun=Solar.fromYmd(y2,6,1).getLunar().getYearInGanZhi();
     var seunWx=ganWx(seun.charAt(0));
-    var rel,relTxt;
-    if(WX_SANG[dayWx]===seunWx){rel='내가 생하는 해';relTxt='내 기운이 밖으로 새는 해 — 무리한 확장보다 실력을 다지는 게 이득이에요.';}
-    else if(WX_SANG[seunWx]===dayWx){rel='나를 생해주는 해';relTxt='어디선가 도움이 들어오는 해 — 배우고, 사람을 만나고, 제안을 받아들이기 좋아요.';}
-    else if(WX_GEUK[dayWx]===seunWx){rel='내가 극하는 해';relTxt='주도권을 쥐는 해 — 재물·성과를 내기 좋지만, 욕심이 과하면 빈틈이 생겨요.';}
-    else if(WX_GEUK[seunWx]===dayWx){rel='나를 극하는 해';relTxt='압박이 커지는 해 — 무리한 승부보다 몸과 멘탈 관리가 우선이에요. 지키는 해로 쓰세요.';}
-    else{rel='같은 기운의 해';relTxt='나와 같은 성질의 해 — 내 방식대로 밀어붙이기 좋지만, 고집은 줄이는 게 좋아요.';}
+    var n,yt;
+    if(WX_SANG[dayWx]===seunWx){n=3;yt='에너지가 밖으로 새는 해 — 무리한 도전보다 실력 충전에 집중하면 내년에 크게 터져요.';}
+    else if(WX_SANG[seunWx]===dayWx){n=5;yt='어디선가 도움이 들어오는 해 — 배우기·만나기·제안 받기 전부 좋음. 받을 건 받으세요.';}
+    else if(WX_GEUK[dayWx]===seunWx){n=4;yt='주도권 쥐는 해 — 목표 세우고 밀면 성과 나와요. 욕심만 살짝 조심.';}
+    else if(WX_GEUK[seunWx]===dayWx){n=2;yt='압박 큰 해 — 승부보다 몸과 멘탈 관리가 우선. 버티는 것도 실력이에요.';}
+    else{n=3;yt='내 페이스대로 가는 해 — 내 방식대로 밀어도 OK. 고집만 살짝 줄이기.';}
 
-    var read='';
-    read+='<div class="sj-block"><b class="t">일간 '+dayGan+'('+dayWx+') — 당신의 바탕<span class="sj-badge">'+dayWx+' 기운</span></b><p>'+DAYGAN_DESC[dayGan]+'</p></div>';
-    var wxTxt='오행 중 <b>'+topEls.join('·')+'</b> 기운이 가장 많아요 ('+WX_DESC[topEls[0]]+'). ';
-    if(missEls.length)wxTxt+='<b>'+missEls.join('·')+'</b> 기운이 없어서, '+missEls.map(function(k){return WX_DESC[k].split(' — ')[0]}).join('·')+' 쪽은 의식적으로 채우면 좋아요.';
-    else wxTxt+='없는 오행 없이 골고루 갖춰진 균형형 사주예요.';
-    read+='<div class="sj-block"><b class="t">오행 분포 해석</b><p>'+wxTxt+'</p></div>';
-    read+='<div class="sj-block"><b class="t">'+y+'년 '+seun+'년 운세<span class="sj-badge">'+rel+'</span></b><p>'+relTxt+'</p></div>';
-    document.getElementById('sj-reading').innerHTML=read;
+    document.getElementById('sj-emoji').textContent=per[0];
+    document.getElementById('sj-name').textContent='나는 '+per[1];
+    document.getElementById('sj-sub').textContent=per[2]+' · '+EL_KO[dayWx]+' 기운';
+    document.getElementById('sj-desc').textContent=per[3];
+    document.getElementById('sj-yt').textContent=y2+'년 운세';
+    document.getElementById('sj-stars').textContent=stars(n);
+    document.getElementById('sj-yd').textContent=yt;
+
+    var lk='';
+    if(missEls.length){
+      missEls.slice(0,3).forEach(function(k){
+        lk+='<div class="sj-lucky"><span class="t">행운 '+EL_KO[k]+'템</span><span class="v">'+LUCKY[k][0]+'</span></div>';
+      });
+      while(lk.split('sj-lucky').length-1<3){
+        var k=missEls[0];
+        lk+='<div class="sj-lucky"><span class="t">'+(lk.split('sj-lucky').length-1===1?'행운 아이템':'행운 방향')+'</span><span class="v">'+(lk.split('sj-lucky').length-1===1?LUCKY[k][1]:LUCKY[k][2])+'</span></div>';
+      }
+    }else{
+      lk='<div class="sj-lucky"><span class="t">행운색</span><span class="v">뭐든 어울림 🌈</span></div>'
+        +'<div class="sj-lucky"><span class="t">행운 아이템</span><span class="v">평소 쓰던 것</span></div>'
+        +'<div class="sj-lucky"><span class="t">유형</span><span class="v">올라운더</span></div>';
+    }
+    document.getElementById('sj-luck').innerHTML=lk;
+    var fe=genMe(dayWx);
+    document.getElementById('sj-friend').innerHTML='<b>잘 맞는 친구 유형:</b> '+FRIEND[fe];
     document.getElementById('sj-out').style.display='block';
+    window._sjTxt='싹싹김치 무료 사주 결과: '+per[0]+' '+per[1]+' ('+per[2]+') — '+per[3]+' 나도 해보기 → https://www.ssakkimchi.com/saju.html';
     st.textContent=(isLunar?'음력':'양력')+' '+dv.replace(/-/g,'.')+(hv===''?' · 시간 모름':' · '+document.querySelector('#sj-hour option:checked').textContent.split(' ')[0]);
     dot.className='dot ready';
+  });
+  document.getElementById('sj-copy').addEventListener('click',function(){
+    var b=this;
+    (navigator.clipboard?navigator.clipboard.writeText(window._sjTxt):Promise.reject()).then(function(){b.textContent='복사됨!';}).catch(function(){prompt('복사하세요',window._sjTxt);});
+  });
+  document.getElementById('sj-retry').addEventListener('click',function(){
+    document.getElementById('sj-out').style.display='none';
+    document.getElementById('sj-date').focus();
   });
   document.getElementById('sj-date').value='1995-06-15';
 })();
 </script>
 """
+
 
 MBTI_CSS = r"""
   .mb-progress{height:8px;border-radius:99px;background:var(--line);overflow:hidden;margin-bottom:22px}
@@ -252,6 +300,11 @@ MBTI_SCRIPT = r"""
     'ENFJ':['정의로운 옹호자','사람을 이끌고 키우는 타고난 리더. 카리스마와 공감력을 겸비해서, 주변 사람의 성장을 자기 일처럼 챙겨요.','리더십 · 공감 · 추진력','자기 돌봄 부족 · 과민','INFP, ISFP','ISTP'],
     'ENTJ':['대담한 통솔자','목표를 향해 조직을 이끄는 타고난 지휘관. 효율과 성과의 기준이 높고, 불가능해 보이는 것도 플랜으로 부숴요.','리더십 · 전략 · 추진력','감정 무시 · 독단','INFP, INTP','ISFP']
   };
+  var EMOJI={
+    'ISTJ':'📋','ISFJ':'🛡️','INFJ':'🔮','INTJ':'♟️',
+    'ISTP':'🔧','ISFP':'🎨','INFP':'🌙','INTP':'🧩',
+    'ESTP':'⚡','ESFP':'🎉','ENFP':'🎈','ENTP':'💡',
+    'ESTJ':'📐','ESFJ':'🤝','ENFJ':'🌟','ENTJ':'👑'};
   var i=0,score={E:0,I:0,S:0,N:0,T:0,F:0,J:0,P:0};
   function showQ(){
     document.getElementById('mb-step').textContent=(i+1)+' / '+Q.length;
@@ -266,7 +319,7 @@ MBTI_SCRIPT = r"""
     var ty=TYPES[t];
     document.getElementById('mb-quiz').style.display='none';
     document.getElementById('mb-type').textContent=t;
-    document.getElementById('mb-nick').textContent=ty[0];
+    document.getElementById('mb-nick').textContent=EMOJI[t]+' '+ty[0];
     var axes=[['E','I'],['S','N'],['T','F'],['J','P']],ah='';
     axes.forEach(function(ax){
       var a=score[ax[0]],b=score[ax[1]],tot=a+b||1,pc=Math.round(a/tot*100);
@@ -291,7 +344,7 @@ MBTI_SCRIPT = r"""
   document.getElementById('mb-retry').addEventListener('click',function(){location.reload();});
   document.getElementById('mb-copy').addEventListener('click',function(){
     var t=window._mbType,ty=TYPES[t];
-    var txt='싹싹김치 성격유형 테스트 결과: '+t+' — '+ty[0]+'\n'+ty[1]+'\n나도 테스트 → https://www.ssakkimchi.com/mbti.html';
+    var txt='싹싹김치 성격유형 테스트 결과: '+EMOJI[t]+' '+t+' — '+ty[0]+'\n'+ty[1]+'\n나도 테스트 → https://www.ssakkimchi.com/mbti.html';
     (navigator.clipboard?navigator.clipboard.writeText(txt):Promise.reject()).then(function(){
       document.getElementById('mb-copy').textContent='복사됨!';
     }).catch(function(){prompt('복사하세요',txt);});
@@ -303,18 +356,18 @@ MBTI_SCRIPT = r"""
 PAGES = [
   dict(
     slug='saju', cat='play', name='무료 사주',
-    title='무료 사주 보기 — 생년월일로 뽑는 사주팔자·오행 분석 (싹싹김치)',
-    desc='생년월일만 넣으면 사주팔자가 바로 나옵니다. 양력·음력 지원, 오행 분포와 일간 성향, 올해 운세까지 — 설치·가입 없이 브라우저에서 보는 무료 사주.',
-    og_title='무료 사주 보기 — 사주팔자·오행·올해 운세',
-    og_desc='생년월일을 넣으면 팔자가 바로 나옵니다. 서버 업로드 없이 브라우저에서 계산.',
-    h1='무료 사주 보기', pen='태어난 순간에 적힌 여덟 글자를 펼쳐봅니다.',
-    pdesc='생년월일시를 넣으면 <b>사주팔자 네 기둥</b>과 오행 분포, 일간 성향, 올해 운세를 정리해드립니다. 양력·음력 둘 다 되고, 입력한 정보는 서버에 안 올라가요.',
+    title='무료 사주 보기 — 생일로 뽑는 나의 사주 캐릭터·올해 운세 (싹싹김치)',
+    desc='생일만 넣으면 나를 닮은 사주 캐릭터가 나와요. 올해 운세 별점, 행운 아이템, 잘 맞는 친구 유형까지 — 설치·가입 없이 브라우저에서 보는 무료 사주.',
+    og_title='무료 사주 — 생일로 뽑는 나의 캐릭터·올해 운세',
+    og_desc='생일만 넣으면 나를 닮은 사주 캐릭터가 나와요. 서버 업로드 없이 브라우저에서 계산.',
+    h1='무료 사주 보기', pen='생일만 넣으면, 나를 닮은 캐릭터가 나와요.',
+    pdesc='생년월일(과 태어난 시간)을 넣으면 <b>나를 닮은 사주 캐릭터</b>와 올해 운세, 행운 아이템, 잘 맞는 친구 유형을 심플하게 보여드려요. 양력·음력 둘 다 되고, 입력한 정보는 서버에 안 올라가요.',
     body=SAJU_BODY, css=SAJU_CSS, script=SAJU_SCRIPT,
     notice=[
-      '이 결과는 전통 명리학 기반 <b>참고·재미용</b>입니다. 중요한 결정은 본인의 판단으로 하세요.',
+      '이 결과는 전통 사주 기반 <b>참고·재미용</b>입니다. 중요한 결정은 본인의 판단으로 하세요.',
       '입력한 생년월일은 어디에도 저장·전송되지 않습니다 — 계산은 100% 이 브라우저 안에서 끝납니다.',
-      '시간을 모르면 시주 없이 6자로 봅니다. 해석의 정밀도는 조금 낮아져요.',
-      '계산 엔진: lunar-javascript (MIT) — 음력 변환·팔자 추출을 정통 방식으로 처리합니다.'],
+      '시간을 모르면 시간 글자 없이 6자로 봅니다. 정밀도는 조금 낮아져요.',
+      '계산 엔진: lunar-javascript (MIT) — 음력 변환·사주 추출을 정통 방식으로 처리합니다.'],
   ),
   dict(
     slug='mbti', cat='play', name='성격유형 테스트',
