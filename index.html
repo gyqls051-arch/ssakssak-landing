@@ -206,6 +206,33 @@
   @media (max-width:900px){
     .how{grid-template-columns:1fr}
   }
+  /* ---------- TASTE (홈 미니 도구) ---------- */
+  .taste-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:26px}
+  .taste-card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:20px;display:flex;flex-direction:column;gap:12px;transition:box-shadow .18s ease,transform .18s ease}
+  .taste-card:hover{box-shadow:0 16px 44px var(--shadow);transform:translateY(-2px)}
+  .taste-head{display:flex;align-items:center;gap:11px}
+  .taste-ico{width:42px;height:42px;border-radius:14px;background:var(--soft);color:var(--accent);display:flex;align-items:center;justify-content:center;font-size:19px;font-weight:800;flex:0 0 auto}
+  .taste-head b{display:block;font-size:15.5px;font-weight:800;color:var(--ink);letter-spacing:-.01em}
+  .taste-head span{display:block;font-size:12px;color:var(--muted);margin-top:1px}
+  .taste-input{width:100%;box-sizing:border-box;font-family:inherit;font-size:13.5px;color:var(--ink);background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:11px 13px;outline:none;transition:border-color .15s ease}
+  .taste-input:focus{border-color:var(--accent)}
+  .taste-qr{width:104px;height:104px;border-radius:14px;background:#fff;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;overflow:hidden;margin:0 auto}
+  .taste-qr img{width:100%;height:100%;display:block}
+  .taste-qr .qr-empty{font-size:11.5px;color:var(--faint);text-align:center;padding:0 10px}
+  .taste-btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;font-family:inherit;font-size:13px;font-weight:700;color:#fff;background:linear-gradient(135deg,var(--accent),var(--accent2));border:0;border-radius:12px;padding:11px 14px;cursor:pointer;transition:filter .15s ease,transform .15s ease}
+  .taste-btn:hover{filter:brightness(1.07);transform:translateY(-1px)}
+  .taste-out{font-family:Consolas,'Malgun Gothic',monospace;font-size:13px;color:var(--ink);background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:12px 13px;word-break:break-all;min-height:20px;display:flex;align-items:center;justify-content:space-between;gap:8px}
+  .taste-out .t-copy{flex:0 0 auto;font-family:inherit;font-size:11.5px;font-weight:700;color:var(--accent);background:none;border:0;cursor:pointer;padding:2px 4px}
+  .t-cardface{width:104px;min-height:104px;border-radius:14px;background:linear-gradient(160deg,var(--soft),#fff);border:1px solid var(--line);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;margin:0 auto;padding:10px;text-align:center}
+  .t-cardface .t-emo{font-size:34px;line-height:1}
+  .t-cardface .t-name{font-size:13px;font-weight:800;color:var(--ink)}
+  .t-cardface .t-key{font-size:10.5px;font-weight:700;color:var(--accent);background:var(--soft);border-radius:999px;padding:3px 9px}
+  .t-cardface .t-rev{font-size:10px;color:var(--faint)}
+  .t-fortune{font-size:12.5px;color:var(--muted);line-height:1.6;text-align:center;min-height:40px}
+  .taste-more{margin-top:auto;font-size:12.5px;font-weight:700;color:var(--accent);text-decoration:none;display:inline-flex;align-items:center;gap:4px}
+  .taste-more:hover{text-decoration:underline}
+  @media (max-width:900px){.taste-grid{grid-template-columns:1fr}}
+
   @media (max-width:620px){
     .hv-content{padding:72px 18px 56px}
     .lineup-row{flex-wrap:wrap;gap:8px 14px}
@@ -238,6 +265,7 @@
   })();
 </script>
 <script defer src="ssak.js?v=d3cfb39c"></script>
+<script defer src="js/vendor/qrcode.min.js"></script>
 </head>
 <body>
 
@@ -378,6 +406,40 @@
         </div>
       </div>
     </header>
+
+    <!-- TASTE — 클릭 전에 바로 써보는 미니 도구 -->
+    <section class="sec sec-tight" aria-labelledby="taste-title">
+      <div class="sec-eyebrow">TRY IT</div>
+      <div class="sec-title-row">
+        <h2 class="sec-title" id="taste-title">설치도 가입도 필요 없어요</h2>
+        <span class="sec-pen pen">여기서 바로 써보세요.</span>
+      </div>
+      <div class="taste-grid">
+
+        <div class="taste-card">
+          <div class="taste-head"><span class="taste-ico">QR</span><div><b>QR 생성기</b><span>링크·문구 치면 즉시 생성</span></div></div>
+          <input class="taste-input" id="tq-in" type="text" placeholder="https://ssakkimchi.com 처럼 아무 링크나" maxlength="150">
+          <div class="taste-qr" id="tq-stage"><span class="qr-empty">입력하면 QR이<br>바로 생겨요</span></div>
+          <a class="taste-more" href="qr.html">와이파이 QR · 크기·품질 설정 →</a>
+        </div>
+
+        <div class="taste-card">
+          <div class="taste-head"><span class="taste-ico">🔑</span><div><b>비밀번호 생성기</b><span>예측 불가능한 랜덤 암호</span></div></div>
+          <div class="taste-out"><span id="tpw-out">버튼을 누르면 생성돼요</span><button class="t-copy" id="tpw-copy" type="button">복사</button></div>
+          <button class="taste-btn" id="tpw-gen" type="button">새 비밀번호 만들기</button>
+          <a class="taste-more" href="password.html">길이·문자 조합 설정 →</a>
+        </div>
+
+        <div class="taste-card">
+          <div class="taste-head"><span class="taste-ico">🃏</span><div><b>오늘의 카드 한 장</b><span>지금 기분은 어떤 카드?</span></div></div>
+          <div class="t-cardface" id="tt-face"><span class="t-emo">☾</span><span class="t-name">카드 뽑기</span><span class="t-key">뒷면</span></div>
+          <button class="taste-btn" id="tt-draw" type="button">한 장 뽑어보기</button>
+          <div class="t-fortune" id="tt-fortune">22장 중 오늘의 카드가 나와요</div>
+          <a class="taste-more" href="tarot.html">1장·3장 리딩 전부 보기 →</a>
+        </div>
+
+      </div>
+    </section>
 
     <!-- ABOUT -->
     <section class="sec sec-tight" aria-labelledby="about-title">
@@ -677,5 +739,81 @@
     </div>
   </footer>
 
+<script>
+document.addEventListener('DOMContentLoaded',function(){
+  'use strict';
+
+  /* ── 미니 QR ── */
+  var tqIn=document.getElementById('tq-in'), tqStage=document.getElementById('tq-stage');
+  function tqRender(){
+    var txt=tqIn.value;
+    if(!txt.trim()){tqStage.innerHTML='<span class="qr-empty">입력하면 QR이<br>바로 생겨요</span>';return;}
+    try{
+      var qr=qrcode(0,'M');qr.addData(txt);qr.make();
+      var img=document.createElement('img');img.src=qr.createDataURL(4,2);img.alt='생성된 QR 코드';
+      tqStage.innerHTML='';tqStage.appendChild(img);
+    }catch(e){tqStage.innerHTML='<span class="qr-empty">내용이 너무 길어요</span>';}
+  }
+  if(tqIn&&tqStage){tqIn.addEventListener('input',tqRender);}
+
+  /* ── 미니 비밀번호 ── */
+  var TPW_SET='abcdefghijkmnpqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ23456789!@#$%^&*';
+  var tpwOut=document.getElementById('tpw-out'), tpwGen=document.getElementById('tpw-gen'), tpwCopy=document.getElementById('tpw-copy');
+  function tpwMake(){
+    var n=16,a=new Uint32Array(n),out='';
+    crypto.getRandomValues(a);
+    for(var i=0;i<n;i++)out+=TPW_SET[a[i]%TPW_SET.length];
+    tpwOut.firstChild.textContent=out;
+  }
+  if(tpwGen){
+    tpwGen.addEventListener('click',tpwMake);
+    tpwCopy.addEventListener('click',function(){
+      var v=tpwOut.firstChild.textContent;if(!v||v.indexOf('버튼')===0)return;
+      var done=function(){tpwCopy.textContent='복사됨';setTimeout(function(){tpwCopy.textContent='복사';},1200);};
+      if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(v).then(done,done);}
+      else{var t=document.createElement('textarea');t.value=v;document.body.appendChild(t);t.select();try{document.execCommand('copy');}catch(e){}t.remove();done();}
+    });
+  }
+
+  /* ── 미니 타로 한 장 ── */
+  var CARDS=[
+    ['바보','🚶','새 출발·모험','무모함·준비 부족','새로운 시작의 신호 — 일단 발부터 내딛어 보세요.','생각 없이 뛰어들면 위험 — 준비부터 챙기기.'],
+    ['마법사','🪄','재능·행동력','재능 낭비·속임수','이미 다 가지고 있어요 — 지금 움직이면 됨.','능력은 있는데 엉뚱한 데 쓰는 중? 방향 점검.'],
+    ['여사제','🌙','직관·비밀','혼란·표면 판단','겉보다 속 — 직감이 정답에 가까워요.','뭔가 숨겨진 게 있어요. 성급한 판단 금지.'],
+    ['여제','👸','풍요·애정','의존·과한 배려','사랑·풍요가 들어오는 카드 — 받아들이세요.','남 챙기느라 나를 못 챙기는 중일지도.'],
+    ['황제','🤴','안정·리더십','고집·강압','주도권 잡고 밀면 자리 잡는 카드.','고집이 세지고 있진 않나요 — 유연하게.'],
+    ['교황','📿','가르침·전통','고정관념·형식','배우거나 조언 구하기 좋은 때 — 멘토 찾기.','틀에 갇히지 말 것 — 나만의 방식도 답.'],
+    ['연인','💞','사랑·선택','불화·잘못된 선택','마음이 가는 쪽이 정답 — 관계에 진심을.','선택 앞에서 흔들리는 중 — 기준 정하기.'],
+    ['전차','🏇','추진력·승리','통제 상실','멈추지 말고 그대로 — 승리가 가까워요.','페달만 밟고 핸들 놓침 — 방향 다시 확인.'],
+    ['힘','🦁','용기·인내','자신감 부족','부드러운 힘이 진짜 힘 — 흔들려도 버텨요.','지금 약해 보여도 그건 착각 — 자신감 회복.'],
+    ['은둔자','🏮','성찰·내면의 답','고립·왕고집','혼자만의 시간에서 답이 나와요 — 잠깐 멈춰보기.','너무 들어가 있나요 — 밖으로 나올 시간.'],
+    ['운명의 수레바퀴','🎡','전환점·행운','정체·불운','흐름이 바뀌는 중 — 기회가 오면 잡아요.','내리막도 사이클의 일부 — 곧 다시 올라와요.'],
+    ['정의','⚖️','공정·균형','불공정·편파','정당한 게 이기는 카드 — 원칙대로 가세요.','억울한 상황일 수도 — 증거·기록 챙기기.'],
+    ['매달린 남자','🙃','희생·관점 전환','헛된 희생','뒤집어 보면 보이는 답 — 관점 바꾸기.','희생만 하고 결과 없음 — 그만 끊을 때.'],
+    ['죽음','💀','끝과 새 시작','변화 거부·집착','뭔가 끝나는 건 새 시작의 문 — 놓아주세요.','이미 끝난 걸 붙잡는 중 — 손 놓기.'],
+    ['절제','🏺','조화·절제','불균형·과함','적당히 섞으면 최고의 맛 — 밸런스가 답.','뭔가 과한 상태 — 하나 줄이면 딱 맞아요.'],
+    ['악마','😈','유혹·속박','해방·깨달음','끌리는 게 있으면 알아차리기 — 유혹 주의.','끊어야 할 걸 아는 카드 — 사슬 풀기 시작.'],
+    ['탑','🗼','급격한 변화','변화 회피','무너지는 것도 기회 — 새로 세울 수 있어요.','버티는 게 더 큰 피해 — 차라리 부수기.'],
+    ['별','⭐','희망·치유','실망·불신','바라던 게 보이기 시작 — 희망 가지세요.','지금은 안 보여도 별은 있어요 — 조금만 더.'],
+    ['달','🌕','불안·환상','혼란 해소','안갯속 — 확실하지 않으면 서두르지 마세요.','혼란이 걷히는 중 — 진실이 보여요.'],
+    ['태양','☀️','성공·기쁨','일시적 침체','가장 밝은 카드 — 잘되는 시기, 즐기세요.','구름 낀 태양 — 금방 다시 밝아져요.'],
+    ['심판','🎺','부활·깨달음','후회·자기 의심','다시 일어설 시간 — 기회는 마지막이 아니에요.','과거에 얽매이지 말 것 — 앞으로 가기.'],
+    ['세계','🌍','완성·성취','미완성·지연','한 챕터 완성 — 잘 마무리하고 다음으로.','거의 다 왔는데 뭔가 부족 — 마지막 한 걸음.']
+  ];
+  var ttFace=document.getElementById('tt-face'), ttDraw=document.getElementById('tt-draw'), ttFort=document.getElementById('tt-fortune');
+  if(ttDraw){
+    ttDraw.addEventListener('click',function(){
+      var c=CARDS[Math.floor(Math.random()*CARDS.length)];
+      var rev=Math.random()<0.3;
+      ttFace.innerHTML='<span class="t-emo"'+(rev?' style="transform:rotate(180deg);display:inline-block"':'')+'>'+c[1]+'</span>'
+        +'<span class="t-name">'+c[0]+'</span>'
+        +'<span class="t-key">'+(rev?c[3]:c[2])+'</span>'
+        +(rev?'<span class="t-rev">거꾸로 나옴</span>':'');
+      ttFort.textContent=rev?c[5]:c[4];
+      ttDraw.textContent='다시 뽑기';
+    });
+  }
+});
+</script>
 </body>
 </html>
