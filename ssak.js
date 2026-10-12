@@ -27,15 +27,22 @@
         setOpen(!dd.classList.contains('open'));
       });
 
-      // 호버로 열고, 벗어나도 350ms 유예 후에 닫기 (틈 지나갈 때 바로 안 사라지게)
+      // 호버로 열기 — 다른 메뉴는 즉시 닫고(겹침 방지), 벗어나면 짧은 유예 후 닫기
       if(canHover){
         var closeTimer=null;
         dd.addEventListener('mouseenter',function(){
+          dds.forEach(function(other){
+            if(other!==dd && other.classList.contains('open')){
+              other.classList.remove('open');
+              var ob=other.querySelector('.dd-btn');
+              if(ob) ob.setAttribute('aria-expanded','false');
+            }
+          });
           if(closeTimer){ clearTimeout(closeTimer); closeTimer=null; }
           setOpen(true);
         });
         dd.addEventListener('mouseleave',function(){
-          closeTimer=setTimeout(function(){ setOpen(false); closeTimer=null; },350);
+          closeTimer=setTimeout(function(){ setOpen(false); closeTimer=null; },160);
         });
       }
     });

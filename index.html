@@ -54,6 +54,7 @@
 
   body{
     min-height:100vh;
+    overflow-x:hidden;
     background:var(--bg); color:var(--ink);
     font-family:Pretendard,-apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
     line-height:1.6;
@@ -124,17 +125,18 @@
   .btn-ghost:hover{border-color:var(--accent)}
 
   /* ---------- HERO ---------- */
-  .hero{padding:26px 0 0}
-  .hero-visual{position:relative;border-radius:28px;overflow:hidden;background:var(--card);border:1px solid var(--line);box-shadow:0 24px 60px var(--shadow)}
-  .hv-glow{position:absolute;top:-160px;right:-140px;width:460px;height:460px;border-radius:50%;background:radial-gradient(circle,rgba(246,134,60,.16) 0%,rgba(246,134,60,0) 68%);pointer-events:none}
-  .hv-dots{position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(rgba(232,93,44,.15) 1.2px,transparent 1.3px);background-size:24px 24px;-webkit-mask-image:radial-gradient(58% 90% at 84% 12%,#000 0%,transparent 68%);mask-image:radial-gradient(58% 90% at 84% 12%,#000 0%,transparent 68%)}
-  .hv-content{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;text-align:center;padding:84px 26px 52px}
+  .hero{padding:0;margin:0 calc(50% - 50vw)}
+  .hero-visual{position:relative;overflow:hidden;background:linear-gradient(180deg,var(--card) 0%,var(--card) 55%,var(--soft) 100%);border-bottom:1px solid var(--line)}
+  .hv-glow{position:absolute;top:-190px;right:-120px;width:620px;height:620px;border-radius:50%;background:radial-gradient(circle,rgba(246,134,60,.18) 0%,rgba(246,134,60,0) 66%);pointer-events:none}
+  .hv-glow2{position:absolute;bottom:-220px;left:-140px;width:560px;height:560px;border-radius:50%;background:radial-gradient(circle,rgba(232,93,44,.10) 0%,rgba(232,93,44,0) 68%);pointer-events:none}
+  .hv-dots{position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(rgba(232,93,44,.13) 1.2px,transparent 1.3px);background-size:26px 26px;-webkit-mask-image:radial-gradient(72% 100% at 50% 0%,#000 0%,transparent 72%);mask-image:radial-gradient(72% 100% at 50% 0%,#000 0%,transparent 72%)}
+  .hv-content{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;text-align:center;padding:118px 26px 96px;max-width:1040px;margin:0 auto}
   .hv-pill{display:inline-flex;align-items:center;gap:8px;padding:7px 15px;border:1px solid var(--line);background:var(--soft);border-radius:999px;font-size:13px;font-weight:600;color:var(--ink)}
   .hv-pill .dot{width:7px;height:7px;border-radius:50%;background:#3fae63;box-shadow:0 0 0 3px rgba(63,174,99,.18)}
-  .hv-content h1{font-size:clamp(32px,5.6vw,58px);line-height:1.16;font-weight:800;letter-spacing:-.04em;margin:24px 0 0;color:var(--ink)}
+  .hv-content h1{font-size:clamp(34px,6vw,66px);line-height:1.15;font-weight:800;letter-spacing:-.04em;margin:26px 0 0;color:var(--ink)}
   .squig-wrap{position:relative;display:inline-block;color:var(--accent)}
   .squig{position:absolute;left:-2%;bottom:-.14em;width:104%;height:.22em;color:var(--accent);opacity:.55}
-  .hv-sub{max-width:580px;margin:18px auto 0;font-size:16.5px;line-height:1.65;color:var(--muted)}
+  .hv-sub{max-width:620px;margin:20px auto 0;font-size:17.5px;line-height:1.7;color:var(--muted)}
   .hv-sub b{color:var(--ink);font-weight:700}
   .hv-stats{display:flex;flex-wrap:wrap;gap:6px 18px;justify-content:center;margin-top:18px;font-size:13px;color:var(--faint)}
   .hv-stats b{color:var(--ink);font-weight:700}
@@ -205,8 +207,7 @@
     .how{grid-template-columns:1fr}
   }
   @media (max-width:620px){
-    .hero{padding-top:16px}
-    .hv-content{padding:62px 18px 38px}
+    .hv-content{padding:72px 18px 56px}
     .lineup-row{flex-wrap:wrap;gap:8px 14px}
     .lineup-row .desc{min-width:100%}
   }
@@ -236,7 +237,7 @@
     };
   })();
 </script>
-<script defer src="ssak.js"></script>
+<script defer src="ssak.js?v=d3cfb39c"></script>
 </head>
 <body>
 
@@ -347,6 +348,7 @@
     <header class="hero">
       <div class="hero-visual" id="hero-visual">
         <div class="hv-glow" aria-hidden="true"></div>
+        <div class="hv-glow2" aria-hidden="true"></div>
         <div class="hv-dots" aria-hidden="true"></div>
         <div class="hv-content">
           <div class="hv-pill"><span class="dot"></span>가입 없음 · 결제 없음 · 기능 잠금 없음</div>

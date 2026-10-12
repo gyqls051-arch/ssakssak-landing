@@ -8,6 +8,9 @@
 # <nav class="nav"> ~ 첫 </nav> 사이를 통째로 NAV로 바꾼다.
 # breadcrumb의 <nav class="crumb">는 건드리지 않는다. domino/index.html 처럼
 # 내비가 없는 페이지는 자동으로 건너뛴다.
+#
+# 겸사: ssak.css / ssak.js 참조의 ?v= 쿼리를 현재 파일 내용 해시로 스탬프한다.
+# 에셋이 바뀌면 쿼리도 달라져 브라우저 캐시가 자동으로 무효화된다.
 import io, os, re, sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -31,9 +34,24 @@ TWEAKS = {
 }
 
 
+ASSET_PAT = re.compile(r'(["\'])(ssak\.(?:css|js))(?:\?v=[^"\']*)?\1')
+CSSV, JSV = gen_pages._asset_v('ssak.css'), gen_pages._asset_v('ssak.js')
+
+
+def stamp_assets(s):
+    def repl(m):
+        v = CSSV if m.group(2).endswith('.css') else JSV
+        return '%s%s?v=%s%s' % (m.group(1), m.group(2), v, m.group(1))
+    return ASSET_PAT.sub(repl, s)
+
+
 def sync_file(path):
-    s = io.open(path, encoding='utf-8').read()
+    s0 = io.open(path, encoding='utf-8').read()
+    s = stamp_assets(s0)
     if '<nav class="nav">' not in s:
+        if s != s0:
+            io.open(path, 'w', encoding='utf-8', newline='\n').write(s)
+            return 'assets stamped (no nav)'
         return 'skip (no nav)'
     nav = NAV
     for a, b in TWEAKS.get(os.path.basename(path), []):
@@ -43,7 +61,7 @@ def sync_file(path):
     new, n = PAT.subn(lambda _m: nav, s, count=1)
     if n != 1:
         return 'WARN matched %d' % n
-    if new == s:
+    if new == s0:
         return 'already'
     io.open(path, 'w', encoding='utf-8', newline='\n').write(new)
     return 'synced'

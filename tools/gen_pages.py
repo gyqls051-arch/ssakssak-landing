@@ -6,9 +6,16 @@
 #   NAV 수정 후 반드시 두 스크립트를 순서대로 실행:
 #     python tools/gen_pages.py   → 생성 페이지 재생성
 #     python tools/sync_nav.py    → 손작성 페이지(index/archive/제품/terms 등) 내비 교체
-import io, os, sys
+import io, os, sys, hashlib
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+def _asset_v(fn):
+    # ssak.css/ssak.js 내용 해시 — 파일이 바뀌면 쿼리도 자동으로 바뀜(브라우저 캐시 무효화)
+    try:
+        return hashlib.md5(open(os.path.join(ROOT, fn), 'rb').read()).hexdigest()[:8]
+    except OSError:
+        return '1'
 
 CATS = {
     'video':  ('cat-video',  '영상 도구',  '#cat-video'),
@@ -53,7 +60,7 @@ HEAD = """<!doctype html>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap">
-<link rel="stylesheet" href="ssak.css">
+<link rel="stylesheet" href="ssak.css?v=@@CSSV@@">
 <script>
   (function(){
     var KEY='ssak-theme', root=document.documentElement;
@@ -71,7 +78,7 @@ HEAD = """<!doctype html>
     };
   })();
 </script>
-<script defer src="ssak.js"></script>
+<script defer src="ssak.js?v=@@JSV@@"></script>
 @@EXTRAHEAD@@
 <style>
   .tool{background:var(--card);border:1px solid var(--line);border-radius:28px;padding:30px;margin-top:26px;box-shadow:0 14px 40px var(--shadow)}
@@ -213,6 +220,7 @@ def render(p):
         ('CATNAME', cat_name), ('CATANCHOR', cat_anchor),
         ('EXTRAHEAD', p.get('extra_head', '')),
         ('CSS', p.get('css', '')),
+        ('CSSV', _asset_v('ssak.css')), ('JSV', _asset_v('ssak.js')),
     ]:
         h = h.replace('@@'+k+'@@', v)
     notices = '\n'.join('        <li>%s</li>' % n for n in p['notice'])
