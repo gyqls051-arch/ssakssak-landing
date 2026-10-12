@@ -54,7 +54,7 @@ img{max-width:100%}
 /* ---------- NAV ---------- */
 .nav{position:sticky;top:0;z-index:40;background:var(--navbg);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
 .nav-in{max-width:1040px;margin:0 auto;padding:0 22px;height:62px;display:flex;align-items:center;gap:18px}
-.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:800;font-size:18px;letter-spacing:-.02em;color:var(--ink)}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:800;font-size:18px;letter-spacing:-.02em;color:var(--ink);white-space:nowrap}
 .brand-mark{width:32px;height:32px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:linear-gradient(150deg,var(--accent2),var(--accent));font-size:18px;box-shadow:0 3px 10px var(--shadow)}
 .brand-beta{margin-left:-4px;align-self:center;font-size:9.5px;font-weight:800;letter-spacing:.08em;color:var(--accent);background:var(--soft);border:1px solid var(--line);padding:2px 6px;border-radius:6px;line-height:1.4}
 .nav-links{margin-left:auto;display:flex;align-items:center;gap:4px}
@@ -74,16 +74,13 @@ html[data-theme="dark"] .theme-icon-moon{display:none}
 .dd-btn{display:inline-flex;align-items:center;gap:5px;border:0;background:none;cursor:pointer;font-family:inherit}
 .dd-btn svg{transition:transform .15s ease}
 .dd.open .dd-btn svg{transform:rotate(180deg)}
-.dd-menu{position:absolute;top:calc(100% + 10px);left:50%;transform:translateX(-50%);width:580px;max-width:calc(100vw - 24px);background:var(--card);border:1px solid var(--line);border-radius:20px;box-shadow:0 24px 60px var(--shadow);padding:16px;display:none;grid-template-columns:repeat(3,1fr);gap:6px 14px;z-index:60}
+.dd-menu{position:absolute;top:calc(100% + 10px);left:50%;transform:translateX(-50%);width:580px;max-width:calc(100vw - 24px);max-height:calc(100vh - 100px);overflow-y:auto;background:var(--card);border:1px solid var(--line);border-radius:20px;box-shadow:0 24px 60px var(--shadow);padding:16px;display:none;grid-template-columns:repeat(3,1fr);gap:6px 14px;z-index:60}
+.dd-menu.dd-right{left:auto;right:0;transform:none}
 .dd.open .dd-menu{display:grid}
 /* 버튼과 메뉴 사이 틈을 메우는 투명 브릿지 — 호버 이동 중 끊김 방지 */
 .dd.open::after{content:"";position:absolute;left:-24px;right:-24px;top:100%;height:16px}
 .dd-label{display:flex;align-items:center;gap:7px;font-size:11px;font-weight:800;letter-spacing:.08em;color:var(--faint);padding:6px 10px 8px;border-bottom:1px solid var(--line);margin-bottom:4px;white-space:nowrap}
-.dd-label.c-video svg{color:var(--accent)}
-.dd-label.c-doc svg{color:var(--green)}
-.dd-label.c-screen svg{color:var(--yellow)}
-.dd-label.c-life svg{color:var(--purple)}
-.dd-label.c-play svg{color:var(--pink)}
+.dd-label.c-video svg,.dd-label.c-doc svg,.dd-label.c-screen svg,.dd-label.c-life svg,.dd-label.c-play svg{color:var(--accent)}
 .dd-item{display:block;text-decoration:none;padding:9px 10px;border-radius:12px;transition:background .12s ease}
 .dd-item:hover{background:var(--bg2)}
 .dd-item b{display:block;font-size:13.5px;font-weight:700;color:var(--ink);white-space:nowrap}
@@ -91,7 +88,7 @@ html[data-theme="dark"] .theme-icon-moon{display:none}
 .dd-all{grid-column:1/-1;text-align:center;font-size:12.5px;font-weight:700;color:var(--muted);text-decoration:none;padding:10px 0 4px;border-top:1px solid var(--line);margin-top:8px;transition:color .12s ease}
 .dd-all:hover{color:var(--accent)}
 @media (max-width:719px){
-  .dd-menu{position:fixed;top:70px;left:12px;right:12px;transform:none;width:auto;grid-template-columns:1fr}
+  .dd-menu{position:fixed;top:70px;left:12px;right:12px;transform:none;width:auto;grid-template-columns:1fr;max-height:calc(100vh - 84px);overflow-y:auto}
 }
 
 /* ---------- COMING SOON (자료실 준비 중 슬롯) ---------- */

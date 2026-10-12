@@ -20,7 +20,8 @@ PAT = re.compile(r'^  <nav class="nav">.*?^  </nav>', re.M | re.S)
 # 페이지 고유 내비 차이 — canonical NAV 교체 후 적용 (내비 밖에는 해당 문자열이 없어야 함)
 TWEAKS = {
     'archive.html': [
-        ('<button class="navlink dd-btn"', '<button class="navlink active dd-btn"'),
+        ('<button class="navlink dd-btn" aria-haspopup="true" aria-expanded="false">자료실',
+         '<button class="navlink active dd-btn" aria-haspopup="true" aria-expanded="false">자료실'),
         ('href="archive.html#install"', 'href="#install"'),
     ],
     'terms.html': [

@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>싹싹김치 — 무료 유틸리티 자료실 | 유튜브 다운로더·동영상 플레이어·한글뷰어·화면 캡처</title>
+<title>싹싹김치 — 무료 소프트웨어 자료실 | 유튜브 다운로더·동영상 플레이어·한글뷰어·화면 캡처</title>
 <meta name="description" content="싹싹김치는 가볍고 실용적인 무료 Windows 유틸리티를 만드는 브랜드입니다. 유튜브 등 1800+ 사이트 비디오 다운로더, 동영상 플레이어, HWP 한글뷰어, 화면 캡처 도구를 가입·결제 없이 자료실에서 받으세요.">
 <meta name="theme-color" content="#faf7f1">
 <meta name="google-site-verification" content="HlAU0uvK2J9gJWDX0GlCphtN9ZJue0fwVyPIBwUF2n0" />
@@ -12,7 +12,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="싹싹김치">
 <meta property="og:locale" content="ko_KR">
-<meta property="og:title" content="싹싹김치 — 무료 유틸리티 자료실">
+<meta property="og:title" content="싹싹김치 — 무료 소프트웨어 자료실">
 <meta property="og:description" content="유튜브 다운로더·동영상 플레이어·한글뷰어·화면 캡처. 가입 없음, 결제 없음, 전부 무료.">
 <meta property="og:url" content="https://www.ssakkimchi.com/">
 <meta property="og:image" content="https://www.ssakkimchi.com/og-image.png">
@@ -71,7 +71,7 @@
   /* ---------- NAV ---------- */
   .nav{position:sticky;top:0;z-index:40;background:var(--navbg);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
   .nav-in{max-width:1040px;margin:0 auto;padding:0 22px;height:62px;display:flex;align-items:center;gap:18px}
-  .brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:800;font-size:18px;letter-spacing:-.02em;color:var(--ink)}
+  .brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:800;font-size:18px;letter-spacing:-.02em;color:var(--ink);white-space:nowrap}
   .brand-mark{width:32px;height:32px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:linear-gradient(150deg,var(--accent2),var(--accent));font-size:18px;box-shadow:0 3px 10px var(--shadow)}
   .brand-beta{margin-left:-4px;align-self:center;font-size:9.5px;font-weight:800;letter-spacing:.08em;color:var(--accent);background:var(--soft);border:1px solid var(--line);padding:2px 6px;border-radius:6px;line-height:1.4}
   .nav-links{margin-left:auto;display:flex;align-items:center;gap:4px}
@@ -89,14 +89,12 @@
   .dd-btn{display:inline-flex;align-items:center;gap:5px;border:0;background:none;cursor:pointer;font-family:inherit}
   .dd-btn svg{transition:transform .15s ease}
   .dd.open .dd-btn svg{transform:rotate(180deg)}
-  .dd-menu{position:absolute;top:calc(100% + 10px);left:50%;transform:translateX(-50%);width:580px;max-width:calc(100vw - 24px);background:var(--card);border:1px solid var(--line);border-radius:20px;box-shadow:0 24px 60px var(--shadow);padding:16px;display:none;grid-template-columns:repeat(3,1fr);gap:6px 14px;z-index:60}
+  .dd-menu{position:absolute;top:calc(100% + 10px);left:50%;transform:translateX(-50%);width:580px;max-width:calc(100vw - 24px);max-height:calc(100vh - 100px);overflow-y:auto;background:var(--card);border:1px solid var(--line);border-radius:20px;box-shadow:0 24px 60px var(--shadow);padding:16px;display:none;grid-template-columns:repeat(3,1fr);gap:6px 14px;z-index:60}
+  .dd-menu.dd-right{left:auto;right:0;transform:none}
   .dd.open .dd-menu{display:grid}
   .dd.open::after{content:"";position:absolute;left:-24px;right:-24px;top:100%;height:16px}
   .dd-label{display:flex;align-items:center;gap:7px;font-size:11px;font-weight:800;letter-spacing:.08em;color:var(--faint);padding:6px 10px 8px;border-bottom:1px solid var(--line);margin-bottom:4px;white-space:nowrap}
-  .dd-label.c-video svg{color:var(--accent)}
-  .dd-label.c-doc svg{color:var(--green)}
-  .dd-label.c-screen svg{color:#c98f12}
-  html[data-theme="dark"] .dd-label.c-screen svg{color:#e0b23e}
+  .dd-label.c-video svg,.dd-label.c-doc svg,.dd-label.c-screen svg,.dd-label.c-life svg,.dd-label.c-play svg{color:var(--accent)}
   .dd-item{display:block;text-decoration:none;padding:9px 10px;border-radius:12px;transition:background .12s ease}
   .dd-item:hover{background:var(--bg2)}
   .dd-item b{display:block;font-size:13.5px;font-weight:700;color:var(--ink);white-space:nowrap}
@@ -104,7 +102,7 @@
   .dd-all{grid-column:1/-1;text-align:center;font-size:12.5px;font-weight:700;color:var(--muted);text-decoration:none;padding:10px 0 4px;border-top:1px solid var(--line);margin-top:8px;transition:color .12s ease}
   .dd-all:hover{color:var(--accent)}
   @media (max-width:719px){
-    .dd-menu{position:fixed;top:70px;left:12px;right:12px;transform:none;width:auto;grid-template-columns:1fr}
+    .dd-menu{position:fixed;top:70px;left:12px;right:12px;transform:none;width:auto;grid-template-columns:1fr;max-height:calc(100vh - 84px);overflow-y:auto}
   }
 
 
@@ -125,34 +123,28 @@
   .btn-ghost{background:var(--card);color:var(--ink);font-size:16px;padding:13px 24px;border:1px solid var(--line);transition:border-color .15s ease}
   .btn-ghost:hover{border-color:var(--accent)}
 
-  /* ---------- HERO: shader panel with integrated title ---------- */
+  /* ---------- HERO ---------- */
   .hero{padding:26px 0 0}
-  .hero-visual{position:relative;border-radius:28px;overflow:hidden;background:radial-gradient(120% 140% at 30% 20%,#3a1f0e 0%,#1d1008 55%,#140a05 100%);box-shadow:0 24px 60px var(--shadow)}
-  .hero-visual canvas{position:absolute;inset:0;width:100%;height:100%;display:block;cursor:pointer}
-  .motion-card{position:relative;margin-top:14px;border-radius:24px;overflow:hidden;border:1px solid var(--line);box-shadow:0 18px 50px var(--shadow)}
-  .motion-card video{display:block;width:100%;height:auto}
-  .motion-tag{position:absolute;left:14px;bottom:14px;z-index:2;display:inline-flex;align-items:center;gap:7px;background:rgba(20,10,5,.6);border:1px solid rgba(255,255,255,.16);color:#ffe8d6;font-size:12px;font-weight:600;padding:6px 13px;border-radius:999px;backdrop-filter:blur(6px)}
-  .hv-scrim{position:absolute;inset:0;z-index:1;pointer-events:none;background:radial-gradient(78% 72% at 50% 48%,rgba(18,9,4,.62) 0%,rgba(18,9,4,.32) 56%,rgba(18,9,4,0) 100%)}
-  .hv-chip{position:absolute;top:16px;left:16px;z-index:3;display:inline-flex;align-items:center;gap:8px;background:rgba(20,10,5,.55);border:1px solid rgba(255,255,255,.14);color:#ffd9c4;font-size:12.5px;font-weight:600;padding:7px 14px;border-radius:999px;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);pointer-events:none}
-  .hv-chip .dot{width:6px;height:6px;border-radius:50%;background:#7ecb95}
-  .hv-hint{position:absolute;top:14px;right:16px;z-index:3;color:#ffd9c4;font-size:20px;line-height:1;transform:rotate(2deg);pointer-events:none;background:rgba(20,10,5,.55);border:1px solid rgba(255,255,255,.14);padding:8px 14px 10px;border-radius:999px;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
-  .hv-content{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;text-align:center;padding:88px 26px 46px;pointer-events:none}
-  .hv-pill{display:inline-flex;align-items:center;gap:8px;padding:7px 15px;border:1px solid rgba(255,255,255,.16);background:rgba(20,10,5,.5);border-radius:999px;font-size:13px;font-weight:600;color:#ffd9c4;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
-  .hv-pill .dot{width:7px;height:7px;border-radius:50%;background:#7ecb95;box-shadow:0 0 0 3px rgba(126,203,149,.2)}
-  .hv-content h1{font-size:clamp(32px,5.6vw,58px);line-height:1.16;font-weight:800;letter-spacing:-.04em;margin:24px 0 0;color:#fff;text-shadow:0 4px 26px rgba(0,0,0,.55)}
-  .squig-wrap{position:relative;display:inline-block;color:#ffc194}
-  .squig{position:absolute;left:-2%;bottom:-.14em;width:104%;height:.22em;color:rgba(255,255,255,.9)}
-  .hv-sub{max-width:580px;margin:18px auto 0;font-size:16.5px;line-height:1.65;color:#f3e2d4;text-shadow:0 2px 14px rgba(0,0,0,.45)}
-  .hv-sub b{color:#fff;font-weight:700}
-  .hv-stats{display:flex;flex-wrap:wrap;gap:6px 18px;justify-content:center;margin-top:18px;font-size:13px;color:rgba(255,217,196,.72)}
-  .hv-stats b{color:#ffd9c4;font-weight:700}
-  .hv-beta{display:inline-flex;align-items:center;gap:8px;margin-top:20px;padding:7px 15px;font-size:12.5px;font-weight:600;color:#ffe0b8;background:rgba(20,10,5,.5);border:1px solid rgba(255,255,255,.16);border-radius:999px;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);text-shadow:0 1px 8px rgba(0,0,0,.4)}
-  .hv-beta b{color:#fff;font-weight:800;letter-spacing:.04em}
+  .hero-visual{position:relative;border-radius:28px;overflow:hidden;background:var(--card);border:1px solid var(--line);box-shadow:0 24px 60px var(--shadow)}
+  .hv-glow{position:absolute;top:-160px;right:-140px;width:460px;height:460px;border-radius:50%;background:radial-gradient(circle,rgba(246,134,60,.16) 0%,rgba(246,134,60,0) 68%);pointer-events:none}
+  .hv-dots{position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(rgba(232,93,44,.15) 1.2px,transparent 1.3px);background-size:24px 24px;-webkit-mask-image:radial-gradient(58% 90% at 84% 12%,#000 0%,transparent 68%);mask-image:radial-gradient(58% 90% at 84% 12%,#000 0%,transparent 68%)}
+  .hv-content{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;text-align:center;padding:84px 26px 52px}
+  .hv-pill{display:inline-flex;align-items:center;gap:8px;padding:7px 15px;border:1px solid var(--line);background:var(--soft);border-radius:999px;font-size:13px;font-weight:600;color:var(--ink)}
+  .hv-pill .dot{width:7px;height:7px;border-radius:50%;background:#3fae63;box-shadow:0 0 0 3px rgba(63,174,99,.18)}
+  .hv-content h1{font-size:clamp(32px,5.6vw,58px);line-height:1.16;font-weight:800;letter-spacing:-.04em;margin:24px 0 0;color:var(--ink)}
+  .squig-wrap{position:relative;display:inline-block;color:var(--accent)}
+  .squig{position:absolute;left:-2%;bottom:-.14em;width:104%;height:.22em;color:var(--accent);opacity:.55}
+  .hv-sub{max-width:580px;margin:18px auto 0;font-size:16.5px;line-height:1.65;color:var(--muted)}
+  .hv-sub b{color:var(--ink);font-weight:700}
+  .hv-stats{display:flex;flex-wrap:wrap;gap:6px 18px;justify-content:center;margin-top:18px;font-size:13px;color:var(--faint)}
+  .hv-stats b{color:var(--ink);font-weight:700}
+  .hv-beta{display:inline-flex;align-items:center;gap:8px;margin-top:20px;padding:7px 15px;font-size:12.5px;font-weight:600;color:var(--muted);background:var(--bg2);border:1px solid var(--line);border-radius:999px}
+  .hv-beta b{color:var(--accent);font-weight:800;letter-spacing:.04em}
   .hv-cta{margin-top:28px}
-  .hv-cta a{pointer-events:auto}
   .hv-quick{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:22px}
-  .hv-quick a{pointer-events:auto;display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.92);color:#221c14;font-size:13px;font-weight:700;padding:9px 16px;border-radius:999px;text-decoration:none;transition:transform .15s ease,background .15s ease}
-  .hv-quick a:hover{transform:translateY(-2px);background:#fff}
+  .hv-quick a{display:inline-flex;align-items:center;gap:6px;background:var(--bg2);color:var(--ink);font-size:13px;font-weight:700;padding:9px 16px;border-radius:999px;text-decoration:none;border:1px solid var(--line);transition:transform .15s ease,background .15s ease,border-color .15s ease}
+  .hv-quick a:hover{transform:translateY(-2px);background:var(--soft);border-color:var(--accent)}
+  .hv-quick a svg{color:var(--accent)}
 
   /* ---------- SECTION HEADERS ---------- */
   .sec{margin-top:88px;scroll-margin-top:84px}
@@ -214,8 +206,7 @@
   }
   @media (max-width:620px){
     .hero{padding-top:16px}
-    .hv-content{padding:78px 18px 36px}
-    .hv-hint{display:none}
+    .hv-content{padding:62px 18px 38px}
     .lineup-row{flex-wrap:wrap;gap:8px 14px}
     .lineup-row .desc{min-width:100%}
   }
@@ -258,34 +249,51 @@
           <button class="navlink dd-btn" aria-haspopup="true" aria-expanded="false">자료실
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
           </button>
-          <div class="dd-menu" aria-label="자료실 카테고리">
+          <div class="dd-menu" aria-label="다운로드 소프트웨어">
             <div class="dd-group">
               <div class="dd-label c-video"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2.5"/><path d="M7 4v16M17 4v16M3 9h4M3 15h4M17 9h4M17 15h4"/></svg>영상 도구</div>
               <a class="dd-item" href="video-downloader.html"><b>비디오 다운로더</b><span>1800+ 사이트 영상 저장</span></a>
               <a class="dd-item" href="player.html"><b>플레이어</b><span>가볍고 빠른 동영상 재생</span></a>
               <a class="dd-item" href="compressor.html"><b>비디오 압축기</b><span>카톡·디스코드 용량 맞춤</span></a>
               <a class="dd-item" href="chord-analyzer.html"><b>음원 코드 냠냠</b><span>노래→코드·조성·BPM</span></a>
-              <a class="dd-item" href="thumbnail.html"><b>썸네일 추출기</b><span>유튜브 썸네일 원본 화질</span></a>
-              <a class="dd-item" href="video-gif.html"><b>영상→GIF</b><span>움짤 만들기</span></a>
             </div>
             <div class="dd-group">
               <div class="dd-label c-doc"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H7a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7l-5-5Z"/><path d="M14 2v5h5"/></svg>문서 도구</div>
               <a class="dd-item" href="hangeul-viewer.html"><b>한글뷰어</b><span>HWP·PDF·오피스 한 창에서</span></a>
-              <a class="dd-item" href="hwp-pdf.html"><b>한글→PDF 변환</b><span>설치 없이 브라우저에서</span></a>
-              <a class="dd-item" href="pdf.html"><b>PDF 도구</b><span>합치기·분할·압축·이미지</span></a>
-              <a class="dd-item" href="text-tools.html"><b>텍스트 도구</b><span>글자수·정렬·중복 제거</span></a>
             </div>
             <div class="dd-group">
               <div class="dd-label c-screen"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M12 17v4M8 21h8"/></svg>화면 도구</div>
               <a class="dd-item" href="capture.html"><b>캡처</b><span>캡처·녹화·GIF·OCR</span></a>
               <a class="dd-item" href="macro.html"><b>마우스 매크로</b><span>예약·반복 자동 클릭</span></a>
+            </div>
+            <a class="dd-all" href="archive.html">자료실 한눈에 보기 →</a>
+          </div>
+        </div>
+        <div class="dd">
+          <button class="navlink dd-btn" aria-haspopup="true" aria-expanded="false">웹 도구
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div class="dd-menu dd-right" aria-label="설치 없이 바로 쓰는 웹 도구">
+            <div class="dd-group">
+              <div class="dd-label c-video"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2.5"/><path d="M7 4v16M17 4v16M3 9h4M3 15h4M17 9h4M17 15h4"/></svg>영상</div>
+              <a class="dd-item" href="thumbnail.html"><b>썸네일 추출기</b><span>유튜브 썸네일 원본 화질</span></a>
+              <a class="dd-item" href="video-gif.html"><b>영상→GIF</b><span>움짤 만들기</span></a>
+            </div>
+            <div class="dd-group">
+              <div class="dd-label c-doc"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H7a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7l-5-5Z"/><path d="M14 2v5h5"/></svg>문서</div>
+              <a class="dd-item" href="hwp-pdf.html"><b>한글→PDF 변환</b><span>설치 없이 브라우저에서</span></a>
+              <a class="dd-item" href="pdf.html"><b>PDF 도구</b><span>합치기·분할·압축·이미지</span></a>
+              <a class="dd-item" href="text-tools.html"><b>텍스트 도구</b><span>글자수·정렬·중복 제거</span></a>
+            </div>
+            <div class="dd-group">
+              <div class="dd-label c-screen"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M12 17v4M8 21h8"/></svg>화면·이미지</div>
               <a class="dd-item" href="image-tools.html"><b>이미지 도구</b><span>변환·리사이즈·압축</span></a>
               <a class="dd-item" href="heic.html"><b>HEIC 변환</b><span>아이폰 사진 JPG로</span></a>
               <a class="dd-item" href="pixel-test.html"><b>불량화소 체크</b><span>모니터 점 검사</span></a>
               <a class="dd-item" href="input-test.html"><b>키보드·마우스 테스트</b><span>입력기기 점검</span></a>
             </div>
             <div class="dd-group">
-              <div class="dd-label c-life"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20.5S4.5 15.5 2.8 10.6C1.6 7.2 3.6 4.5 6.6 4.5c2.2 0 3.9 1.2 5.4 3.4 1.5-2.2 3.2-3.4 5.4-3.4 3 0 5 2.7 3.8 6.1C19.5 15.5 12 20.5 12 20.5Z"/></svg>생활 도구</div>
+              <div class="dd-label c-life"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20.5S4.5 15.5 2.8 10.6C1.6 7.2 3.6 4.5 6.6 4.5c2.2 0 3.9 1.2 5.4 3.4 1.5-2.2 3.2-3.4 5.4-3.4 3 0 5 2.7 3.8 6.1C19.5 15.5 12 20.5 12 20.5Z"/></svg>생활</div>
               <a class="dd-item" href="qr.html"><b>QR 생성기</b><span>링크·와이파이 QR</span></a>
               <a class="dd-item" href="password.html"><b>비밀번호 생성기</b><span>강력한 랜덤 암호</span></a>
               <a class="dd-item" href="dday.html"><b>디데이 계산기</b><span>날짜·기념일 계산</span></a>
@@ -301,7 +309,7 @@
               <a class="dd-item" href="tarot.html"><b>타로 카드</b><span>오늘의 운세 카드 뽑기</span></a>
               <a class="dd-item" href="domino/index.html"><b>도미노 아트</b><span>3D 도미노 시뮬레이션</span></a>
             </div>
-            <a class="dd-all" href="archive.html">자료실 한눈에 보기 →</a>
+            <a class="dd-all" href="archive.html">자료실에서 전부 보기 →</a>
           </div>
         </div>
 
@@ -335,17 +343,15 @@
 
   <main class="wrap">
 
-    <!-- HERO: dithering shader with integrated title -->
+    <!-- HERO -->
     <header class="hero">
       <div class="hero-visual" id="hero-visual">
-        <canvas id="dither-canvas" role="button" tabindex="0" aria-label="배경 무늬 바꾸기 — 클릭하면 디더링 패턴이 바뀝니다"></canvas>
-        <div class="hv-scrim" aria-hidden="true"></div>
-        <div class="hv-chip"><span class="dot"></span>오늘의 무늬 · <span id="hv-shape-name">소용돌이</span></div>
-        <div class="hv-hint pen" aria-hidden="true">심심하면 클릭 ↺</div>
+        <div class="hv-glow" aria-hidden="true"></div>
+        <div class="hv-dots" aria-hidden="true"></div>
         <div class="hv-content">
           <div class="hv-pill"><span class="dot"></span>가입 없음 · 결제 없음 · 기능 잠금 없음</div>
           <h1>쓸데없는 건 싹 빼고,<br>필요한 것만 <span class="squig-wrap">싹싹<svg class="squig" viewBox="0 0 120 14" preserveAspectRatio="none" aria-hidden="true"><path d="M3 10 Q 20 3 40 8 T 78 8 T 117 6" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"/></svg></span>.</h1>
-          <p class="hv-sub">싹싹김치는 가볍고 실용적인 <b>무료 Windows 유틸리티</b>를 만듭니다.<br>다운로더 · 플레이어 · 압축기 · 한글뷰어 · 캡처 · 매크로 · 코드분석 + 웹도구 20종까지 — 전부 0원.</p>
+          <p class="hv-sub">싹싹김치는 가볍고 실용적인 <b>무료 Windows 소프트웨어</b>를 만듭니다.<br>다운로더 · 플레이어 · 압축기 · 한글뷰어 · 캡처 · 매크로 · 코드분석 + 웹도구 20종까지 — 전부 0원.</p>
           <div class="hv-stats">
             <span>도구 <b>27종</b></span>
             <span>가격 <b>₩0</b></span>
@@ -368,10 +374,6 @@
             <a href="pdf.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H7a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7l-5-5Z"/><path d="M9 13h6M9 17h4"/></svg>PDF 도구</a>
           </div>
         </div>
-      </div>
-      <div class="motion-card">
-        <video src="img/home-loop.mp4" poster="img/hero-home.webp" autoplay muted loop playsinline preload="metadata" aria-label="싹싹김치 마스코트와 도구 아이콘들이 떠다니는 애니메이션"></video>
-        <span class="motion-tag">🥬 싹싹김치 식구들</span>
       </div>
     </header>
 
@@ -672,166 +674,6 @@
       <a class="foot-link" href="https://github.com/gyqls051-arch/ssakssak-downloader/issues" target="_blank" rel="noopener">문의 (GitHub Issues)</a>
     </div>
   </footer>
-
-  <!-- DITHERING SHADER (vanilla WebGL2 port of designali-in/dithering-shader) -->
-  <script>
-  (function(){
-    var canvas=document.getElementById('dither-canvas');
-    var panel=document.getElementById('hero-visual');
-    var nameEl=document.getElementById('hv-shape-name');
-    if(!canvas||!panel) return;
-
-    var gl=canvas.getContext('webgl2',{antialias:false});
-    if(!gl){ canvas.style.display='none'; return; }
-
-    var VERT='#version 300 es\nprecision mediump float;layout(location=0) in vec4 a_position;void main(){gl_Position=a_position;}';
-
-    var FRAG='#version 300 es\n'+
-    'precision mediump float;\n'+
-    'uniform float u_time;uniform vec2 u_resolution;uniform vec4 u_colorBack;uniform vec4 u_colorFront;uniform float u_shape;uniform float u_type;uniform float u_pxSize;\n'+
-    'out vec4 fragColor;\n'+
-    'vec3 permute(vec3 x){return mod(((x*34.0)+1.0)*x,289.0);}\n'+
-    'float snoise(vec2 v){const vec4 C=vec4(0.211324865405187,0.366025403784439,-0.577350269189626,0.024390243902439);vec2 i=floor(v+dot(v,C.yy));vec2 x0=v-i+dot(i,C.xx);vec2 i1;i1=(x0.x>x0.y)?vec2(1.0,0.0):vec2(0.0,1.0);vec4 x12=x0.xyxy+C.xxzz;x12.xy-=i1;i=mod(i,289.0);vec3 p=permute(permute(i.y+vec3(0.0,i1.y,1.0))+i.x+vec3(0.0,i1.x,1.0));vec3 m=max(0.5-vec3(dot(x0,x0),dot(x12.xy,x12.xy),dot(x12.zw,x12.zw)),0.0);m=m*m;m=m*m;vec3 x=2.0*fract(p*C.www)-1.0;vec3 h=abs(x)-0.5;vec3 ox=floor(x+0.5);vec3 a0=x-ox;m*=1.79284291400159-0.85373472095314*(a0*a0+h*h);vec3 g;g.x=a0.x*x0.x+h.x*x0.y;g.yz=a0.yz*x12.xz+h.yz*x12.yw;return 130.0*dot(m,g);}\n'+
-    '#define TWO_PI 6.28318530718\n'+
-    '#define PI 3.14159265358979323846\n'+
-    'float hash11(float p){p=fract(p*0.3183099)+0.1;p*=p+19.19;return fract(p*p);}\n'+
-    'float hash21(vec2 p){p=fract(p*vec2(0.3183099,0.3678794))+0.1;p+=dot(p,p+19.19);return fract(p.x*p.y);}\n'+
-    'float getSimplexNoise(vec2 uv,float t){float noise=.5*snoise(uv-vec2(0.,.3*t));noise+=.5*snoise(2.*uv+vec2(0.,.32*t));return noise;}\n'+
-    'const int bayer2x2[4]=int[4](0,2,3,1);\n'+
-    'const int bayer4x4[16]=int[16](0,8,2,10,12,4,14,6,3,11,1,9,15,7,13,5);\n'+
-    'const int bayer8x8[64]=int[64](0,32,8,40,2,34,10,42,48,16,56,24,50,18,58,26,12,44,4,36,14,46,6,38,60,28,52,20,62,30,54,22,3,35,11,43,1,33,9,41,51,19,59,27,49,17,57,25,15,47,7,39,13,45,5,37,63,31,55,23,61,29,53,21);\n'+
-    'float getBayerValue(vec2 uv,int size){ivec2 pos=ivec2(mod(uv,float(size)));int index=pos.y*size+pos.x;if(size==2){return float(bayer2x2[index])/4.0;}else if(size==4){return float(bayer4x4[index])/16.0;}else if(size==8){return float(bayer8x8[index])/64.0;}return 0.0;}\n'+
-    'void main(){\n'+
-    'float t=.5*u_time;\n'+
-    'vec2 uv=gl_FragCoord.xy/u_resolution.xy;uv-=.5;\n'+
-    'float pxSize=u_pxSize;\n'+
-    'vec2 pxSizeUv=gl_FragCoord.xy;pxSizeUv-=.5*u_resolution;pxSizeUv/=pxSize;\n'+
-    'vec2 pixelizedUv=floor(pxSizeUv)*pxSize/u_resolution.xy;\n'+
-    'vec2 shape_uv=pixelizedUv;\n'+
-    'vec2 dithering_uv=pxSizeUv;\n'+
-    'vec2 ditheringNoise_uv=uv*u_resolution;\n'+
-    'float shape=0.;\n'+
-    'if(u_shape<1.5){shape_uv*=.001;shape=0.5+0.5*getSimplexNoise(shape_uv*u_resolution.xy,t);shape=smoothstep(0.3,0.9,shape);}\n'+
-    'else if(u_shape<2.5){shape_uv*=3.;for(float i=1.0;i<6.0;i++){shape_uv.x+=0.6/i*cos(i*2.5*shape_uv.y+t);shape_uv.y+=0.6/i*cos(i*1.5*shape_uv.x+t);}shape=.15/abs(sin(t-shape_uv.y-shape_uv.x));shape=smoothstep(0.02,1.,shape);}\n'+
-    'else if(u_shape<3.5){shape_uv*=24.;float stripeIdx=floor(2.*shape_uv.x/TWO_PI);float rand=hash11(stripeIdx*10.);rand=sign(rand-.5)*pow(.1+abs(rand),.4);shape=sin(shape_uv.x)*cos(shape_uv.y-5.*rand*t);shape=pow(abs(shape),6.);}\n'+
-    'else if(u_shape<4.5){shape_uv*=4.;float wave=cos(.5*shape_uv.x-2.*t)*sin(1.5*shape_uv.x+t)*(.75+.25*cos(3.*t));shape=1.-smoothstep(-1.,1.,shape_uv.y+wave);}\n'+
-    'else if(u_shape<5.5){float dist=length(shape_uv);float waves=sin(pow(dist,1.7)*7.-3.*t)*.5+.5;shape=waves;}\n'+
-    'else if(u_shape<6.5){float l=length(shape_uv);float angle=6.*atan(shape_uv.y,shape_uv.x)+4.*t;float twist=1.2;float offset=pow(l,-twist)+angle/TWO_PI;float mid=smoothstep(0.,1.,pow(l,twist));shape=mix(0.,fract(offset),mid);}\n'+
-    'else{shape_uv*=2.;float d=1.-pow(length(shape_uv),2.);vec3 pos=vec3(shape_uv,sqrt(d));vec3 lightPos=normalize(vec3(cos(1.5*t),.8,sin(1.25*t)));shape=.5+.5*dot(lightPos,pos);shape*=step(0.,d);}\n'+
-    'int type=int(floor(u_type));\n'+
-    'float dithering=0.0;\n'+
-    'switch(type){case 1:{dithering=step(hash21(ditheringNoise_uv),shape);}break;case 2:dithering=getBayerValue(dithering_uv,2);break;case 3:dithering=getBayerValue(dithering_uv,4);break;default:dithering=getBayerValue(dithering_uv,8);break;}\n'+
-    'dithering-=.5;\n'+
-    'float res=step(.5,shape+dithering);\n'+
-    'vec3 fgColor=u_colorFront.rgb*u_colorFront.a;float fgOpacity=u_colorFront.a;\n'+
-    'vec3 bgColor=u_colorBack.rgb*u_colorBack.a;float bgOpacity=u_colorBack.a;\n'+
-    'vec3 color=fgColor*res;float opacity=fgOpacity*res;\n'+
-    'color+=bgColor*(1.-opacity);opacity+=bgOpacity*(1.-opacity);\n'+
-    'fragColor=vec4(color,opacity);}';
-
-    function makeShader(type,src){
-      var s=gl.createShader(type);
-      gl.shaderSource(s,src);gl.compileShader(s);
-      if(!gl.getShaderParameter(s,gl.COMPILE_STATUS)){console.error(gl.getShaderInfoLog(s));gl.deleteShader(s);return null;}
-      return s;
-    }
-    var vs=makeShader(gl.VERTEX_SHADER,VERT), fs=makeShader(gl.FRAGMENT_SHADER,FRAG);
-    if(!vs||!fs){ canvas.style.display='none'; return; }
-    var prog=gl.createProgram();
-    gl.attachShader(prog,vs);gl.attachShader(prog,fs);gl.linkProgram(prog);
-    if(!gl.getProgramParameter(prog,gl.LINK_STATUS)){console.error(gl.getProgramInfoLog(prog));canvas.style.display='none';return;}
-    gl.useProgram(prog);
-
-    var buf=gl.createBuffer();
-    gl.bindBuffer(gl.ARRAY_BUFFER,buf);
-    gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,1,-1,-1,1,-1,1,1,-1,1,1]),gl.STATIC_DRAW);
-    gl.enableVertexAttribArray(0);
-    gl.vertexAttribPointer(0,2,gl.FLOAT,false,0,0);
-
-    var U={};
-    ['u_time','u_resolution','u_colorBack','u_colorFront','u_shape','u_type','u_pxSize'].forEach(function(n){U[n]=gl.getUniformLocation(prog,n);});
-
-    function hexToRgba(hex){
-      var m=/^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-      if(!m)return[0,0,0,1];
-      return[parseInt(m[1],16)/255,parseInt(m[2],16)/255,parseInt(m[3],16)/255,1];
-    }
-
-    // kimchi palette: deep fermented brown back, kimchi-orange front
-    var COLOR_BACK=hexToRgba('#1d1008');
-    var COLOR_FRONT=hexToRgba('#ff8747');
-    var SPEED=0.9;
-    // shape id (matches shader) + korean label; swirl first
-    var SHAPES=[[6,'소용돌이'],[5,'물결'],[3,'고춧가루'],[2,'휘젓기'],[4,'파도'],[7,'행성'],[1,'자글자글']];
-    var shapeIdx=0;
-
-    var reduceMotion=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    var dpr=Math.min(window.devicePixelRatio||1,2);
-    var pxSize=4*dpr;
-
-    function resize(){
-      var w=Math.max(1,Math.round(panel.clientWidth*dpr));
-      var h=Math.max(1,Math.round(panel.clientHeight*dpr));
-      if(canvas.width!==w||canvas.height!==h){
-        canvas.width=w;canvas.height=h;
-        gl.viewport(0,0,w,h);
-      }
-    }
-
-    var start=performance.now();
-    function draw(){
-      resize();
-      var t=reduceMotion?(shapeIdx*7.3):((performance.now()-start)*0.001*SPEED);
-      gl.uniform1f(U.u_time,t);
-      gl.uniform2f(U.u_resolution,canvas.width,canvas.height);
-      gl.uniform4fv(U.u_colorBack,COLOR_BACK);
-      gl.uniform4fv(U.u_colorFront,COLOR_FRONT);
-      gl.uniform1f(U.u_shape,SHAPES[shapeIdx][0]);
-      gl.uniform1f(U.u_type,3); // 4x4 bayer
-      gl.uniform1f(U.u_pxSize,pxSize);
-      gl.drawArrays(gl.TRIANGLES,0,6);
-    }
-
-    var raf=null, visible=true, tabVisible=!document.hidden;
-    function loop(){
-      raf=null;
-      if(!visible||!tabVisible||reduceMotion) return;
-      draw();
-      raf=requestAnimationFrame(loop);
-    }
-    function ensureRunning(){
-      if(reduceMotion){ draw(); return; }
-      if(!raf&&visible&&tabVisible){ raf=requestAnimationFrame(loop); }
-    }
-
-    if('IntersectionObserver' in window){
-      new IntersectionObserver(function(es){
-        visible=es[0].isIntersecting;
-        ensureRunning();
-      },{threshold:0}).observe(panel);
-    }
-    document.addEventListener('visibilitychange',function(){
-      tabVisible=!document.hidden;
-      ensureRunning();
-    });
-    if('ResizeObserver' in window){
-      new ResizeObserver(function(){ if(reduceMotion) draw(); }).observe(panel);
-    }
-
-    function nextShape(){
-      shapeIdx=(shapeIdx+1)%SHAPES.length;
-      if(nameEl) nameEl.textContent=SHAPES[shapeIdx][1];
-      if(reduceMotion) draw();
-    }
-    canvas.addEventListener('click',nextShape);
-    canvas.addEventListener('keydown',function(e){
-      if(e.key==='Enter'||e.key===' '){ e.preventDefault(); nextShape(); }
-    });
-
-    draw(); // always paint the first frame, even in a background tab
-    ensureRunning();
-  })();
-  </script>
 
 </body>
 </html>

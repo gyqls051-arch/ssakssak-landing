@@ -17,9 +17,13 @@
 
       btn.addEventListener('click',function(e){
         e.preventDefault();
-        // 마우스 환경: 클릭 = 자료실로 바로 이동 (메뉴는 호버로 열림)
-        // 터치 환경: 첫 탭 = 메뉴 열기 (메뉴 안 '자료실 한눈에 보기' 링크로 이동)
-        if(canHover){ window.location.href='archive.html'; return; }
+        // 마우스 환경: 클릭 = 그 드롭다운의 '한눈에 보기' 링크로 이동 (메뉴는 호버로 열림)
+        // 터치 환경: 첫 탭 = 메뉴 열기
+        if(canHover){
+          var all=dd.querySelector('.dd-all');
+          window.location.href=all?all.getAttribute('href'):'archive.html';
+          return;
+        }
         setOpen(!dd.classList.contains('open'));
       });
 
