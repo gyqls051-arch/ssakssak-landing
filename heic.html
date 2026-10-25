@@ -21,7 +21,7 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"자료실","item":"https://www.ssakkimchi.com/archive.html"},{"@type":"ListItem","position":2,"name":"화면 도구","item":"https://www.ssakkimchi.com/archive.html#cat-screen"},{"@type":"ListItem","position":3,"name":"HEIC 변환"}]}
 </script>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🥬</text></svg>">
+<link rel="icon" type="image/svg+xml" href="brand/app.svg">
 <link rel="preconnect" href="https://cdn.jsdelivr.net">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
@@ -246,7 +246,7 @@
 var drop=document.getElementById('drop'),fi=document.getElementById('fi'),
     list=document.getElementById('flist'),fmt=document.getElementById('heicFmt'),q=document.getElementById('heicQ'),
     st=document.getElementById('st'),dot=document.getElementById('dot');
-var busy=0;
+var busy=0, succeeded=0, failed=0;
 function ext(){return fmt.value==='image/png'?'png':fmt.value==='image/webp'?'webp':'jpg';}
 function setSt(msg,cls){st.textContent=msg;dot.className='dot'+(cls?' '+cls:'');}
 function addFiles(files){
@@ -254,30 +254,37 @@ function addFiles(files){
     return /\.hei[cf]$/i.test(f.name)||f.type==='image/heic'||f.type==='image/heif';
   });
   if(!arr.length){setSt('HEIC/HEIF 파일만 넣어주세요','warn');return;}
+  if(!busy){succeeded=0;failed=0;}
   arr.forEach(convert);
+}
+function label(it,name,detail,error){
+  var nm=document.createElement('div');nm.className='nm';nm.textContent=name;
+  var sub=document.createElement('div');sub.className='sub'+(error?' err':'');sub.textContent=detail;
+  nm.appendChild(sub);it.appendChild(nm);
 }
 function convert(file){
   var it=document.createElement('div');it.className='fitem';
-  it.innerHTML='<div style="width:52px;height:52px;border-radius:9px;background:var(--line);flex:none;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:var(--faint)">HEIC</div>'+
-    '<div class="nm">'+file.name+'<div class="sub">변환 중…</div></div>';
+  label(it,file.name,'변환 중…');
   list.appendChild(it);busy++;
+  var outputType=fmt.value,outputExt=ext();
   setSt('변환 중… ('+busy+'개 진행)');
-  heic2any({blob:file,toType:fmt.value,quality:parseFloat(q.value)}).then(function(out){
+  Promise.resolve().then(function(){return heic2any({blob:file,toType:outputType,quality:parseFloat(q.value)});}).then(function(out){
     var blob=Array.isArray(out)?out[0]:out;
     var url=URL.createObjectURL(blob);
-    var base=file.name.replace(/\.[^.]+$/,'')+'.'+ext();
-    it.innerHTML='<img src="'+url+'" alt=""><div class="nm">'+base+
-      '<div class="sub">'+file.name+' → '+base+' · '+(blob.size/1024).toFixed(0)+'KB</div></div>'+
-      '<a class="btn btn-primary btn-sm act" href="'+url+'" download="'+base+'">다운로드</a>';
-    done();
-  }).catch(function(e){
-    it.innerHTML='<div style="width:52px;height:52px;border-radius:9px;background:var(--chip-o);flex:none"></div>'+
-      '<div class="nm">'+file.name+'<div class="sub err">변환 실패 — 지원하지 않는 HEIC 형식일 수 있어요</div></div>';
-    done();
+    var base=file.name.replace(/\.[^.]+$/,'')+'.'+outputExt;
+    it.textContent='';
+    var img=document.createElement('img');img.src=url;img.alt='';it.appendChild(img);
+    label(it,base,file.name+' → '+base+' · '+(blob.size/1024).toFixed(0)+'KB');
+    var link=document.createElement('a');link.className='btn btn-primary btn-sm act';
+    link.href=url;link.download=base;link.textContent='다운로드';it.appendChild(link);
+    succeeded++;done();
+  }).catch(function(){
+    it.textContent='';label(it,file.name,'변환 실패 — 지원하지 않는 HEIC 형식일 수 있어요',true);
+    failed++;done();
   });
 }
 function done(){busy--;
-  if(busy<=0)setSt('완료 — 다운로드 버튼으로 저장하세요','ready');}
+  if(busy<=0)setSt(failed?'변환 완료 '+succeeded+'개 · 실패 '+failed+'개 — 실패한 파일을 확인해 주세요':'완료 — 다운로드 버튼으로 저장하세요',failed?'warn':'ready');}
 drop.addEventListener('click',function(){fi.click();});
 fi.addEventListener('change',function(){addFiles(fi.files);fi.value='';});
 ['dragover','dragenter'].forEach(function(ev){drop.addEventListener(ev,function(e){e.preventDefault();drop.classList.add('over');});});
